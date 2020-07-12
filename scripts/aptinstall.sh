@@ -32,6 +32,7 @@ install \
     sudo \
     arandr \
     curl \
+    dconf-cli \
     gcc \
     git \
     libcurl4-gnutls-dev \
