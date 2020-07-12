@@ -4,7 +4,7 @@ echo "📂 Symlinking dotfiles with Dotbot"
 
 set -e
 
-CONFIG="install.conf.yaml"
+CONFIG="dotbot.conf.yaml"
 DOTBOT_DIR="dotbot"
 
 DOTBOT_BIN="bin/dotbot"
