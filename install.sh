@@ -14,8 +14,9 @@ elif [ `uname` = "Linux" ]; then
 fi
 
 # Apps
-scripts/apps/miniconda.sh
 scripts/apps/docker.sh
+scripts/apps/miniconda.sh
+scripts/apps/ohmyzsh.sh
 
 # Dotfiles
 scripts/dotbotinstall.sh
