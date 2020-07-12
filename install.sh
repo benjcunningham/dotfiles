@@ -21,4 +21,7 @@ scripts/apps/ohmyzsh.sh
 # Dotfiles
 scripts/dotbotinstall.sh
 
+# Themes
+scripts/apps/dracula.sh
+
 echo "🌱 Done! This is a new beginning..."
