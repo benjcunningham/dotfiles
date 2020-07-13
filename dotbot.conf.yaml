@@ -8,6 +8,7 @@
     - "~/.config"
 
 - link:
+    ~/.editorconfig: .editorconfig
     ~/.gitconfig: .gitconfig
     ~/.gitignore: .gitignore
     ~/.tmux.conf: .tmux.conf
@@ -18,5 +19,3 @@
     ~/.xinitrc:
       if: "[ `uname` = Linux ]"
       path: .xinitrc
-
-- shell: []
