@@ -4,6 +4,7 @@ echo "🧛 Installing Dracula themes"
 
 # gnome-terminal
 if [ `uname` = "Linux" ]; then
+    echo "Adding to GNOME Terminal"
     TERMINAL_THEME=$HOME/gnome-terminal
     git clone https://github.com/dracula/gnome-terminal $TERMINAL_THEME
     (cd $TERMINAL_THEME && ./install.sh)
@@ -11,6 +12,7 @@ fi
 
 # iTerm2
 if [ `uname` = "Darwin" ]; then
+    echo "Adding to iTerm2"
     git clone https://github.com/dracula/iterm.git
 fi
 
