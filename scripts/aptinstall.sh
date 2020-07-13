@@ -35,6 +35,7 @@ install \
     dconf-cli \
     gcc \
     git \
+    gnome-terminal \
     libcurl4-gnutls-dev \
     libssl-dev \
     libxml2-dev \
