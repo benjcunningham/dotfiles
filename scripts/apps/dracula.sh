@@ -20,6 +20,7 @@ fi
 echo "Adding to Zsh"
 ZSH_THEME=$HOME/.oh-my-zsh/custom/themes/dracula
 git clone https://github.com/dracula/zsh.git $ZSH_THEME
-ln -s $ZSH_THEME/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
+mkdir -p $HOME/.oh-my-zsh/themes
+ln -s $ZSH_THEME/dracula.zsh-theme $HOME/.oh-my-zsh/themes/dracula.zsh-theme
 
 echo "✔️  Done installing Dracula themes"
