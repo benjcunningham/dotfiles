@@ -8,9 +8,24 @@
     - "~/.config"
 
 - link:
+    ~/.config:
+      if: "[ `uname` = Linux ]"
+      path: .config
+    ~/.bash_aliases: .bash_aliases
+    ~/.bashrc: .bashrc
     ~/.editorconfig: .editorconfig
     ~/.gitconfig: .gitconfig
     ~/.gitignore: .gitignore
+    ~/.jupyter: .jupyter
+    ~/.local:
+      if: "[ `uname` = Linux ]"
+      path: .local
+    ~/.redshift:
+      if: "[ `uname` = Linux ]"
+      path: .redshift
+    ~/.rofi:
+      if: "[ `uname` = Linux ]"
+      path: .rofi
     ~/.tmux.conf: .tmux.conf
     ~/.vimrc: .vimrc
     ~/.xbindkeysrc:
@@ -19,3 +34,6 @@
     ~/.xinitrc:
       if: "[ `uname` = Linux ]"
       path: .xinitrc
+    ~/.xkb:
+      if: "[ `uname` = Linux ]"
+      path: .xkb
