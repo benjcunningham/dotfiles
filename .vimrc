@@ -6,6 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()
@@ -60,3 +61,7 @@ noremap P "+P
 " Show hybrid line numbers
 set number relativenumber
 highlight LineNr ctermfg=None
+
+" Colorscheme
+colorscheme dracula
+highlight Normal ctermfg=white ctermbg=black
