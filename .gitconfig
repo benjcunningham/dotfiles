@@ -1,6 +1,0 @@
-[user]
-	name = Ben Cunningham
-	email = benjamescunningham@gmail.com
-[core]
-	editor = vim
-	excludesfile = ~/.gitignore
