@@ -62,6 +62,8 @@ noremap P "+P
 set number relativenumber
 highlight LineNr ctermfg=None
 
-" Colorscheme
+" Dracula theme
+let g:dracula_italic = 0
+let g:dracula_colorterm = 0
 colorscheme dracula
-highlight Normal ctermfg=white ctermbg=black
+"highlight Normal guibg=NONE ctermbg=NONE
