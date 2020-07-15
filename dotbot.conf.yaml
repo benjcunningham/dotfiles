@@ -8,18 +8,19 @@
     - "~/.config"
 
 - link:
-    ~/.config:
+    ~/.config/gtk-3.0:
+      glob: true
       if: "[ `uname` = Linux ]"
-      path: .config
+      path: .config/gtk-3.0/*
     ~/.bash_aliases: .bash_aliases
     ~/.bashrc: .bashrc
     ~/.editorconfig: .editorconfig
     ~/.gitconfig: .gitconfig
     ~/.gitignore: .gitignore
     ~/.jupyter: .jupyter
-    ~/.local:
+    ~/.local/share/applications/mimeapps.list:
       if: "[ `uname` = Linux ]"
-      path: .local
+      path: .local/share/applications/mimeapps.list
     ~/.redshift:
       if: "[ `uname` = Linux ]"
       path: .redshift
