@@ -30,12 +30,15 @@ function install {
 
 install \
     sudo \
+    apt-transport-https \
     arandr \
+    ca-certificates \
     curl \
     dconf-cli \
     gcc \
     git \
     gnome-terminal \
+    gnupg-agent \
     libcurl4-gnutls-dev \
     libssl-dev \
     libxml2-dev \
@@ -46,6 +49,7 @@ install \
     redshift \
     ruby \
     ruby-dev \
+    software-properties-common \
     make \
     tmux \
     vim \
