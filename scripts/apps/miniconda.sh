@@ -20,10 +20,11 @@ if [ $? -ne 0 ]; then
     curl -OL ${URL}
     bash ${CONDA_INSTALLER} -b -p $HOME/miniconda
     rm ${CONDA_INSTALLER}
-    source $HOME/miniconda/bin/activate
-    conda init zsh
 else
     echo "Miniconda already installed"
 fi
+
+source $HOME/miniconda/bin/activate
+conda init zsh
 
 echo "✔️ Done with Miniconda installation"
