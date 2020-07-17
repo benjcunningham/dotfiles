@@ -6,7 +6,7 @@ which brew &> /dev/null
 
 if [ $? -ne 0 ]; then
 
-    echo | /bin/bash -c \
+    echo | ruby -e \
         "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" \
         > /dev/null
 
@@ -42,5 +42,11 @@ function install {
     echo "Installing: ${not_installed[@]}"
 
 }
+
+install \
+    curl \
+    git \
+    make \
+    tmux
 
 echo "✔️  Done with Homebrew installations"
