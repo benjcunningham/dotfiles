@@ -21,9 +21,12 @@ else ifeq ($(shell uname),Linux)
   LIBOPEN := xdg-open
 endif
 
+autohtml:
+	sphinx-autobuild -p 80 -b html "$(SOURCEDIR)" "$(BUILDDIR)/html"
+
 docker-docs:
 	docker build -t dotfiles:docs .
-	docker run --rm -v $$(pwd):/docs dotfiles:docs make html
+	docker run --rm -v $$(pwd):/docs dotfiles:docs &
 	$(LIBOPEN) build/html/index.html &> /dev/null
 
 # Catch-all target: route all unknown targets to Sphinx using the new
