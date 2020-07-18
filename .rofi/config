@@ -2,6 +2,6 @@
 rofi.lines: 10
 rofi.font: Terminus Regular 8
 rofi.show-icons: false
-rofi.theme: .rofi/custom-01.rasi
+rofi.theme: .rofi/dracula.rasi
 rofi.combi-hide-mode-prefix: true
 
