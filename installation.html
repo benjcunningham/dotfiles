@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
@@ -8,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; dotfiles  documentation</title>
+  <title>Installation &mdash; dotfiles  documentation</title>
   
 
   
@@ -37,8 +36,10 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <link rel="index" title="Index" href="#" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="macOS" href="systems/macos.html" />
+    <link rel="prev" title="dotfiles" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,8 +85,13 @@
             
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dotfiles">Dotfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-sub">Other Sub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#final-sub">Final Sub</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Systems</span></p>
 <ul>
@@ -146,12 +152,14 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Index</li>
+      <li>Installation</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -163,11 +171,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>The most convenient way to install everything on a new machine is with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -fsSL https://raw.githubusercontent.com/benjcunningham/dotfiles/master/install.sh <span class="se">\</span>
+    -o dotfiles.sh
+sh dotfiles.sh
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure to verify the contents of the script you downloaded matches the contents of <code class="docutils literal notranslate"><span class="pre">install.sh</span></code> located at <a class="reference external" href="https://github.com/benjcunningham/dotfiles">https://github.com/benjcunningham/dotfiles</a> before executing. These are my personal install scripts and dotfiles, and therefore they likely are not appropriate to add to your machine until you understand what they do.</p>
+</div>
+<div class="section" id="dotfiles">
+<h2>Dotfiles<a class="headerlink" href="#dotfiles" title="Permalink to this headline">¶</a></h2>
+<p>If you want to install only the dotfiles:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make dotfiles
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 
-<h1 id="index">Index</h1>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, </span><span class="si">{}</span><span class="s2">!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
-<div class="genindex-jumpbox">
- 
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="other-sub">
+<h2>Other Sub<a class="headerlink" href="#other-sub" title="Permalink to this headline">¶</a></h2>
+<p>Words.</p>
+</div>
+<div class="section" id="final-sub">
+<h2>Final Sub<a class="headerlink" href="#final-sub" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested">
+<h3>Nested<a class="headerlink" href="#nested" title="Permalink to this headline">¶</a></h3>
+<p>Things here too</p>
+</div>
+</div>
 </div>
 
 
@@ -175,6 +215,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="systems/macos.html" class="btn btn-neutral float-right" title="macOS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="dotfiles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

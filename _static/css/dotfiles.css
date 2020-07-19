@@ -1,0 +1,229 @@
+.rst-content .linenodiv pre, .rst-content div[class^=highlight] pre, .rst-content pre.literal-block {
+    font-family: RobotoMono-Light, monospace;
+}
+
+/* Copy button */
+
+a.copybtn {
+    margin: 3px;
+}
+
+.rst-content {
+    max-width: 700px;
+}
+
+/* The literal code blocks */
+.rst-content tt.literal, .rst-content tt.literal, .rst-content code.literal {
+    color: #282A36;
+}
+
+/* To keep the logo centered */
+.wy-side-scroll {
+    width: calc(100% + 15px);
+    font-size: 20px;
+}
+
+/* The research field on top of the toc tree */
+.wy-side-nav-search{
+    padding-top: 0;
+    background-color: #282A36;
+}
+
+/* The toc tree */
+.wy-nav-side{
+    background-color: #282A36;
+    padding-bottom: 0;
+}
+
+.wy-menu-vertical li.toctree-l1.current>a {
+    border: none;
+}
+
+/* The home icon */
+.fa-home:before, .icon-home:before {
+    content: "🏠";
+}
+
+/* Previous / Next icons */
+.fa-arrow-circle-left:before, .icon-circle-arrow-left:before {
+    content: "⬅️";
+}
+
+.fa-arrow-circle-right:before, .icon-circle-arrow-right:before {
+    content: "➡️";
+}
+
+/* The selected items in the toc tree */
+.wy-menu-vertical li.current{
+    background-color: #6272A4;
+}
+
+.wy-menu-vertical li.current a{
+    background-color: #6272A4;
+    color: #F8F8F2;
+}
+
+/* When a list item that does belong to the selected block from the toc tree is hovered */
+.wy-menu-vertical li.current a:hover{
+    background-color: #6272A4;
+    color: #F8F8F2;
+}
+
+/* When a list item that does NOT belong to the selected block from the toc tree is hovered. */
+.wy-menu-vertical li a:hover{
+    background-color: #6272A4;
+    color: #F8F8F2;
+}
+
+/* The text items on the toc tree */
+.wy-menu-vertical a {
+    color: #F8F8F2;
+    font-family: Nunito-Light, sans-serif;
+}
+.wy-menu-vertical header, .wy-menu-vertical p.caption{
+    color: #F8F8F2;
+    font-family: Nunito-Light, sans-serif;
+}
+
+/* The color inside the selected toc tree block */
+.wy-menu-vertical li.toctree-l2 a, .wy-menu-vertical li.toctree-l3 a, .wy-menu-vertical li.toctree-l4 a {
+    color: #F8F8F2;
+}
+
+.wy-menu-vertical li.current>a, .wy-menu-vertical li.on a {
+    font-weight: normal;
+}
+
+/* Inside the depth-2 selected toc tree block */
+.wy-menu-vertical li.toctree-l2.current>a {
+    background-color: #6272A4;
+}
+
+.wy-menu-vertical li.toctree-l2.current>a::before {
+    content: "👉 ";
+    position: absolute;
+    left: 0.75em;
+}
+
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3>a {
+    background-color: #C6D0FF
+}
+
+/* Inside the depth-3 selected toc tree block */
+.wy-menu-vertical li.toctree-l3.current li.toctree-l4>a{
+    background-color: #D6E0FF
+}
+
+/* Inside code snippets */
+.rst-content dl:not(.docutils) dt{
+    font-size: 15px;
+}
+
+/* Links */
+.rst-content a {
+    color: #6272A4;
+    font-weight: bold;
+}
+
+.rst-content a:hover {
+    text-decoration: underline;
+}
+
+/* Content bars */
+.rst-content dl:not(.docutils) dt {
+    background-color: rgba(251, 141, 104, 0.1);
+    border-right: solid 2px #FB8D68;
+    border-left: solid 2px #FB8D68;
+    color: #FB8D68;
+    font-family: Nunito-Light, sans-serif;
+    border-top: none;
+    font-style: normal !important;
+}
+
+/* Expand button */
+.wy-menu-vertical li.toctree-l2 span.toctree-expand::before,
+.wy-menu-vertical li.on a span.toctree-expand::before,
+.wy-menu-vertical li.current>a span.toctree-expand::before,
+.wy-menu-vertical li.toctree-l3 span.toctree-expand::before {
+    content: none;
+}
+
+/* Max window size */
+.wy-nav-content{
+    max-width: 1200px;
+}
+
+/* Mobile header */
+.wy-nav-top{
+    background-color: #282A36;
+}
+
+
+/* Source spans */
+.rst-content .viewcode-link, .rst-content .viewcode-back{
+    color: #282A36;
+    font-size: 110%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* It would be better for table to be visible without horizontal scrolling */
+.wy-table-responsive table td, .wy-table-responsive table th{
+    white-space: normal;
+}
+
+.footer {
+    margin-top: 20px;
+}
+
+/* class and method names in doc */
+.rst-content dl:not(.docutils) tt.descname, .rst-content dl:not(.docutils) tt.descclassname, .rst-content dl:not(.docutils) tt.descname, .rst-content dl:not(.docutils) code.descname, .rst-content dl:not(.docutils) tt.descclassname, .rst-content dl:not(.docutils) code.descclassname{
+    font-family: Nunito-Light, sans-serif;
+    font-size: 20px !important;
+}
+
+/* class name in doc*/
+.rst-content dl:not(.docutils) tt.descname, .rst-content dl:not(.docutils) tt.descname, .rst-content dl:not(.docutils) code.descname{
+    margin-right: 10px;
+    font-family: Nunito-Light, sans-serif;
+}
+
+/* Method and class parameters */
+.sig-param{
+    line-height: 23px;
+}
+
+/* Class introduction "class" string at beginning */
+.rst-content dl:not(.docutils) .property{
+    font-size: 18px;
+    color: black;
+}
+
+
+/* FONTS */
+
+body{
+    font-family: Nunito-Light, sans-serif;
+    font-size: 16px;
+}
+
+h1 {
+    font-family: Nunito-Light, sans-serif;
+    font-size: 70px;
+}
+
+h2, .rst-content .toctree-wrapper p.caption, h3, h4, h5, h6, legend{
+    font-family: Nunito-Light, sans-serif;
+}
+
+@font-face {
+    font-family: Nunito-Light;
+    src: url('./Nunito-Light.ttf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: RobotoMono-Light;
+    src: url('./RobotoMono-Light.ttf');
+    font-weight: 400;
+}
