@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cross-Platform &mdash; dotfiles  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/dotfiles.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/js/dotfiles.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="macOS" href="macos.html" />
+    <link rel="prev" title="Installation" href="../installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> dotfiles
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Systems</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cross-Platform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#bash">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dracula">Dracula</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editorconfig">EditorConfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#git">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jupyter">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#miniconda">Miniconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tmux">Tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vim">Vim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zsh">Zsh</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="macos.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ubuntu.html">Ubuntu</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/benjcunningham/dotfiles">GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/contributing.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">💮</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://benjcunningham.org">benjcunningham.org</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dotfiles</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Cross-Platform</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/systems/cross-platform.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cross-platform">
+<h1>Cross-Platform<a class="headerlink" href="#cross-platform" title="Permalink to this headline">¶</a></h1>
+<p>Most of my tools are available everywhere. With some exceptions, the dotfiles I use for these tools are the same cross-platform as well. The only difference in setup tends to be how some software is installed on macOS versus Ubuntu. Here’s what gets added to my machines, regardless of the system:</p>
+<div class="section" id="bash">
+<h2>Bash<a class="headerlink" href="#bash" title="Permalink to this headline">¶</a></h2>
+<p>I’ve moved away from using Bash as my default shell (largely because <a class="reference external" href="https://scriptingosx.com/2019/06/moving-to-zsh/">Apple is beginning to deprecate Bash</a> due to the GPL v3 license on newer versions). Still, it’s around and I frequently use it, so I track the staple configs:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$HOME</span>/
+    .bash_aliases
+    .bashrc
+</pre></div>
+</div>
+</div>
+<div class="section" id="dracula">
+<h2>Dracula<a class="headerlink" href="#dracula" title="Permalink to this headline">¶</a></h2>
+<p>I use <a class="reference external" href="https://draculatheme.com/">Dracula</a> themes almost everywhere I can. See the system-specific pages for additional use cases, but all of my machines use the Dracula themes for:</p>
+<ul class="simple">
+<li><p>Tmux</p></li>
+<li><p>Vim</p></li>
+</ul>
+</div>
+<div class="section" id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
+<p>A Docker Engine gets installed on all systems, but per <a class="reference external" href="https://docs.docker.com/engine/install/">Docker’s official installation guide</a>, the details are a bit different on each OS. I don’t use any dotfiles with either version.</p>
+</div>
+<div class="section" id="editorconfig">
+<h2>EditorConfig<a class="headerlink" href="#editorconfig" title="Permalink to this headline">¶</a></h2>
+<p>My global <a class="reference external" href="https://editorconfig.org/">EditorConfig</a> file is located at:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$HOME</span>/
+    .editorconfig
+</pre></div>
+</div>
+<p>Vim is the only tool where I use an EditorConfig plugin to apply the styles to my code in real-time. See the later section on Vim for more information about this.</p>
+<p>You should also understand that this “global” file is at the root of my home directory, and therefore applies only to paths under that root.</p>
+</div>
+<div class="section" id="git">
+<h2>Git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h2>
+<p>I track the usual suspects at:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$HOME</span>/
+    .gitconfig
+    .gitignore
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>My <code class="docutils literal notranslate"><span class="pre">.gitconfig</span></code> only lists personal profile details, so has to be manually edited on my work machine. <a class="reference external" href="https://git-scm.com/docs/git-config#_conditional_includes">Git’s conditional includes</a> don’t seem like the right answer for me currently, but might just be the best alternative.</p>
+</div>
+</div>
+<div class="section" id="jupyter">
+<h2>Jupyter<a class="headerlink" href="#jupyter" title="Permalink to this headline">¶</a></h2>
+<p>I absolutely hate notebooks, but I do track a Jupyter config with some minimal customizations at:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$HOME</span>/
+    .jupyter/
+        jupyter_notebook_config.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="miniconda">
+<h2>Miniconda<a class="headerlink" href="#miniconda" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="tmux">
+<h2>Tmux<a class="headerlink" href="#tmux" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$HOME</span>/
+    .tmux.conf
+</pre></div>
+</div>
+</div>
+<div class="section" id="vim">
+<h2>Vim<a class="headerlink" href="#vim" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$HOME</span>/
+    .vimrc
+</pre></div>
+</div>
+</div>
+<div class="section" id="zsh">
+<h2>Zsh<a class="headerlink" href="#zsh" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="macos.html" class="btn btn-neutral float-right" title="macOS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Ben Cunningham
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -49,6 +49,7 @@ Want to go deeper? Check out the sidenav for loads of extra information on how t
    :caption: Systems
    :hidden:
 
+   systems/cross-platform
    systems/macos
    systems/ubuntu
 
