@@ -21,24 +21,3 @@ If you want to install only the dotfiles:
 .. code-block:: bash
 
     make dotfiles
-
-.. code-block:: python
-
-    def func(x):
-
-        print("Hello, {}!".format(x))
-
-        return 1 + 1
-
-Other Sub
----------
-
-Words.
-
-Final Sub
----------
-
-Nested
-~~~~~~
-
-Things here too

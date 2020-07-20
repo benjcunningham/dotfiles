@@ -237,9 +237,11 @@
 </div>
 <div class="section" id="miniconda">
 <h2>Miniconda<a class="headerlink" href="#miniconda" title="Permalink to this headline">¶</a></h2>
+<p>Miniconda is a minimal installer for Conda, and since I don’t want any bloat, I use it instead of Anaconda. This project installs Miniconda, and the Conda path gets added to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> and <code class="docutils literal notranslate"><span class="pre">.zshrc</span></code>, but I don’t track any dotfiles for it.</p>
 </div>
 <div class="section" id="tmux">
 <h2>Tmux<a class="headerlink" href="#tmux" title="Permalink to this headline">¶</a></h2>
+<p>My Tmux config is fairly minimal. It uses <a class="reference external" href="https://github.com/tmux-plugins/tpm">TPM for plugin management</a>. Panes are split using <code class="docutils literal notranslate"><span class="pre">|</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code>, and mouse control is turned on. The status bar is set by the Dracula theme I have installed. Everything is stored in:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$HOME</span>/
     .tmux.conf
 </pre></div>
@@ -247,6 +249,9 @@
 </div>
 <div class="section" id="vim">
 <h2>Vim<a class="headerlink" href="#vim" title="Permalink to this headline">¶</a></h2>
+<p>I’m solidly on Team Vim. I try to stay away from them, but I <a class="reference external" href="https://github.com/VundleVim/Vundle.vim">manage plugins with Vundle</a>; Dracula is installed for theming, and there is an EditorConfig plugin for code style compliance.</p>
+<p>Outside of the exceptions defined in the global EditorConfig, <code class="docutils literal notranslate"><span class="pre">expandtab</span></code> is on by default with 4 spaces. In visual mode, <code class="docutils literal notranslate"><span class="pre">&lt;Tab&gt;</span></code> / <code class="docutils literal notranslate"><span class="pre">&lt;Backspace&gt;</span></code> indent and unindent, respectively. In both normal and visual mode, <code class="docutils literal notranslate"><span class="pre">j</span></code> and <code class="docutils literal notranslate"><span class="pre">k</span></code> can move between soft-wrapped rows.</p>
+<p>The config is linked to:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$HOME</span>/
     .vimrc
 </pre></div>

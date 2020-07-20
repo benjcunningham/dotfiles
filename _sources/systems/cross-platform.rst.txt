@@ -70,8 +70,12 @@ I absolutely hate notebooks, but I do track a Jupyter config with some minimal c
 Miniconda
 ---------
 
+Miniconda is a minimal installer for Conda, and since I don't want any bloat, I use it instead of Anaconda. This project installs Miniconda, and the Conda path gets added to ``.bashrc`` and ``.zshrc``, but I don't track any dotfiles for it.
+
 Tmux
 ----
+
+My Tmux config is fairly minimal. It uses `TPM for plugin management <https://github.com/tmux-plugins/tpm>`_. Panes are split using ``|`` and ``-``, and mouse control is turned on. The status bar is set by the Dracula theme I have installed. Everything is stored in:
 
 .. code-block:: bash
 
@@ -80,6 +84,12 @@ Tmux
 
 Vim
 ---
+
+I'm solidly on Team Vim. I try to stay away from them, but I `manage plugins with Vundle <https://github.com/VundleVim/Vundle.vim>`_; Dracula is installed for theming, and there is an EditorConfig plugin for code style compliance.
+
+Outside of the exceptions defined in the global EditorConfig, ``expandtab`` is on by default with 4 spaces. In visual mode, ``<Tab>`` / ``<Backspace>`` indent and unindent, respectively. In both normal and visual mode, ``j`` and ``k`` can move between soft-wrapped rows.
+
+The config is linked to:
 
 .. code-block:: bash
 
