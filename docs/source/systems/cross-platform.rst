@@ -70,6 +70,8 @@ I absolutely hate notebooks, but I do track a Jupyter config with some minimal c
 Miniconda
 ---------
 
+Miniconda is a minimal installer for Conda, and since I don't want any bloat, I use it instead of Anaconda. This project installs Miniconda, and the Conda path gets added to ``.bashrc`` and ``.zshrc``, but I don't track any dotfiles for it.
+
 Tmux
 ----
 
