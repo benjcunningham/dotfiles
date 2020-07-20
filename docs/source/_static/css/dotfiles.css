@@ -51,11 +51,11 @@ a.copybtn {
 
 /* Previous / Next icons */
 .fa-arrow-circle-left:before, .icon-circle-arrow-left:before {
-    content: "⬅️";
+    content: "👈";
 }
 
 .fa-arrow-circle-right:before, .icon-circle-arrow-right:before {
-    content: "➡️";
+    content: "👉";
 }
 
 /* The selected items in the toc tree */
