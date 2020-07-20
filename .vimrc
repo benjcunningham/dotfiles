@@ -27,6 +27,9 @@ set autoindent
 " Syntax highlighting
 syntax on
 
+" Ruler
+set ruler
+
 " Save clicking Shift
 nnoremap ; :
 
