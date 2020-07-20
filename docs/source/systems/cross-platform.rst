@@ -85,6 +85,12 @@ My Tmux config is fairly minimal. It uses `TPM for plugin management <https://gi
 Vim
 ---
 
+I'm solidly on Team Vim. I try to stay away from them, but I `manage plugins with Vundle <https://github.com/VundleVim/Vundle.vim>`_; Dracula is installed for theming, and there is an EditorConfig plugin for code style compliance.
+
+Outside of the exceptions defined in the global EditorConfig, ``expandtab`` is on by default with 4 spaces. In visual mode, ``<Tab>`` / ``<Backspace>`` indent and unindent, respectively. In both normal and visual mode, ``j`` and ``k`` can move between soft-wrapped rows.
+
+The config is linked to:
+
 .. code-block:: bash
 
     $HOME/
