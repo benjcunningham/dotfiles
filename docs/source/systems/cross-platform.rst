@@ -75,6 +75,8 @@ Miniconda is a minimal installer for Conda, and since I don't want any bloat, I 
 Tmux
 ----
 
+My Tmux config is fairly minimal. It uses `TPM for plugin management <https://github.com/tmux-plugins/tpm>`_. Panes are split using ``|`` and ``-``, and mouse control is turned on. The status bar is set by the Dracula theme I have installed. Everything is stored in:
+
 .. code-block:: bash
 
     $HOME/
