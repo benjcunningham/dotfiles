@@ -12,6 +12,11 @@ Plugin 'editorconfig/editorconfig-vim'
 call vundle#end()
 filetype plugin indent on
 
+" Dracula theme
+let g:dracula_italic = 0
+let g:dracula_colorterm = 0
+colorscheme dracula
+
 " EditorConfig
 let g:EditorConfig_max_line_indicator = "none"
 
@@ -64,9 +69,3 @@ noremap P "+P
 " Show hybrid line numbers
 set number relativenumber
 highlight LineNr ctermfg=None
-
-" Dracula theme
-let g:dracula_italic = 0
-let g:dracula_colorterm = 0
-colorscheme dracula
-"highlight Normal guibg=NONE ctermbg=NONE
