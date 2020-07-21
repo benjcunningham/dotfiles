@@ -15,7 +15,9 @@
     ~/.bash_aliases: .bash_aliases
     ~/.bashrc: .bashrc
     ~/.editorconfig: .editorconfig
-    ~/.gitconfig: .gitconfig
+    ~/.gitconfig:
+      force: true
+      path: .gitconfig
     ~/.gitignore: .gitignore
     ~/.jupyter: .jupyter
     ~/.local/share/applications/mimeapps.list:
