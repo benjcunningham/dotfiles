@@ -13,7 +13,9 @@
       if: "[ `uname` = Linux ]"
       path: .config/gtk-3.0/*
     ~/.bash_aliases: .bash_aliases
-    ~/.bashrc: .bashrc
+    ~/.bashrc:
+      force: true
+      path: .bashrc
     ~/.editorconfig: .editorconfig
     ~/.gitconfig:
       force: true
