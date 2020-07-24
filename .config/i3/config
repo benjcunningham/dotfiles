@@ -120,17 +120,14 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $col3 #f3f4f5
-set $col4 #676E7D
-set $col5 #7F817D
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
-set_from_resource $bg i3wm.background
-set_from_resource $fg i3wm.foreground
-
-#                       border background text  indicator
-client.focused          $fg    $fg        $bg   #00ff00
-client.focused_inactive $fg    $fg        $bg   #00ff00
-client.unfocused        $fg    $fg        $bg   #00ff00
+client.background       #F8F8F2
 
 new_window none
 hide_edge_borders both
@@ -138,18 +135,24 @@ hide_edge_borders both
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+
     position bottom
     tray_output primary
     tray_padding 2
     status_command i3blocks -c $HOME/.i3/i3blocks/conf
+
     colors {
-        background $bg
-        separator $col4
-        #                  border  background  text
-        focused_workspace  $bg     $bg         $fg
-        inactive_workspace $bg     $bg         $col4
-        urgent_workspace   $bg     $bg         $col4
+        background #282A36
+        statusline #F8F8F2
+        separator  #44475A
+
+        focused_workspace  #44475A #44475A #F8F8F2
+        active_workspace   #282A36 #44475A #F8F8F2
+        inactive_workspace #282A36 #282A36 #BFBFBF
+        urgent_workspace   #FF5555 #FF5555 #F8F8F2
+        binding_mode       #FF5555 #FF5555 #F8F8F2
     }
+
 }
 
 for_window [class="^.*"] border normal 0
