@@ -12,6 +12,9 @@
       glob: true
       if: "[ `uname` = Linux ]"
       path: .config/gtk-3.0/*
+    ~/.config/i3:
+      if: "[ `uname` = Linux ]"
+      path: .config/i3
     ~/.bash_aliases: .bash_aliases
     ~/.bashrc:
       force: true
@@ -21,6 +24,9 @@
       force: true
       path: .gitconfig
     ~/.gitignore: .gitignore
+    ~/.i3:
+      if: "[ `uname` = Linux ]"
+      path: .i3
     ~/.jupyter: .jupyter
     ~/.local/share/applications/mimeapps.list:
       if: "[ `uname` = Linux ]"
