@@ -180,9 +180,6 @@ bindsym XF86AudioMicMute exec --no-startup-id $HOME/.config/i3/volume-control.sh
 # Screenshot
 bindsym Print exec scrot -e 'mv $f ~/Pictures/'
 
-# Set wallpaper
-exec_always --no-startup-id $HOME/.local/bin/wal -i $wallpaper #-b "#2d2d2d"
-
 # Window compositor for transparency
 exec compton
 
