@@ -4,6 +4,7 @@
 
 set $mod Mod4
 set $term gnome-terminal
+set $menu "rofi -show combi -combi-modi drun,run -config $HOME/.rofi/config -show-icons"
 
 # Programs to kill up front
 exec_always --no-startup-id killall redshift
@@ -181,7 +182,7 @@ exec compton
 exec_always setxkbmap -print | sed -e '/xkb_symbols/s/"[[:space:]]/+custom&/' | xkbcomp -I${HOME}/.xkb - $DISPLAY
 
 # Launcher (rofi, as dmenu replacement)
-bindsym $mod+d exec "rofi -show combi -combi-modi drun,run -config $HOME/.rofi/config -show-icons"
+bindsym $mod+d exec $menu
 
 # Startup programs
 exec nmcli con up id "PIA - US New York City"
