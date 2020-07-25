@@ -54,9 +54,6 @@ vnoremap k gk
 " Write using sudo trick
 cmap w!! w !sudo tee % >/dev/null
 
-" Remove trailing whitespace
-autocmd BufWritePre * %s/\s\+$//e
-
 " Paste across terminals
 set clipboard^=unnamed
 
