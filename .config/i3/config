@@ -186,9 +186,6 @@ bindsym $mod+d exec "rofi -show combi -combi-modi drun,run -config $HOME/.rofi/c
 exec nmcli con up id "PIA - US New York City"
 exec_always --no-startup-id redshift -c $HOME/.redshift/redshift.conf
 
-# Workspace assignments
-assign [class="vlc"] $workspace4
-
 # Open NetworkManager TUI as floating (works well with i3blocks)
 for_window [window_role="i3block-toggle"] floating enable
 for_window [class="i3block-toggle"] floating enable
