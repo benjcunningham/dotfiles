@@ -6,6 +6,7 @@ set $mod Mod4
 set $term gnome-terminal
 set $menu "rofi -show combi -combi-modi drun,run -config $HOME/.rofi/config -show-icons"
 set $barcmd i3status
+set $lock "gnome-screensaver-command -l"
 
 # Programs to kill up front
 exec_always --no-startup-id killall redshift
@@ -158,7 +159,6 @@ font pango:Terminus Regular 15
 for_window [class="^.*"] title_format "<span font='Terminus Regular 8'> > %title</span>"
 
 # Screen locker
-set $lock gnome-screensaver-command -l
 bindsym $mod+l exec $lock
 
 # Nautilus launcher
