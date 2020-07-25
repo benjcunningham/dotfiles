@@ -192,5 +192,3 @@ exec_always --no-startup-id redshift -c $HOME/.redshift/redshift.conf
 # Open NetworkManager TUI as floating (works well with i3blocks)
 for_window [window_role="i3block-toggle"] floating enable
 for_window [class="i3block-toggle"] floating enable
-
-
