@@ -165,10 +165,10 @@ bindsym $mod+n exec nautilus --no-desktop --new-window
 exec_always xinput --set-prop 10 "Synaptics Two-Finger Scrolling" 1 1
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.config/i3/volume-control.sh volume +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.config/i3/volume-control.sh volume -5%
-bindsym XF86AudioMute exec --no-startup-id $HOME/.config/i3/volume-control.sh volume mute
-bindsym XF86AudioMicMute exec --no-startup-id $HOME/.config/i3/volume-control.sh mic mute
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioMicMute exec amixer set Capture toggle # mute mic
 
 # Screenshot
 bindsym Print exec scrot -e 'mv $f ~/Pictures/'
