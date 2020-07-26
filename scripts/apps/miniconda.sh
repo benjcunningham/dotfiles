@@ -2,9 +2,9 @@
 
 echo "🐍 Installing Miniconda"
 
-if [ `uname` = "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
     CONDA_INSTALLER="Miniconda3-latest-MacOSX-x86_64.sh"
-elif [ `uname` = "Linux" ]; then
+elif [ "$(uname)" = "Linux" ]; then
     CONDA_INSTALLER="Miniconda3-latest-Linux-x86_64.sh"
 else
     echo "❌ Couldn't find matching Miniconda version for kernel"
@@ -13,14 +13,15 @@ fi
 
 URL="https://repo.anaconda.com/miniconda/${CONDA_INSTALLER}"
 
-which conda &> /dev/null
-
-if [ $? -ne 0 ]; then
+if which conda &> /dev/null; then
     echo "Installing Miniconda..."
     curl -OL ${URL}
-    bash ${CONDA_INSTALLER} -b -p $HOME/miniconda
+    bash ${CONDA_INSTALLER} -b -p "$HOME/miniconda"
     rm ${CONDA_INSTALLER}
-    source $HOME/miniconda/bin/activate
+
+    # shellcheck disable=SC1090
+    source "$HOME/miniconda/bin/activate"
+
 else
     echo "Miniconda already installed"
 fi

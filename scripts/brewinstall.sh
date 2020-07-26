@@ -2,15 +2,11 @@
 
 echo "🍻 Installing macOS libraries with Homebrew"
 
-which brew &> /dev/null
+if which brew &> /dev/null; then
 
-if [ $? -ne 0 ]; then
-
-    echo | ruby -e \
+    if echo | ruby -e \
         "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" \
-        > /dev/null
-
-    if [ $? -ne 0 ]; then
+        > /dev/null; then
         echo "❌ Failed to install Homebrew"
         exit 1
     fi
@@ -28,9 +24,7 @@ function install {
 
     for prog in "$@"; do
 
-        which $prog &> /dev/null
-
-        if [ $? -ne 0 ]; then
+        if which "$prog" &> /dev/null; then
             not_installed+=(${prog})
         else
             already_installed+=(${prog})
@@ -38,8 +32,8 @@ function install {
 
     done
 
-    echo "Already installed: ${already_installed[@]}"
-    echo "Installing: ${not_installed[@]}"
+    echo "Already installed: ${already_installed[*]}"
+    echo "Installing: ${not_installed[*]}"
 
 }
 

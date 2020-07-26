@@ -4,6 +4,7 @@ echo "📦 Installing Ubuntu libraries with APT"
 
 sudo apt-get update
 
+# shellcheck disable=SC2032
 function install {
 
     already_installed=()
@@ -11,9 +12,7 @@ function install {
 
     for prog in "$@"; do
 
-        which $prog &> /dev/null
-
-        if [ $? -ne 0 ]; then
+        if which "$prog" &> /dev/null; then
             not_installed+=(${prog})
         else
             already_installed+=(${prog})
@@ -21,10 +20,11 @@ function install {
 
     done
 
-    echo "Already installed: ${already_installed[@]}"
-    echo "Installing: ${not_installed[@]}"
+    echo "Already installed: ${already_installed[*]}"
+    echo "Installing: ${not_installed[*]}"
 
-    sudo apt-get install -y ${not_installed[@]}
+    # shellcheck disable=SC2033
+    sudo apt-get install -y "${not_installed[*]}"
 
 }
 

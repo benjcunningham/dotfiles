@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if [ `uname` = "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
 
     # macOS libraries
     scripts/brewinstall.sh
 
-elif [ `uname` = "Linux" ]; then
+elif [ "$(uname)" = "Linux" ]; then
 
     # Ubuntu libraries
     scripts/keysinstall.sh

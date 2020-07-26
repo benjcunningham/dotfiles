@@ -2,12 +2,12 @@
 
 echo "🐳 Installing Docker"
 
-if [ `uname` = "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
 
     # Docker Desktop for macOS
     brew cask install docker
 
-elif [ `uname` = "Linux" ]; then
+elif [ "$(uname)" = "Linux" ]; then
 
     # Docker CLI on Ubuntu
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -20,7 +20,7 @@ elif [ `uname` = "Linux" ]; then
 
 else
 
-    echo "🙅 No installer available for your system (`uname`)"
+    echo "🙅 No installer available for your system ($(uname))"
 
 fi
 
