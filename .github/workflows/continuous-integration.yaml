@@ -21,5 +21,10 @@ jobs:
         sudo apt-get update
         sudo apt-get install shellcheck
         ./test.sh
+    - name: Lint scripts with Shellcheck
+      if: matrix.os == 'macos-latest'
+      run: |
+        brew install shellcheck
+        ./test.sh
     - name: Execute full installation
       run: ./install.sh
