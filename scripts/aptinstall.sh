@@ -51,6 +51,7 @@ install \
     ruby-dev \
     software-properties-common \
     make \
+    shellcheck \
     tmux \
     vim \
     vlc \

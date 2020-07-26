@@ -41,6 +41,7 @@ install \
     curl \
     git \
     make \
+    shellcheck \
     tmux
 
 echo "✔️  Done with Homebrew installations"
