@@ -13,9 +13,9 @@ function install {
     for prog in "$@"; do
 
         if which "$prog" &> /dev/null; then
-            not_installed+=(${prog})
+            not_installed+=("${prog}")
         else
-            already_installed+=(${prog})
+            already_installed+=("${prog}")
         fi
 
     done
