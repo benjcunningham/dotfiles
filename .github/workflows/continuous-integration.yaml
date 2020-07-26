@@ -15,5 +15,11 @@ jobs:
           - "ubuntu-latest"
     steps:
     - uses: "actions/checkout@v2"
+    - name: "Lint scripts with Shellcheck"
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: |
+        "sudo apt update"
+        "sudo apt install shellcheck"
+        "./test.sh"
     - name: "Execute full installation"
       run: "./install.sh"
