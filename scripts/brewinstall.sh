@@ -1,19 +1,21 @@
 #!/bin/bash
 
-echo "🍻 Installing macOS libraries with Homebrew"
+echo "Installing macOS libraries with Homebrew"
 
 if which brew &> /dev/null; then
 
     if echo | ruby -e \
         "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" \
         > /dev/null; then
-        echo "❌ Failed to install Homebrew"
+        echo "[ERROR] Failed to install Homebrew"
         exit 1
+    else
+        echo "[OK] Installed Homebrew"
     fi
 
 else
 
-    echo "Homebrew already installed"
+    echo "[OK] Homebrew already installed"
 
 fi
 
@@ -32,7 +34,7 @@ function install {
 
     done
 
-    echo "Already installed: ${already_installed[*]}"
+    echo "[INFO] Already installed: ${already_installed[*]}"
     echo "Installing: ${not_installed[*]}"
 
 }
@@ -44,4 +46,4 @@ install \
     shellcheck \
     tmux
 
-echo "✔️  Done with Homebrew installations"
+echo "[DONE] Done with Homebrew installations"

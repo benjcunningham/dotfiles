@@ -24,4 +24,4 @@ scripts/dotbotinstall.sh
 # Themes
 scripts/apps/dracula.sh
 
-echo "🌱 Done! This is a new beginning..."
+echo "[DONE] Installed benjcunningham/dotfiles!"

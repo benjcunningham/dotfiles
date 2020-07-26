@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "📂 Symlinking dotfiles with Dotbot"
+echo "Symlinking dotfiles with Dotbot"
 
 set -e
 
@@ -16,4 +16,4 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
 
-echo "✔️  Done with Dotbot"
+echo "[DONE] Done with Dotbot"

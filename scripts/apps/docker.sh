@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🐳 Installing Docker"
+echo "Installing Docker"
 
 if [ "$(uname)" = "Darwin" ]; then
 
@@ -20,8 +20,9 @@ elif [ "$(uname)" = "Linux" ]; then
 
 else
 
-    echo "🙅 No installer available for your system ($(uname))"
+    echo "[ERROR] No installer available for your system ($(uname))"
+    exit 1
 
 fi
 
-echo "✔️  Done installing Docker"
+echo "[DONE] Done installing Docker"

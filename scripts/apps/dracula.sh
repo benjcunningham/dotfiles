@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🧛 Installing Dracula themes"
+echo "Installing Dracula themes"
 
 # gnome-terminal
 if [ "$(uname)" = "Linux" ]; then
@@ -23,4 +23,4 @@ git clone https://github.com/dracula/zsh.git "$ZSH_THEME"
 mkdir -p "$HOME/.oh-my-zsh/themes"
 ln -s "$ZSH_THEME/dracula.zsh-theme" "$HOME/.oh-my-zsh/themes/dracula.zsh-theme"
 
-echo "✔️  Done installing Dracula themes"
+echo "[DONE] Done installing Dracula themes"

@@ -1,13 +1,13 @@
 #!/bin/bash
 
-echo "🐍 Installing Miniconda"
+echo "Installing Miniconda"
 
 if [ "$(uname)" = "Darwin" ]; then
     CONDA_INSTALLER="Miniconda3-latest-MacOSX-x86_64.sh"
 elif [ "$(uname)" = "Linux" ]; then
     CONDA_INSTALLER="Miniconda3-latest-Linux-x86_64.sh"
 else
-    echo "❌ Couldn't find matching Miniconda version for kernel"
+    echo "[ERROR] Couldn't find matching Miniconda version for kernel"
     exit 1
 fi
 
@@ -23,9 +23,9 @@ if which conda &> /dev/null; then
     source "$HOME/miniconda/bin/activate"
 
 else
-    echo "Miniconda already installed"
+    echo "[INFO] Miniconda already installed"
 fi
 
 conda init zsh
 
-echo "✔️ Done with Miniconda installation"
+echo "[DONE] Done with Miniconda installation"

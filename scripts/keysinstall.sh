@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🔑 Adding GPG keys for third-party APT sources"
+echo "Adding GPG keys for third-party APT sources"
 
 sudo apt-get update
 sudo apt-get install -y curl
@@ -21,4 +21,4 @@ curl -s https://mkvtoolnix.download/gpg-pub-moritzbunkus.txt | \
 echo "deb https://mkvtoolnix.download/ubuntu/xenial/ ./" | \
     sudo tee /etc/apt/sources.list.d/bunkus.org.list
 
-echo "✔️ Done with GPG keys"
+echo "[DONE] Done with GPG keys"

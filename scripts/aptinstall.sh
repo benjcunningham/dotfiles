@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "📦 Installing Ubuntu libraries with APT"
+echo "Installing Ubuntu libraries with APT"
 
 sudo apt-get update
 
@@ -20,7 +20,7 @@ function install {
 
     done
 
-    echo "Already installed: ${already_installed[*]}"
+    echo "[INFO] Already installed: ${already_installed[*]}"
     echo "Installing: ${not_installed[*]}"
 
     # shellcheck disable=SC2033
@@ -60,4 +60,4 @@ install \
 sudo apt-get upgrade -y
 sudo apt-get autoremove -y
 
-echo "✔️  Done with APT installations"
+echo "[DONE] Done with APT installations"
