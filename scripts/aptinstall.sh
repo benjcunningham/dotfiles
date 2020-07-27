@@ -35,18 +35,25 @@ install \
     ca-certificates \
     curl \
     dconf-cli \
+    feh \
     gcc \
     git \
     gnome-terminal \
     gnupg-agent \
+    i3 \
+    i3status \
     libcurl4-gnutls-dev \
     libssl-dev \
     libxml2-dev \
     network-manager-openvpn \
     openvpn \
     pavucontrol \
+    pulseaudio \
+    pulseaudio-module-bluetooth \
+    pulsemixer \
     python \
     redshift \
+    rofi \
     ruby \
     ruby-dev \
     software-properties-common \
@@ -55,6 +62,7 @@ install \
     tmux \
     vim \
     vlc \
+    xclip \
     zsh
 
 sudo apt-get upgrade -y
