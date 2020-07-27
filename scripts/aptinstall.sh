@@ -7,20 +7,12 @@ sudo apt-get update
 # shellcheck disable=SC2032
 function install {
 
-    already_installed=()
     not_installed=()
 
     for prog in "$@"; do
-
-        if which "$prog" &> /dev/null; then
-            not_installed+=("${prog}")
-        else
-            already_installed+=("${prog}")
-        fi
-
+        not_installed+=("${prog}")
     done
 
-    echo "[INFO] Already installed: ${already_installed[*]}"
     echo "Installing: ${not_installed[*]}"
 
     # shellcheck disable=SC2033,SC2068
