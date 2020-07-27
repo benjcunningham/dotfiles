@@ -23,8 +23,8 @@ function install {
     echo "[INFO] Already installed: ${already_installed[*]}"
     echo "Installing: ${not_installed[*]}"
 
-    # shellcheck disable=SC2033
-    sudo apt-get install -y "${not_installed[*]}"
+    # shellcheck disable=SC2033,SC2068
+    sudo apt-get install -y ${not_installed[@]}
 
 }
 
