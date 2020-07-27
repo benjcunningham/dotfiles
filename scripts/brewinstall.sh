@@ -37,6 +37,9 @@ function install {
     echo "[INFO] Already installed: ${already_installed[*]}"
     echo "Installing: ${not_installed[*]}"
 
+    # shellcheck disable=SC2068
+    brew install ${not_installed[@]}
+
 }
 
 install \
