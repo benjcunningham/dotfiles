@@ -42,6 +42,7 @@ install \
     gnupg-agent \
     i3 \
     i3status \
+    irssi \
     libcurl4-gnutls-dev \
     libssl-dev \
     libxml2-dev \
