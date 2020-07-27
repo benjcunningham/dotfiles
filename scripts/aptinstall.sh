@@ -45,6 +45,7 @@ install \
     libcurl4-gnutls-dev \
     libssl-dev \
     libxml2-dev \
+    make \
     network-manager-openvpn \
     openvpn \
     pavucontrol \
@@ -57,7 +58,6 @@ install \
     ruby \
     ruby-dev \
     software-properties-common \
-    make \
     shellcheck \
     tmux \
     vim \
