@@ -4,9 +4,7 @@ echo "Installing macOS libraries with Homebrew"
 
 if which brew &> /dev/null; then
 
-    if echo | ruby -e \
-        "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" \
-        > /dev/null; then
+    if curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh > /dev/null; then
         echo "[ERROR] Failed to install Homebrew"
         exit 1
     else
