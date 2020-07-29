@@ -28,6 +28,7 @@ set shiftwidth=4
 
 " Match indent of previous line
 set autoindent
+set smartindent
 
 " Syntax highlighting
 syntax on
