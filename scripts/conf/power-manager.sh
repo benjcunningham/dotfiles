@@ -4,9 +4,9 @@ echo "Applying xfce4-power-manager settings"
 
 function customize {
 
-    xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/$1 -s $2
+    xfconf-query -c xfce4-power-manager -p "/xfce4-power-manager/$1" -s "$2"
 
-    echo "[OK] $1: $(xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/$1)"
+    echo "[OK] $1: $(xfconf-query -c xfce4-power-manager -p "/xfce4-power-manager/$1")"
 
 }
 
