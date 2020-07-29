@@ -22,7 +22,7 @@ customize presentation-mode false
 customize lid-action-on-battery 1
 customize logind-handle-lid-switch true
 customize brightness-level-on-ac 20
-customize brightness-on-battery 15
+customize brightness-on-battery 120
 customize blank-on-ac 0
 customize dpms-on-ac-sleep 0
 customize dpms-on-ac-off 0
