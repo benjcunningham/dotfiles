@@ -41,6 +41,8 @@ nnoremap ; :
 
 " Highlight search
 set hlsearch
+set ignorecase
+set smartcase
 
 " Indent blocks of text in visual mode
 vmap <TAB> >gv
