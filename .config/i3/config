@@ -188,6 +188,7 @@ bindsym $mod+d exec $menu
 
 # Startup programs
 exec nmcli con up id "PIA - US New York City"
+exec_always --no-startup-id xfce4-power-manager
 exec_always --no-startup-id redshift -c $HOME/.redshift/redshift.conf
 
 # Open NetworkManager TUI as floating (works well with i3blocks)
