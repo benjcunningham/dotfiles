@@ -44,6 +44,11 @@ set hlsearch
 set ignorecase
 set smartcase
 
+" Line wrapping
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+
 " Indent blocks of text in visual mode
 vmap <TAB> >gv
 vmap <BS> <gv
