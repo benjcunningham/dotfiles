@@ -66,10 +66,33 @@ cmap w!! w !sudo tee % >/dev/null
 set clipboard^=unnamed
 
 " Copy and paste with system clipboard
-noremap y "+y
-noremap Y "+Y
-noremap p "+p
-noremap P "+P
+"
+"   This is for Visual mode, so you can highlight text and then yank it to the
+"   system clipboard. You can also paste from the system clipboard in Visual
+"   mode, or do the more common thing of going into Insert (Paste) and pasting.
+if has("unix")
+
+  let s:uname = substitute(system("uname -s"), "\n", "", "")
+
+  " macOS
+  if s:uname == "Darwin"
+
+    vnoremap y "*y
+    vnoremap Y "*Y
+    vnoremap p "*p
+    vnoremap P "*P
+
+  " Linux
+  elseif s:uname == "Linux"
+
+    vnoremap y "+y
+    vnoremap Y "+Y
+    vnoremap p "+p
+    vnoremap P "+P
+
+  endif
+
+endif
 
 " Show hybrid line numbers
 set number relativenumber
