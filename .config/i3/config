@@ -161,6 +161,7 @@ for_window [class="^.*"] title_format "<span font='Terminus Regular 8'> > %title
 
 # Screen locker
 bindsym $mod+l exec $lock
+bindsym $mod+p exec systemctl suspend
 
 # Nautilus launcher
 bindsym $mod+n exec nautilus --no-desktop --new-window
