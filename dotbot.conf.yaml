@@ -49,3 +49,4 @@
     ~/.xkb:
       if: "[ `uname` = Linux ]"
       path: .xkb
+    ~/.zshrc: .zshrc
