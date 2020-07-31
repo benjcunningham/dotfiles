@@ -19,6 +19,7 @@
     ~/.bashrc:
       force: true
       path: .bashrc
+    ~/.condarc: .condarc
     ~/.editorconfig: .editorconfig
     ~/.gitconfig:
       force: true
