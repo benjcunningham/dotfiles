@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'preservim/nerdtree'
 
 call vundle#end()
 filetype plugin indent on
@@ -97,3 +98,12 @@ endif
 " Show hybrid line numbers
 set number relativenumber
 highlight LineNr ctermfg=None
+
+" Move between splits
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeShowHidden = 1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
