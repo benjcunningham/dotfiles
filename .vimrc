@@ -99,6 +99,10 @@ endif
 set number relativenumber
 highlight LineNr ctermfg=None
 
+" Move between buffers
+map <C-Left> <Esc>:bprev<CR>
+map <C-Right> <Esc>:bnext<CR>
+
 " Move between splits
 map <C-h> <C-W>h
 map <C-l> <C-W>l
