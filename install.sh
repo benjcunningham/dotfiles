@@ -28,6 +28,7 @@ scripts/apps/ohmyzsh.sh
 scripts/dotbotinstall.sh
 
 # Plugins
+scripts/apps/tpm.sh
 scripts/apps/vundle.sh
 
 # Themes
