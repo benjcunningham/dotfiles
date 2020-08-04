@@ -23,10 +23,12 @@ fi
 scripts/apps/docker.sh
 scripts/apps/miniconda.sh
 scripts/apps/ohmyzsh.sh
-scripts/apps/vundle.sh
 
 # Dotfiles
 scripts/dotbotinstall.sh
+
+# Plugins
+scripts/apps/vundle.sh
 
 # Themes
 scripts/apps/dracula.sh
