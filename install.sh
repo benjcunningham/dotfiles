@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eo pipefail
+
 if [ "$(uname)" = "Darwin" ]; then
 
     # macOS libraries
