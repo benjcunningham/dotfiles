@@ -11,6 +11,9 @@ elif [ "$(uname)" = "Linux" ]; then
     scripts/keysinstall.sh
     scripts/aptinstall.sh
 
+    # Fonts
+    scripts/fontinstall.sh
+
     # Scripted settings
     scripts/conf/power-manager.sh
 
