@@ -4,3 +4,6 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
+[filter "gitignore"]
+	clean = "sed '/^# >>> conda/,/^# <<< conda/d'"
+	smudge = cat
