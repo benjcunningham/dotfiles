@@ -66,6 +66,9 @@ cmap w!! w !sudo tee % >/dev/null
 " Paste across terminals
 set clipboard^=unnamed
 
+" Backspace, explicit for macOS
+set backspace=indent,eol,start
+
 " Copy and paste with system clipboard
 "
 "   This is for Visual mode, so you can highlight text and then yank it to the
