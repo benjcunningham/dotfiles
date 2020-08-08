@@ -11,7 +11,7 @@ else
     echo "[OK] Vundle already installed"
 fi
 
-vim +'PluginInstall' +qa
+echo | vim +'PluginInstall' +qa
 echo "[OK] Updated Vundle plugins"
 
 echo "[DONE] Done installing Vundle"
