@@ -13,12 +13,4 @@ curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | \
 echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | \
     sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 
-# MKVToolnix
-echo "Installing mkvtoolnix keys"
-curl -s https://mkvtoolnix.download/gpg-pub-moritzbunkus.txt | \
-    sudo apt-key add -
-
-echo "deb https://mkvtoolnix.download/ubuntu/xenial/ ./" | \
-    sudo tee /etc/apt/sources.list.d/bunkus.org.list
-
 echo "[DONE] Done with GPG keys"
