@@ -7,7 +7,7 @@ set $term gnome-terminal
 set $menu "rofi -show combi -combi-modi drun,run -config $HOME/.rofi/config -show-icons"
 set $barcmd i3status
 set $lock "gnome-screensaver-command -l"
-set $wallpaper $HOME/Pictures/Wallpapers/*
+set $wallpaper $HOME/wallpapers/*
 
 # Set wallpaper
 exec_always --no-startup-id feh --bg-fill --randomize $wallpaper
