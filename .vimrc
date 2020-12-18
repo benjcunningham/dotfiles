@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'preservim/nerdtree'
+Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 
 call vundle#end()
 filetype plugin indent on
@@ -18,6 +19,14 @@ filetype plugin indent on
 let g:dracula_italic = 0
 let g:dracula_colorterm = 0
 colorscheme dracula
+
+" Instant Markdown
+let g:instant_markdown_autostart = 0
+let g:instant_markdown_mathjax = 1
+let g:instant_markdown_port = 8090
+let g:instant_markdown_slow = 1
+
+command Preview InstantMarkdownPreview
 
 " EditorConfig
 let g:EditorConfig_max_line_indicator = "none"
