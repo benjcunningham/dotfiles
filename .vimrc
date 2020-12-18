@@ -3,6 +3,7 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
+set shell=bash\ -i
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
