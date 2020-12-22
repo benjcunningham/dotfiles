@@ -103,3 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # Bash aliases
 source $HOME/.bash_aliases
 
+# Ruby gems
+export PATH="$HOME/.gem/ruby/$(ruby -v | grep -oE '\d+\.\d+').0/bin:$PATH"
+
+

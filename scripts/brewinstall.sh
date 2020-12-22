@@ -37,8 +37,25 @@ function install {
 install \
     curl \
     git \
+    jq \
     make \
+    node \
+    python \
+    ruby \
     shellcheck \
-    tmux
+    tmux \
+    vim
+
+brew install --cask \
+    docker \
+    iterm2 \
+    spotify \
+    vlc
+
+brew install --cask \
+    brave-browser \
+    lulu \
+    private-internet-access \
+    transmission
 
 echo "[DONE] Done with Homebrew installations"
