@@ -32,3 +32,8 @@
 
     clean = "sed '/^# >>> conda/,/^# <<< conda/d'"
     smudge = cat
+
+[help]
+
+    # Automatically correct and execute mistyped commands
+    autocorrect = 1
