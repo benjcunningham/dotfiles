@@ -19,23 +19,12 @@ else
 
 fi
 
-function install {
-
-    not_installed=()
-
-    for prog in "$@"; do
-        not_installed+=("${prog}")
-    done
-
-    echo "Installing: ${not_installed[*]}"
-
-    # shellcheck disable=SC2068
-    brew install ${not_installed[@]}
-
-}
-
-install \
+# Everywhere
+brew install \
+    colordiff \
+    croc \
     curl \
+    ffmpeg \
     git \
     jq \
     make \
@@ -44,7 +33,8 @@ install \
     ruby \
     shellcheck \
     tmux \
-    vim
+    vim \
+    zsh
 
 brew install --cask \
     docker \
@@ -52,10 +42,19 @@ brew install --cask \
     spotify \
     vlc
 
+# Personal
 brew install --cask \
     brave-browser \
     lulu \
     private-internet-access \
     transmission
+
+# Work
+brew install --cask \
+    keycastr \
+    microsoft-teams
+
+brew install \
+    kubernetes-cli
 
 echo "[DONE] Done with Homebrew installations"
