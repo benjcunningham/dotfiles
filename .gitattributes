@@ -1,1 +1,2 @@
 *.zshrc filter=gitignore
+*.gitconfig filter=gitEmail

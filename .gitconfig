@@ -1,9 +1,14 @@
 [user]
-	name = Ben Cunningham
-	email = benjamescunningham@gmail.com
+
+    name = Ben Cunningham
+
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
 [filter "gitignore"]
 	clean = "sed '/^# >>> conda/,/^# <<< conda/d'"
 	smudge = cat
+[filter "gitEmail"]
+
+    clean = "sed '/^    email/d'"
+    smudge = cat
