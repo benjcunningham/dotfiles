@@ -28,7 +28,7 @@
     clean = "sed '/^    email/d'"
     smudge = cat
 
-[filter "zshConda"]
+[filter "condaInit"]
 
     clean = "sed '/^# >>> conda/,/^# <<< conda/d'"
     smudge = cat
