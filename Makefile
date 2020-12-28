@@ -1,3 +1,7 @@
+.PHONY: docker dotfiles quality
+
+check_dirs := .git-templates/*
+
 docker:
 	docker build -t dotfiles .
 	docker run -d --rm --name dotfiles -t dotfiles
@@ -6,3 +10,13 @@ docker:
 
 dotfiles:
 	cd scripts && ./dotbotinstall.sh
+
+quality:
+	black --check $(check_dirs)
+	isort --check-only $(check_dirs)
+	flake8 $(check_dirs)
+	mypy $(check_dirs)
+
+style:
+	black $(check_dirs)
+	isort $(check_dirs)
