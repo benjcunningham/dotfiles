@@ -21,6 +21,7 @@
       path: .bashrc
     ~/.condarc: .condarc
     ~/.editorconfig: .editorconfig
+    ~/.git-templates: .git-templates
     ~/.gitconfig:
       force: true
       path: .gitconfig
