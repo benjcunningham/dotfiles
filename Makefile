@@ -1,6 +1,9 @@
-.PHONY: docker dotfiles quality
+.PHONY: docker dotfiles help quality
 
 check_dirs := .git-templates/*
+
+help:
+	@cat help
 
 docker:
 	docker build -t dotfiles .
