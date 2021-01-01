@@ -9,6 +9,10 @@ IS_PERSONAL="${DOTFILES_PERSONAL_INSTALL:-1}"
 
 note "Installing Homebrew software."
 
+if [ -f "/usr/local/bin/2to3" ]; then
+    rm "/usr/local/bin/2to3"
+fi
+
 brew update
 
 if [ ! -f "$(which git)" ]; then
