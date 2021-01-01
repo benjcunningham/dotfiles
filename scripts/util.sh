@@ -44,3 +44,11 @@ execute() {
     abort "$(printf "Failed during: %s" "$(shell_join "$@")")"
   fi
 }
+
+is_darwin() {
+    case "$(uname -s)" in
+        *darwin*) true;;
+        *Darwin**) true;;
+        *) false;;
+    esac
+}
