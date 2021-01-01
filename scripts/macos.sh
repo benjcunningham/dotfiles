@@ -9,6 +9,7 @@ IS_PERSONAL="${DOTFILES_PERSONAL_INSTALL:-1}"
 
 note "Installing Homebrew software."
 
+brew update
 brew install \
     colordiff \
     croc \
