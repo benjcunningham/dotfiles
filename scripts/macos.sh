@@ -11,6 +11,12 @@ note "Installing Homebrew software."
 
 brew update
 
+if [ ! -f "$(which git)" ]; then
+    brew upgrade git
+else
+    brew install git
+fi
+
 if [ ! -f "$(which ruby)" ]; then
     brew upgrade ruby
 else
@@ -22,7 +28,6 @@ brew install \
     croc \
     curl \
     ffmpeg \
-    git \
     jq \
     make \
     node \
