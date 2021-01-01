@@ -10,6 +10,13 @@ IS_PERSONAL="${DOTFILES_PERSONAL_INSTALL:-1}"
 note "Installing Homebrew software."
 
 brew update
+
+if [ ! -f "$(which ruby)" ]; then
+    brew upgrade ruby
+else
+    brew install ruby
+fi
+
 brew install \
     colordiff \
     croc \
@@ -20,7 +27,6 @@ brew install \
     make \
     node \
     python \
-    ruby \
     shellcheck \
     tmux \
     vim \
