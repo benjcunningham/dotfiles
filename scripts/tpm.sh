@@ -12,4 +12,6 @@ if [ ! -d "${TPM_DIR}" ]; then
     git clone https://github.com/tmux-plugins/tpm "${TPM_DIR}"
 fi
 
+tmux new-session -d
 tmux source "${HOME}/.tmux.conf"
+tmux kill-server
