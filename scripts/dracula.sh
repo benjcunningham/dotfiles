@@ -6,7 +6,7 @@ source "scripts/util.sh"
 
 note "Installing Dracula themes..."
 
-if [ is_darwin ]; then
+if is_darwin; then
 
     echo "Adding to iTerm2"
 

@@ -1,29 +1,34 @@
 #!/bin/bash
 
-set -e
-set -o pipefail
+set -eo pipefail
+
+source "scripts/util.sh"
 
 ERRORS=()
+FILE_LIST=$(find . -type f \
+    -not -iwholename "*.git*" \
+    -not -iwholename "./dotbot/*" \
+    -not -iwholename "*.xinitrc*" \
+    | sort -u)
 
-for f in $(find . -type f \
-	-not -iwholename "*.git*" \
-	-not -iwholename "./dotbot/*" \
-	-not -iwholename "*.xinitrc*" \
-	| sort -u); do
+note "Checking the following files with Shellcheck:"
 
+for f in ${FILE_LIST}; do
 
-	if file "$f" | grep --quiet shell; then
+	if file "${f}" | grep --quiet shell; then
 		{
-			shellcheck "$f" && echo "[OK]: sucessfully linted $f"
+			shellcheck -x "${f}" && echo "${f}"
 		} || {
-			ERRORS+=("$f")
+			ERRORS+=("${f}")
 		}
 	fi
+
 done
 
 if [ ${#ERRORS[@]} -eq 0 ]; then
-	echo "[DONE] Shellcheck finished successfully"
+    note "Shellcheck finished successfully"
 else
-	echo "[ERROR] These files failed Shellcheck: ${ERRORS[*]}"
+    warn "These files failed Shellcheck:"
+    echo "${ERRORS[*]}"
 	exit 1
 fi

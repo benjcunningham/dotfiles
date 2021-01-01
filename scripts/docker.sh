@@ -6,7 +6,7 @@ source "scripts/util.sh"
 
 note "Installing Docker..."
 
-if [ is_darwin ]; then
+if is_darwin; then
 
     brew install --cask docker
 

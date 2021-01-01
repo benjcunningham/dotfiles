@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -eo pipefail
 
@@ -14,6 +14,8 @@ tty_green="$(tty_mkbold 32)"
 tty_red="$(tty_mkbold 31)"
 tty_bold="$(tty_mkbold 39)"
 tty_reset="$(tty_escape 0)"
+
+export tty_underline
 
 shell_join() {
   local arg

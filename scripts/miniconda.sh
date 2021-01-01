@@ -8,7 +8,7 @@ note "Installing Miniconda..."
 
 CONDA_PATH="${HOME}/miniconda"
 
-if [ is_darwin ]; then
+if is_darwin; then
     CONDA_INSTALLER="Miniconda3-latest-MacOSX-x86_64.sh"
 else
     CONDA_INSTALLER="Miniconda3-latest-Linux-x86_64.sh"

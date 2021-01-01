@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -eo pipefail
 
@@ -15,10 +15,6 @@ set -eo pipefail
 #       executing it.
 #
 # See https://github.com/benjcunningham/dotfiles for more information.
-
-SCRIPT_COMMIT_SHA=""
-
-BRANCH=${BRANCH:-master}
 
 # String formatting
 if [[ -t 1 ]]; then
@@ -74,7 +70,7 @@ do_install() {
 
     note "Installing benjcunningham/dotfiles..."
 
-    if [ is_darwin ]; then
+    if is_darwin; then
 
         echo "Running macOS installation."
 
@@ -96,7 +92,7 @@ do_install() {
     fi
 
     DOTFILES_DIR="${HOME}/dotfiles"
-    if [ ! -d ${DOTFILES_DIR} ]; then
+    if [ ! -d "${DOTFILES_DIR}" ]; then
         note "Downloading benjcunningham/dotfiles to ${DOTFILES_DIR}."
         git clone https://github.com/benjcunningham/dotfiles "$HOME/dotfiles"
     else
@@ -105,10 +101,9 @@ do_install() {
         echo "If this is not correct, you may want to move that directory."
     fi
 
-    cd ${DOTFILES_DIR}
-    echo $(pwd)
+    cd "${DOTFILES_DIR}"
 
-    if [ is_darwin ]; then
+    if is_darwin; then
 
         scripts/macos.sh
 
