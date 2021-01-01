@@ -16,15 +16,15 @@ fi
 brew update
 
 if [ ! -f "$(which git)" ]; then
-    brew upgrade git
-else
     brew install git
+else
+    brew upgrade git
 fi
 
 if [ ! -f "$(which ruby)" ]; then
-    brew upgrade ruby
-else
     brew install ruby
+else
+    brew upgrade ruby
 fi
 
 brew install \
