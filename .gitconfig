@@ -14,6 +14,7 @@
 
     editor = vim
     excludesfile = ~/.gitignore
+    hooksPath = "${HOME}/.git-templates/hooks"
 
     # Treat spaces before tabs and all kinds of trailing whitespace as an error
     whitespace = space-before-tab,-indent-with-non-tab,trailing-space
@@ -37,7 +38,3 @@
 
     # Automatically correct and execute mistyped commands
     autocorrect = 1
-
-[init]
-
-    templatedir = "$HOME/.git-templates"
