@@ -6,6 +6,6 @@ source "scripts/util.sh"
 
 note "Installing Ruby gems."
 
-sudo gem install --no-rdoc --no-ri \
+sudo gem install \
     github-pages \
     jekyll
