@@ -13,6 +13,6 @@ if [ ! -d "${WALLPAPERS_DIR}" ]; then
     mkdir "${WALLPAPERS_DIR}"
 fi
 
-curl -sL -o "${WALLPAPERS_DIR}/archive.zip" "${WALLPAPERS_URL}"
+curl -svL -o "${WALLPAPERS_DIR}/archive.zip" "${WALLPAPERS_URL}"
 unzip -oq "${WALLPAPERS_DIR}/archive.zip" -d "${WALLPAPERS_DIR}"
 rm "${WALLPAPERS_DIR}/archive.zip"
