@@ -1,13 +1,14 @@
 #!/bin/bash
 
-echo "Applying xfce4-power-manager settings"
+set -eo pipefail
 
-function customize {
+source "scripts/util.sh"
 
+note "Applying xfce4-power-manager settings."
+
+customize() {
     xfconf-query -c xfce4-power-manager -p "/xfce4-power-manager/$1" -s "$2"
-
-    echo "[OK] $1: $(xfconf-query -c xfce4-power-manager -p "/xfce4-power-manager/$1")"
-
+    echo "- $1: $(xfconf-query -c xfce4-power-manager -p "/xfce4-power-manager/$1")"
 }
 
 customize brightness-switch-restore-on-exit 1
@@ -28,5 +29,3 @@ customize dpms-on-ac-sleep 0
 customize dpms-on-ac-off 0
 customize dpms-on-battery-off 0
 customize dpms-on-battery-sleep 30
-
-echo "[DONE] Power manager settings applied"

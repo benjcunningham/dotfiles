@@ -1,26 +1,21 @@
 #!/bin/bash
 
-echo "Installing Ubuntu libraries with APT"
+set -eo pipefail
+
+source "scripts/util.sh"
+
+note "Adding GPG keys for third-party APT sources."
+
+echo "Installing brave-browser keys"
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | \
+    sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | \
+    sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
+note "Installing Ubuntu (APT) software."
 
 sudo apt-get update
-
-# shellcheck disable=SC2032
-function install {
-
-    not_installed=()
-
-    for prog in "$@"; do
-        not_installed+=("${prog}")
-    done
-
-    echo "Installing: ${not_installed[*]}"
-
-    # shellcheck disable=SC2033,SC2068
-    sudo apt-get install -y ${not_installed[@]}
-
-}
-
-install \
+sudo apt-get install -y \
     sudo \
     apt-transport-https \
     arandr \
@@ -61,5 +56,3 @@ install \
 
 sudo apt-get upgrade -y
 sudo apt-get autoremove -y
-
-echo "[DONE] Done with APT installations"
