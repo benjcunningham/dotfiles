@@ -66,6 +66,7 @@ do_install() {
         curl \
         git \
         make \
+        python \
         tmux \
         vim
 
