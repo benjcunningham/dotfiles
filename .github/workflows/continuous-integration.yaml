@@ -13,6 +13,9 @@ jobs:
         os:
           - macos-latest
           - ubuntu-latest
+        dotconf:
+          - full
+          - minimal
     steps:
     - uses: actions/checkout@v2
     - name: Lint scripts with Shellcheck
@@ -27,4 +30,8 @@ jobs:
         brew install shellcheck
         ./test.sh
     - name: Execute full installation
+      if: matrix.dotconf == 'full'
       run: ./install.sh
+    - name: Execute minimal installation
+      if: matrix.os == 'ubuntu-latest' && matrix.dotconf == 'minimal'
+      run: ./minimal.sh
