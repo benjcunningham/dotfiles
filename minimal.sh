@@ -61,7 +61,7 @@ do_install() {
 	Debian-like (incl. Ubuntu) system.
 	EOF
 
-    sudo apt-get install update
+    sudo apt-get update
     sudo apt-get install -y \
         curl \
         git \
