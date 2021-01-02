@@ -71,7 +71,10 @@ do_install() {
         vim
 
     DOTFILES_DIR="${HOME}/dotfiles"
-    if [ ! -d "${DOTFILES_DIR}" ]; then
+    if [ -n ${DOTFILES_LOCAL} ]; then
+        note "Using local dotfiles from ${DOTFILES_DIR}."
+        echo "Assuming the files you want to use exist at the location."
+    elif [ ! -d "${DOTFILES_DIR}" ]; then
         note "Downloading benjcunningham/dotfiles to ${DOTFILES_DIR}."
         git clone https://github.com/benjcunningham/dotfiles "$HOME/dotfiles"
     else

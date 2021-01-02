@@ -4,6 +4,7 @@ RUN apt-get update && \
 RUN useradd -m docker && \
     echo "docker:docker" | chpasswd && \
     adduser docker sudo
-WORKDIR /dotfiles
+WORKDIR /root/dotfiles
+ENV DOTFILES_LOCAL=1
 COPY . .
 RUN ./install.sh
