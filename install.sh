@@ -87,7 +87,12 @@ do_install() {
 
         echo "Running Linux installation."
 
-        sudo apt-get install curl git make
+        sudo apt-get update
+        sudo apt-get install -y \
+            curl \
+            git \
+            gnupg \
+            make
 
     fi
 
