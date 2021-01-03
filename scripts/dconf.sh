@@ -7,4 +7,4 @@ source "scripts/util.sh"
 note "Installing dconf settings."
 
 cd dconf
-dconf load "/org/gnome/terminal/" "gnome-terminal"
+dconf load "/org/gnome/terminal/" < "gnome-terminal"
