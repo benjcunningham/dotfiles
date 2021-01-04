@@ -6,5 +6,9 @@ source "scripts/util.sh"
 
 note "Installing dconf settings."
 
-cd dconf
-dconf load "/org/gnome/terminal/" < "gnome-terminal"
+if [ -n "${DISPLAY}" ]; then
+    cd dconf
+    dconf load "/org/gnome/terminal/" < "gnome-terminal"
+else
+    warn "\$DISPLAY is not set. Skipping dconf install."
+fi
