@@ -18,11 +18,13 @@ sudo apt-get update
 sudo apt-get install -y \
     sudo \
     apt-transport-https \
+    build-essential \
     arandr \
     ca-certificates \
     curl \
     dconf-cli \
     feh \
+    g++ \
     gcc \
     git \
     gnome-terminal \
@@ -31,6 +33,7 @@ sudo apt-get install -y \
     i3status \
     irssi \
     libcurl4-gnutls-dev \
+    libpng-dev \
     libssl-dev \
     libxml2-dev \
     make \
