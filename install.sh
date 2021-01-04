@@ -110,6 +110,7 @@ do_install() {
     fi
 
     cd "${DOTFILES_DIR}"
+    export DOTBOT_CONFIG="dotbot.conf.yaml"
 
     if is_darwin; then
 
