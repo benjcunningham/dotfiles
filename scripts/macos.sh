@@ -31,6 +31,7 @@ brew install \
     colordiff \
     croc \
     curl \
+    exa \
     ffmpeg \
     jq \
     make \
