@@ -4,8 +4,8 @@ set -eo pipefail
 
 source "scripts/util.sh"
 
-IS_WORK="${DOTFILES_WORK_INSTALL:-0}"
-IS_PERSONAL="${DOTFILES_PERSONAL_INSTALL:-1}"
+DOTFILES_WORK="${DOTFILES_WORK_INSTALL:-0}"
+DOTFILES_PERSONAL="${DOTFILES_PERSONAL_INSTALL:-1}"
 
 note "Installing Homebrew software."
 
@@ -47,7 +47,7 @@ brew install --cask \
     spotify \
     vlc
 
-if [ "${IS_WORK}" -eq 1 ]; then
+if [ "${DOTFILES_WORK}" -eq 1 ]; then
 
     note "Installing optional Homebrew software for work."
 
@@ -64,7 +64,7 @@ else
 
 fi
 
-if [ "${IS_PERSONAL}" -eq 1 ]; then
+if [ "${DOTFILES_PERSONAL}" -eq 1 ]; then
 
     note "Installing optional Homebrew software for personal use."
 
