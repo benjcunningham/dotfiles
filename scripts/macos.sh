@@ -4,8 +4,8 @@ set -eo pipefail
 
 source "scripts/util.sh"
 
-DOTFILES_WORK="${DOTFILES_WORK_INSTALL:-0}"
-DOTFILES_PERSONAL="${DOTFILES_PERSONAL_INSTALL:-1}"
+DOTFILES_WORK="${DOTFILES_WORK:-0}"
+DOTFILES_PERSONAL="${DOTFILES_PERSONAL:-0}"
 
 note "Installing Homebrew software."
 
