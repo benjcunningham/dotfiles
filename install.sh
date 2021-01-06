@@ -167,7 +167,7 @@ do_install() {
     clone_dotfiles
 
     cd "${DOTFILES_DIR}"
-    export DOTBOT_CONFIG="${DOTBOT_CONFIG:-dotbot.conf.yaml}"
+    export DOTBOT_CONFIG="${DOTBOT_CONFIG:-dotbotconf/full.conf.yaml}"
 
     # Minimal install
     if [ -n "${DOTFILES_MINIMAL}" ]; then
@@ -239,6 +239,7 @@ while getopts ":hlmpw" flag; do
         l ) export DOTFILES_LOCAL=1
             echo "\$DOTFILES_LOCAL set." ;;
         m ) export DOTFILES_MINIMAL=1
+            DOTBOT_CONFIG=dotbotconf/minimal.conf.yaml
             echo "\$DOTFILES_MINIMAL set." ;;
         p ) export DOTFILES_PERSONAL=1
             echo "\$DOTFILES_PERSONAL set." ;;
