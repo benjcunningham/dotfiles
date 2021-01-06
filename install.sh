@@ -66,35 +66,7 @@ is_darwin() {
     esac
 }
 
-do_install() {
-
-    note "Installing benjcunningham/dotfiles..."
-
-    if is_darwin; then
-
-        echo "Running macOS installation."
-
-        if [ ! -f "$(which brew)" ]; then
-            echo | bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-        else
-            warn "Homebrew installation already found."
-        fi
-
-        brew upgrade
-        brew install curl git make
-
-    else
-
-        echo "Running Linux installation."
-
-        sudo apt-get update
-        sudo apt-get install -y \
-            curl \
-            git \
-            gnupg \
-            make
-
-    fi
+clone_dotfiles() {
 
     DOTFILES_DIR="${HOME}/dotfiles"
     if [ -n "${DOTFILES_LOCAL}" ]; then
@@ -109,38 +81,170 @@ do_install() {
         echo "If this is not correct, you may want to move that directory."
     fi
 
-    cd "${DOTFILES_DIR}"
-    export DOTBOT_CONFIG="dotbot.conf.yaml"
+}
+
+usage() {
+
+    cat <<-EOF
+Name:
+
+  benjcunningham/dotfiles -- Ben Cunningham's dotfiles
+
+Usage:
+
+  bash install.sh [-hlmpw]
+
+Options:
+
+  -h  Display this help message
+  -l  Source local version of dotfiles repository
+  -m  Minimal installation
+  -p  Install software for personal use
+  -w  Install software for work use
+
+Notes:
+
+  See https://github.com/benjcunningham/dotfiles to learn more about
+  this script and the software and dotfiles it installs.
+	EOF
+
+    exit 1
+
+}
+
+do_install() {
+
+    script_start=$(date +%s)
+
+    note "Installing benjcunningham/dotfiles..."
 
     if is_darwin; then
 
-        scripts/macos.sh
+        note "Running macOS installation."
+
+        if [ ! -f "$(which brew)" ]; then
+            echo | bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+        else
+            warn "Homebrew installation already found."
+        fi
+
+        brew upgrade
+        brew install curl git make
 
     else
 
-        scripts/ubuntu.sh
-        scripts/fonts.sh
-        scripts/dconf.sh
-        scripts/power-manager.sh
+        note "Running Linux installation."
+
+        sudo apt-get update
+        sudo apt-get install -y \
+            curl \
+            git \
+            gnupg \
+            make
 
     fi
 
-    scripts/docker.sh
-    scripts/miniconda.sh
-    scripts/ohmyzsh.sh
-    scripts/ruby.sh
-    scripts/dotfiles.sh
-    scripts/tpm.sh
-    scripts/vundle.sh
-    scripts/dracula.sh
-    scripts/wallpapers.sh
+    if [ -n "${DOTFILES_MINIMAL}" ]; then
 
-    note "Installation successful!"
+        note "Doing minimal install."
+        cat <<-EOF
+		This is useful for working on machines that aren't your own, for example a
+		remote server. Use the ${tty_underline}install.sh${tty_reset} script if you prefer a full installation.
+		${tty_red}Note${tty_reset}: This script strictly assumes you are running the installation on a
+		Debian-like (incl. Ubuntu) system.
+		EOF
+
+    else
+
+        note "Doing full install."
+        cat <<-EOF
+		This is useful for machines you will use long-term, as it installs lots of software.
+		If you want a more minimal installation, set the --minimal flag.
+		EOF
+
+    fi
+
+    clone_dotfiles
+
+    cd "${DOTFILES_DIR}"
+    export DOTBOT_CONFIG="${DOTBOT_CONFIG:-dotbot.conf.yaml}"
+
+    # Minimal install
+    if [ -n "${DOTFILES_MINIMAL}" ]; then
+
+        # Minimal install (macOS)
+        if is_darwin; then
+
+            warn "No minimal installer available for macOS."
+
+        # Minimal install (Ubuntu)
+        else
+
+            sudo apt-get install -y \
+                python \
+                tmux \
+                vim
+
+            scripts/dotfiles.sh
+            scrpts/tpm.sh
+            scripts/vundle.sh
+
+        fi
+
+    # Full install
+    else
+
+        # Full install (macOS)
+        if is_darwin; then
+
+            scripts/macos.sh
+
+        # Full install (Ubuntu)
+        else
+
+            scripts/ubuntu.sh
+            scripts/fonts.sh
+            scripts/dconf.sh
+            scripts/power-manager.sh
+
+        fi
+
+        scripts/docker.sh
+        scripts/miniconda.sh
+        scripts/ohmyzsh.sh
+        scripts/ruby.sh
+        scripts/dotfiles.sh
+        scripts/tpm.sh
+        scripts/vundle.sh
+        scripts/dracula.sh
+        scripts/wallpapers.sh
+
+    fi
+
+    end_time=$(date +%s)
+    script_time=$((end_time-start_time))
+
+    note "Installation successful! (${script_time}s)"
     note "Next steps:"
     cat <<-EOF
 	Find more documentation here: ${tty_underline}https://benjcunningham.org/dotfiles${tty_reset}.
 	EOF
 
 }
+
+while getopts ":hlmpw" flag; do
+    case "${flag}" in
+        h ) usage
+            exit 1 ;;
+        l ) export DOTFILES_LOCAL=1
+            echo "\$DOTFILES_LOCAL set." ;;
+        m ) export DOTFILES_MINIMAL=1
+            echo "\$DOTFILES_MINIMAL set." ;;
+        p ) export DOTFILES_PERSONAL=1
+            echo "\$DOTFILES_PERSONAL set." ;;
+        w ) export DOTFILES_WORK=1
+            echo "\$DOTFILES_WORK set." ;;
+    esac
+done
 
 do_install
