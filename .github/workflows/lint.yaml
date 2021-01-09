@@ -1,0 +1,15 @@
+name: lint
+on:
+  push:
+    branches:
+    - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Shell
+      run: |
+        sudo apt-get update
+        sudo apt-get install shellcheck
+        ./test.sh
