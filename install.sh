@@ -114,7 +114,7 @@ Notes:
 
 do_install() {
 
-    script_start=$(date +%s)
+    start_time=$(date +%s)
 
     note "Installing benjcunningham/dotfiles..."
 
