@@ -186,7 +186,7 @@ do_install() {
                 vim
 
             scripts/dotfiles.sh
-            scrpts/tpm.sh
+            scripts/tpm.sh
             scripts/vundle.sh
 
         fi
