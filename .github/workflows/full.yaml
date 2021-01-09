@@ -15,4 +15,4 @@ jobs:
     - name: Installation
       run: |
         curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/master/install.sh
-        bash installer.sh -pw
+        bash install.sh -pw
