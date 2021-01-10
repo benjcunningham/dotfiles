@@ -135,6 +135,12 @@ do_install() {
 
         note "Running Linux installation."
 
+        if ! type "add-apt-repository" > /dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y software-properties-common
+        fi
+
+        sudo add-apt-repository ppa:git-core/ppa
         sudo apt-get update
         sudo apt-get install -y \
             curl \
