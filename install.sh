@@ -74,7 +74,7 @@ clone_dotfiles() {
         echo "Assuming the files you want to use exist at the location."
     elif [ ! -d "${DOTFILES_DIR}" ]; then
         note "Downloading benjcunningham/dotfiles to ${DOTFILES_DIR}."
-        if [ ! -d "${DOTFILES_MINIMAL}" ]; then
+        if [ ! -n "${DOTFILES_MINIMAL}" ]; then
             git clone \
                 --depth=1 \
                 --no-checkout \
