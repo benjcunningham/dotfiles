@@ -74,7 +74,24 @@ clone_dotfiles() {
         echo "Assuming the files you want to use exist at the location."
     elif [ ! -d "${DOTFILES_DIR}" ]; then
         note "Downloading benjcunningham/dotfiles to ${DOTFILES_DIR}."
-        git clone https://github.com/benjcunningham/dotfiles "$HOME/dotfiles"
+        if [ ! -d "${DOTFILES_MINIMAL}" ]; then
+            git clone \
+                --depth=1 \
+                --no-checkout \
+                --shallow-submodules \
+                --sparse \
+                https://github.com/benjcunningham/dotfiles \
+                "${DOTFILES_DIR}"
+            cd "${DOTFILES_DIR}"
+            git checkout HEAD \
+                dotbot \
+                dotbotconf/minimal.conf.yaml \
+                scripts/dotfiles.sh \
+                scripts/tpm.sh \
+                scripts/vundle.sh
+        else
+            git clone https://github.com/benjcunningham/dotfiles "${DOTFILES_DIR}"
+        fi
     else
         warn "Directory ${DOTFILES_DIR} already exists."
         echo "Assuming it is an existing clone of this project."
