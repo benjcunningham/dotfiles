@@ -86,6 +86,12 @@ clone_dotfiles() {
             git checkout HEAD \
                 dotbot \
                 dotbotconf/minimal.conf.yaml \
+                .editorconfig \
+                .gitconfig \
+                .gitignore \
+                .git-templates \
+                .tmux.conf \
+                .vimrc \
                 scripts/dotfiles.sh \
                 scripts/tpm.sh \
                 scripts/util.sh \
