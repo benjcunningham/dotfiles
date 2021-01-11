@@ -88,6 +88,7 @@ clone_dotfiles() {
                 dotbotconf/minimal.conf.yaml \
                 scripts/dotfiles.sh \
                 scripts/tpm.sh \
+                scripts/util.sh \
                 scripts/vundle.sh
         else
             git clone https://github.com/benjcunningham/dotfiles "${DOTFILES_DIR}"
