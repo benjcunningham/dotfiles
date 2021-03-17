@@ -1,0 +1,4 @@
+brew "kubernetes-cli"
+
+cask "keycastr"
+cask "microsoft-teams"

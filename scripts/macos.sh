@@ -16,39 +16,13 @@ fi
 brew update
 brew upgrade
 
-brew install \
-    colordiff \
-    croc \
-    curl \
-    exa \
-    ffmpeg \
-    git \
-    jq \
-    make \
-    node \
-    python \
-    ruby \
-    shellcheck \
-    tmux \
-    vim \
-    zsh
-
-brew install --cask \
-    docker \
-    iterm2 \
-    spotify \
-    vlc
+brew bundle -f homebrew/Brewfile
 
 if [ "${DOTFILES_WORK}" -eq 1 ]; then
 
     note "Installing optional Homebrew software for work."
 
-    brew install \
-        kubernetes-cli
-
-    brew install --cask \
-        keycastr \
-        microsoft-teams
+    brew bundle -f homebrew/Brewfile.work
 
 else
 
@@ -60,11 +34,7 @@ if [ "${DOTFILES_PERSONAL}" -eq 1 ]; then
 
     note "Installing optional Homebrew software for personal use."
 
-    brew install --cask \
-        brave-browser \
-        lulu \
-        private-internet-access \
-        transmission
+    brew bundle -f homebrew/Brewfile.personal
 
 else
 
