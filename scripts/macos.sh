@@ -16,13 +16,13 @@ fi
 brew update
 brew upgrade
 
-brew bundle -f homebrew/Brewfile
+brew bundle --file homebrew/Brewfile
 
 if [ "${DOTFILES_WORK}" -eq 1 ]; then
 
     note "Installing optional Homebrew software for work."
 
-    brew bundle -f homebrew/Brewfile.work
+    brew bundle --file homebrew/Brewfile.work
 
 else
 
@@ -34,7 +34,7 @@ if [ "${DOTFILES_PERSONAL}" -eq 1 ]; then
 
     note "Installing optional Homebrew software for personal use."
 
-    brew bundle -f homebrew/Brewfile.personal
+    brew bundle --file homebrew/Brewfile.personal
 
 else
 
