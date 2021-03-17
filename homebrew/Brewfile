@@ -3,6 +3,7 @@ brew "croc"
 brew "curl"
 brew "exa"
 brew "ffmpeg"
+brew "gh"
 brew "git", link: true
 brew "jq"
 brew "make"
