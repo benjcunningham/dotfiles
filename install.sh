@@ -78,7 +78,7 @@ clone_dotfiles() {
         echo "Will do a checkout of ref ${DOTFILES_BRANCH}"
         if [ -n "${DOTFILES_MINIMAL}" ]; then
             git clone \
-                --branch ${DOTFILES_BRANCH} \
+                --branch "${DOTFILES_BRANCH}" \
                 --depth=1 \
                 --no-checkout \
                 --shallow-submodules \
