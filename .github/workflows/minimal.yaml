@@ -16,6 +16,6 @@ jobs:
     steps:
     - name: Installation
       run: |
-        echo "Installing from branch ${GITHUB_REF#refs/heads/}"
+        echo "Installing from branch $GITHUB_HEAD_REF"
         curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${GITHUB_REF#refs/heads/}/install.sh
         bash install.sh -m
