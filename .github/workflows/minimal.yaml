@@ -21,6 +21,6 @@ jobs:
     - name: Installation
       shell: bash
       run: |
-        echo "Installing from branch $GITHUB_HEAD_REF"
-        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/$GITHUB_HEAD_REF/install.sh
+        echo "Installing from branch ${{ env.GITHUB_HEAD_REF }}"
+        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ env.GITHUB_HEAD_REF }}/install.sh
         bash install.sh -m
