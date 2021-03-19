@@ -16,6 +16,7 @@ jobs:
     steps:
     - name: Installation
       run: |
-        echo "Installing from SHA $GITHUB_SHA"
-        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/$GITHUB_SHA/install.sh
+        GITHUB_BRANCH=${GITHUB_REF#refs/heads/}
+        echo "Installing from branch $GITHUB_BRANCH"
+        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/$GITHUB_BRANCH/install.sh
         bash install.sh -m
