@@ -275,6 +275,8 @@ while getopts ":hlmpw" flag; do
             echo "\$DOTFILES_PERSONAL set." ;;
         w ) export DOTFILES_WORK=1
             echo "\$DOTFILES_WORK set." ;;
+        * ) usage
+            exit 1 ;;
     esac
 done
 
