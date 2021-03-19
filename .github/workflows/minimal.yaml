@@ -14,7 +14,12 @@ jobs:
         os:
           - ubuntu-latest
     steps:
+    - name: Set branch ref
+      shell: bash
+      run: |
+        echo "GITHUB_HEAD_REF=${GITHUB_HEAD_REF:-master}" >> $GITHUB_ENV
     - name: Installation
+      shell: bash
       run: |
         echo "Installing from branch $GITHUB_HEAD_REF"
         curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/$GITHUB_HEAD_REF/install.sh
