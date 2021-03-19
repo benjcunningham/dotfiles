@@ -9,16 +9,23 @@ DOTFILES_PERSONAL="${DOTFILES_PERSONAL:-0}"
 
 note "Installing Homebrew software."
 
+echo "Doing 2to3"
 if [ -f "/usr/local/bin/2to3" ]; then
     rm "/usr/local/bin/2to3"
 fi
 
+echo "Updating"
 brew update
+
+echo "Upgrading"
 brew upgrade
 
+echo "Checking Git version"
 if [ ! -f "$(command -v git)" ]; then
+    echo "Installing Git from Brew"
     brew install git
 else
+    echo "Upgrading Git from Brew"
     brew upgrade git
 fi
 
