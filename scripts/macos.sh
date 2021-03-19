@@ -14,6 +14,7 @@ if [ -f "/usr/local/bin/2to3" ]; then
 fi
 
 brew update
+brew upgrade
 
 if [ ! -f "$(command -v git)" ]; then
     brew install git
@@ -21,9 +22,12 @@ else
     brew upgrade git
 fi
 
+echo "Finished Git, doing Brew for Ruby"
 if [ ! -f "$(command -v ruby)" ]; then
+    echo "Brew installing Ruby"
     brew install ruby
 else
+    echo "Brew upgrading Ruby"
     brew upgrade ruby
 fi
 
