@@ -74,6 +74,8 @@ clone_dotfiles() {
         echo "Assuming the files you want to use exist at the location."
     elif [ ! -d "${DOTFILES_DIR}" ]; then
         note "Downloading benjcunningham/dotfiles to ${DOTFILES_DIR}."
+        DOTFILES_SHA="${GITHUB_SHA:-HEAD}"
+        echo "Will do a checkout of ref ${DOTFILES_SHA}"
         if [ -n "${DOTFILES_MINIMAL}" ]; then
             git clone \
                 --depth=1 \
@@ -83,7 +85,7 @@ clone_dotfiles() {
                 https://github.com/benjcunningham/dotfiles \
                 "${DOTFILES_DIR}"
             cd "${DOTFILES_DIR}"
-            git checkout HEAD \
+            git checkout "${DOTFILES_SHA}" \
                 dotbot \
                 dotbotconf/minimal.conf.yaml \
                 .editorconfig \
@@ -98,6 +100,7 @@ clone_dotfiles() {
                 scripts/vundle.sh
         else
             git clone https://github.com/benjcunningham/dotfiles "${DOTFILES_DIR}"
+            git checkout "${DOTFILES_SHA}"
         fi
     else
         warn "Directory ${DOTFILES_DIR} already exists."
