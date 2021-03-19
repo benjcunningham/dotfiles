@@ -16,5 +16,6 @@ jobs:
     steps:
     - name: Installation
       run: |
-        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/master/install.sh
+        echo "Installing from branch $GITHUB_HEAD_REF"
+        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/$GITHUB_HEAD_REF/install.sh
         bash install.sh -m

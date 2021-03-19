@@ -74,8 +74,11 @@ clone_dotfiles() {
         echo "Assuming the files you want to use exist at the location."
     elif [ ! -d "${DOTFILES_DIR}" ]; then
         note "Downloading benjcunningham/dotfiles to ${DOTFILES_DIR}."
+        DOTFILES_BRANCH="${GITHUB_HEAD_REF:-master}"
+        echo "Will do a checkout of ref ${DOTFILES_BRANCH}"
         if [ -n "${DOTFILES_MINIMAL}" ]; then
             git clone \
+                --branch "${DOTFILES_BRANCH}" \
                 --depth=1 \
                 --no-checkout \
                 --shallow-submodules \
@@ -98,6 +101,8 @@ clone_dotfiles() {
                 scripts/vundle.sh
         else
             git clone https://github.com/benjcunningham/dotfiles "${DOTFILES_DIR}"
+            cd "${DOTFILES_DIR}"
+            git checkout "${DOTFILES_BRANCH}"
         fi
     else
         warn "Directory ${DOTFILES_DIR} already exists."

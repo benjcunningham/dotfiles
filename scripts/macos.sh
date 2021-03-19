@@ -14,18 +14,7 @@ if [ -f "/usr/local/bin/2to3" ]; then
 fi
 
 brew update
-
-if [ ! -f "$(command -v git)" ]; then
-    brew install git
-else
-    brew upgrade git
-fi
-
-if [ ! -f "$(command -v ruby)" ]; then
-    brew install ruby
-else
-    brew upgrade ruby
-fi
+brew upgrade
 
 brew install \
     colordiff \
@@ -33,10 +22,12 @@ brew install \
     curl \
     exa \
     ffmpeg \
+    git \
     jq \
     make \
     node \
     python \
+    ruby \
     shellcheck \
     tmux \
     vim \
