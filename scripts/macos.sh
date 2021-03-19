@@ -15,13 +15,13 @@ fi
 
 brew update
 
-if [ ! -f "$(which git)" ]; then
+if [ ! -f "$(command -v git)" ]; then
     brew install git
 else
     brew upgrade git
 fi
 
-if [ ! -f "$(which ruby)" ]; then
+if [ ! -f "$(command -v ruby)" ]; then
     brew install ruby
 else
     brew upgrade ruby

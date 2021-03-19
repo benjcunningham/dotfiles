@@ -146,7 +146,7 @@ do_install() {
 
         note "Running macOS installation."
 
-        if [ ! -f "$(which brew)" ]; then
+        if [ ! -f "$(command -v brew)" ]; then
             echo | bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
         else
             warn "Homebrew installation already found."
