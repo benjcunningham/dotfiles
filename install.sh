@@ -100,6 +100,7 @@ clone_dotfiles() {
                 scripts/vundle.sh
         else
             git clone https://github.com/benjcunningham/dotfiles "${DOTFILES_DIR}"
+            cd "${DOTFILES_DIR}"
             git checkout "${DOTFILES_BRANCH}"
         fi
     else
