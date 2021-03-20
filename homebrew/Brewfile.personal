@@ -1,0 +1,4 @@
+cask "brave-browser"
+cask "lulu"
+cask "private-internet-access"
+cask "transmission"

@@ -1,0 +1,21 @@
+brew "colordiff"
+brew "croc"
+brew "curl"
+brew "exa"
+brew "ffmpeg"
+brew "gh"
+brew "git", link: true
+brew "jq"
+brew "make"
+brew "node"
+brew "python", link: true
+brew "ruby", link: true
+brew "shellcheck"
+brew "tmux"
+brew "vim", link: true
+brew "zsh", link: true
+
+cask "docker"
+cask "iterm2"
+cask "spotify"
+cask "vlc"
