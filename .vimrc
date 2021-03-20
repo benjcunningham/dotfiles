@@ -9,7 +9,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'preservim/nerdtree'
 Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 
 call vundle#end()
