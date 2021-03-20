@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
+Plugin 'vim-airline/vim-airline'
 
 call vundle#end()
 filetype plugin indent on
