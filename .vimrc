@@ -1,4 +1,5 @@
 " Vundle
+set hidden
 set nocompatible
 filetype off
 
