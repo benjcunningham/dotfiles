@@ -252,7 +252,6 @@ do_install() {
         scripts/tpm.sh
         scripts/vundle.sh
         scripts/dracula.sh
-        scripts/wallpapers.sh
 
     fi
 
