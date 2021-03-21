@@ -120,8 +120,3 @@ map <C-Right> <Esc>:bnext<CR>
 " Move between splits
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-
-" NERDTree
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeShowHidden = 1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
