@@ -6,12 +6,12 @@ set -eo pipefail
 #
 # This script is meant for quick, easy install via:
 #
-#   $ curl -fsSL https://github.com/benjcunningham/dotfiles/installer.sh -o installer.sh
-#   $ sh installer.sh
+#   $ curl -fsSLO https://github.com/benjcunningham/dotfiles/install.sh
+#   $ bash install.sh
 #
 # Note: You should make sure to verify the contents of the script you
 #       download matches the contents of the file at
-#       https://github.com/benjcunningham/dotfiles/installer.sh before
+#       https://github.com/benjcunningham/dotfiles/install.sh before
 #       executing it.
 #
 # See https://github.com/benjcunningham/dotfiles for more information.
