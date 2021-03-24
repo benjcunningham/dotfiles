@@ -1,8 +1,11 @@
-" Vundle
+set autoread
 set hidden
 set nocompatible
 filetype off
 
+au CursorHold,CursorHoldI * checktime
+
+" Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 set shell=zsh
 call vundle#begin()
@@ -11,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'vim-airline/vim-airline'
 
 call vundle#end()
