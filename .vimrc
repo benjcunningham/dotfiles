@@ -50,9 +50,6 @@ syntax on
 " Ruler
 set ruler
 
-" Save clicking Shift
-nnoremap ; :
-
 " Highlight search
 set hlsearch
 set ignorecase
