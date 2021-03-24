@@ -31,8 +31,6 @@ let g:instant_markdown_mathjax = 1
 let g:instant_markdown_port = 8090
 let g:instant_markdown_slow = 1
 
-command Preview InstantMarkdownPreview
-
 " EditorConfig
 let g:EditorConfig_max_line_indicator = "none"
 
