@@ -3,6 +3,9 @@
     # Credit an author on the latest commit
     credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 
+    # Remove and delete local branches with a deleted remote branch
+    gone = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs git branch -D"
+
     # Show the user email for the current repository
     whoami = config user.email
 
