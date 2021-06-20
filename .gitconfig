@@ -37,6 +37,13 @@
     clean = "sed '/^# >>> conda/,/^# <<< conda/d'"
     smudge = cat
 
+[filter "lfs"]
+
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
 [help]
 
     # Automatically correct and execute mistyped commands
