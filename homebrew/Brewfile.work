@@ -1,4 +1,11 @@
 brew "kubernetes-cli"
 
+cask "adobe-acrobat-reader"
+cask "google-chrome"
 cask "keycastr"
+cask "microsoft-remote-desktop"
 cask "microsoft-teams"
+cask "muzzle"
+cask "sublime-text"
+cask "vmware-horizon-client"
+cask "webex"
