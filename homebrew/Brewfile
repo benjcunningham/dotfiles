@@ -1,3 +1,4 @@
+brew "asciinema"
 brew "colordiff"
 brew "croc"
 brew "curl"

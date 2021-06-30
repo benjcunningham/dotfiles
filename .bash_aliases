@@ -9,3 +9,6 @@ alias localip="sudo ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | gr
 
 # Tar
 alias untar="tar -xvf"
+
+# Asciinema
+alias asciicast2gif="docker run --rm -v ${PWD}:/data asciinema/asciicast2gif"
