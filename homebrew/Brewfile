@@ -7,6 +7,10 @@ brew "ffmpeg"
 brew "gh"
 brew "git", link: true
 brew "jq"
+brew "k3d"
+brew "k9s"
+brew "kubernetes-cli"
+brew "lazydocker"
 brew "make"
 brew "node"
 brew "python", link: true

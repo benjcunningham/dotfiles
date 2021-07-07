@@ -1,5 +1,3 @@
-brew "kubernetes-cli"
-
 cask "adobe-acrobat-reader"
 cask "google-chrome"
 cask "keycastr"
