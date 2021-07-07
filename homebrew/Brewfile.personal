@@ -1,3 +1,4 @@
+cask "balenaetcher"
 cask "brave-browser"
 cask "lulu"
 cask "private-internet-access"
