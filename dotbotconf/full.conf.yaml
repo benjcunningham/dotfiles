@@ -62,10 +62,10 @@
     quiet: true
   - description: "git config --file ~/.gitconfig.local user.name <input>"
     command: "
-      if [[ $- == *i* ]]; then
+      if [ \"${CI}\" != \"true\" ]; then
         echo -n 'user.name: '
           && read user_name
-          && git config --file ~/.gitconfig.local user.name \"${user_name}\"
+          && git config --file ~/.gitconfig.local user.name \"${user_name}\";
       fi
       "
     stdin: true
@@ -73,10 +73,10 @@
     quiet: true
   - description: "git config --file ~/.gitconfig.local user.email <input>"
     command: "
-      if [[ $- == *i* ]]; then
+      if [ \"${CI}\" != \"true\" ]; then
         echo -n 'user.email: '
           && read user_email
-          && git config --file ~/.gitconfig.local user.email \"${user_email}\"
+          && git config --file ~/.gitconfig.local user.email \"${user_email}\";
       fi
       "
     stdin: true
