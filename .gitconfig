@@ -45,4 +45,4 @@
 
 [include]
 
-    path = ~/.gitconfig_local
+    path = ~/.gitconfig.local
