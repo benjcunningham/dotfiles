@@ -18,6 +18,7 @@ brew "k9s"
 brew "kubernetes-cli"
 brew "lazydocker"
 brew "make"
+brew "mas"
 brew "ncdu"
 brew "node"
 brew "python", link: true
@@ -36,3 +37,5 @@ cask "iterm2"
 cask "spotify"
 cask "vlc"
 cask "zoom"
+
+mas "Magnet", id: 441258766
