@@ -9,10 +9,6 @@
     # Show the user email for the current repository
     whoami = config user.email
 
-[user]
-
-    name = Ben Cunningham
-
 [core]
 
     editor = vim
@@ -26,11 +22,6 @@
 
     # Use hexdump to diff binary files
     textconv = hexdump -v -C
-
-[filter "gitEmail"]
-
-    clean = "sed '/^    email/d'"
-    smudge = cat
 
 [filter "condaInit"]
 
@@ -46,7 +37,12 @@
 
 [help]
 
-    # Automatically correct and execute mistyped commands
     autocorrect = 1
+
 [pull]
+
     rebase = false
+
+[include]
+
+    path = ~/.gitconfig.local

@@ -16,6 +16,9 @@ source "${ZSH}/oh-my-zsh.sh"
 bindkey "^[[A" up-line-or-search
 bindkey "^[[B" down-line-or-search
 
+source <(kompose completion zsh)
+source <(kubectl completion zsh)
+
 timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done

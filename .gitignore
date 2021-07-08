@@ -12,6 +12,7 @@
 __pycache__/
 .pytest_cache/
 build/
+.jupyter/migrated
 
 # R
 .httr-oauth

@@ -1,22 +1,41 @@
 brew "asciinema"
+brew "bat"
+brew "benjcunningham/tap/taskbook"
 brew "colordiff"
 brew "croc"
 brew "curl"
 brew "exa"
 brew "ffmpeg"
+brew "fx"
+brew "fzf"
 brew "gh"
 brew "git", link: true
+brew "git-lfs"
+brew "htop"
 brew "jq"
+brew "k3d"
+brew "k9s"
+brew "kubernetes-cli"
+brew "lazydocker"
 brew "make"
+brew "mas"
+brew "ncdu"
 brew "node"
 brew "python", link: true
+brew "ranger"
 brew "ruby", link: true
 brew "shellcheck"
 brew "tmux"
 brew "vim", link: true
+brew "watch"
+brew "watson"
+brew "zmwangx/npm-noob/noob"
 brew "zsh", link: true
 
 cask "docker"
 cask "iterm2"
 cask "spotify"
 cask "vlc"
+cask "zoom"
+
+mas "Magnet", id: 441258766
