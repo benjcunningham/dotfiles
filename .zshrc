@@ -16,6 +16,7 @@ source "${ZSH}/oh-my-zsh.sh"
 bindkey "^[[A" up-line-or-search
 bindkey "^[[B" down-line-or-search
 
+source <(k3d completion zsh)
 source <(kompose completion zsh)
 source <(kubectl completion zsh)
 
