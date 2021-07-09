@@ -1,3 +1,5 @@
+tap "benjcunningham/tap"
+
 brew "asciinema"
 brew "bat"
 brew "benjcunningham/tap/taskbook"
