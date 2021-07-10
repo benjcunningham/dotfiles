@@ -26,6 +26,7 @@ brew "ncdu"
 brew "node"
 brew "pandoc"
 brew "python", link: true
+brew "r"
 brew "ranger"
 brew "ruby", link: true
 brew "shellcheck"
