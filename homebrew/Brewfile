@@ -24,6 +24,7 @@ brew "make"
 brew "mas"
 brew "ncdu"
 brew "node"
+brew "pandoc"
 brew "python", link: true
 brew "ranger"
 brew "ruby", link: true
@@ -37,6 +38,7 @@ brew "zsh", link: true
 
 cask "docker"
 cask "iterm2"
+cask "mactex"
 cask "spotify"
 cask "vlc"
 cask "zoom"
