@@ -1,0 +1,43 @@
+name: ubuntu
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y shellcheck
+    - name: Verify code quality
+      run: ./test.sh
+  install-full:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set branch ref
+      shell: bash
+      run: |
+        echo "GITHUB_HEAD_REF=${GITHUB_HEAD_REF:-master}" >> $GITHUB_ENV
+    - name: Install from remote
+      run: |
+        echo "Installing from branch ${{ env.GITHUB_HEAD_REF }}"
+        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ env.GITHUB_HEAD_REF }}/install.sh
+        bash install.sh -pw
+  install-minimal:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set branch ref
+      shell: bash
+      run: |
+        echo "GITHUB_HEAD_REF=${GITHUB_HEAD_REF:-master}" >> $GITHUB_ENV
+    - name: Install from remote
+      run: |
+        echo "Installing from branch ${{ env.GITHUB_HEAD_REF }}"
+        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ env.GITHUB_HEAD_REF }}/install.sh
+        bash install.sh -m
