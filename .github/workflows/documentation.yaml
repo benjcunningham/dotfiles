@@ -1,31 +1,21 @@
-name: "documentation"
-
+name: documentation
 on:
   push:
     branches:
-      - "master"
-
+    - master
 jobs:
   build:
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
     steps:
-
-    # Checkout codebase
-    - uses: "actions/checkout@v2"
-
-    # Build Sphinx docs
-    - uses: "ammaraskar/sphinx-action@master"
+    - uses: actions/checkout@v2
+    - uses: ammaraskar/sphinx-action@master
       with:
-        docs-folder: "docs/"
-
-    # Create GitHub artifact from built HTML
-    - uses: "actions/upload-artifact@v1"
+        docs-folder: docs/
+    - uses: actions/upload-artifact@v1
       with:
-        name: "DocumentationHTML"
-        path: "docs/build/html"
-
-    # Commit HTML to gh-pages branch
-    - name: "Commit to GitHub Pages"
+        name: DocumentationHTML
+        path: docs/build/html
+    - name: Commit to GitHub Pages
       run: |
         git clone https://github.com/benjcunningham/dotfiles.git --branch gh-pages --single-branch gh-pages
         cp -r docs/build/html/* gh-pages/
@@ -34,11 +24,9 @@ jobs:
         git config --local user.name "GitHub Action"
         git add .
         git commit -m "🤖📝" -a || true
-
-    # Push gh-pages to remote
-    - name: "Push to GitHub Pages"
-      uses: "ad-m/github-push-action@master"
+    - name: Push to GitHub Pages
+      uses: ad-m/github-push-action@master
       with:
-        branch: "gh-pages"
-        directory: "gh-pages"
+        branch: gh-pages
+        directory: gh-pages
         github_token: ${{ secrets.GITHUB_TOKEN }}
