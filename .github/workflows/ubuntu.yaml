@@ -30,7 +30,12 @@ jobs:
         curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ env.GITHUB_HEAD_REF }}/install.sh
         bash install.sh -pw
   install-minimal:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os:
+        - ubuntu-18.04
+        - ubuntu-20.04
+    runs-on: ${{ matrix.os }}
     steps:
     - name: Set branch ref
       shell: bash
