@@ -21,7 +21,6 @@
       path: .bashrc
     ~/.condarc: .condarc
     ~/.editorconfig: .editorconfig
-    ~/.git-templates: .git-templates
     ~/.gitconfig:
       force: true
       path: .gitconfig
@@ -82,8 +81,3 @@
     stdin: true
     stdout: true
     quiet: true
-
-- link:
-    .git/hooks:
-      force: true
-      path: .git-templates/hooks

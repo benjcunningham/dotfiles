@@ -92,7 +92,6 @@ clone_dotfiles() {
                 .editorconfig \
                 .gitconfig \
                 .gitignore \
-                .git-templates \
                 .tmux.conf \
                 .vimrc \
                 scripts/dotfiles.sh \
