@@ -40,8 +40,3 @@
     stdin: true
     stdout: true
     quiet: true
-
-- link:
-    .git/hooks:
-      force: true
-      path: .git-templates/hooks
