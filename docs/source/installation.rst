@@ -5,9 +5,20 @@ The most convenient way to install everything on a new machine is with:
 
 .. code-block:: bash
 
-    curl -fsSL https://raw.githubusercontent.com/benjcunningham/dotfiles/master/install.sh \
-        -o dotfiles.sh
-    sh dotfiles.sh
+    # Ubuntu prerequesite
+    #
+    # Note: Some machines require installing sudo first
+    #       (i.e., apt-get update && apt-get install sudo)
+
+    sudo apt-get update \
+        && sudo apt-get install curl
+
+    # Both Ubuntu and macOS
+
+    curl -fsSL \
+        https://raw.githubusercontent.com/benjcunningham/dotfiles/master/install.sh \
+        -o dotfiles.sh \
+        && bash dotfiles.sh
 
 .. warning::
 
