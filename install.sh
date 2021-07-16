@@ -217,7 +217,8 @@ do_install() {
             sudo apt-get install -y \
                 python \
                 tmux \
-                vim
+                vim \
+                zsh
 
             scripts/dotfiles.sh
             scripts/tpm.sh
