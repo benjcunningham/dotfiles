@@ -178,9 +178,20 @@
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>The most convenient way to install everything on a new machine is with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -fsSL https://raw.githubusercontent.com/benjcunningham/dotfiles/master/install.sh <span class="se">\</span>
-    -o dotfiles.sh
-sh dotfiles.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ubuntu prerequesite</span>
+<span class="c1">#</span>
+<span class="c1"># Note: Some machines require installing sudo first</span>
+<span class="c1">#       (i.e., apt-get update &amp;&amp; apt-get install sudo)</span>
+
+sudo apt-get update <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> sudo apt-get install curl
+
+<span class="c1"># Both Ubuntu and macOS</span>
+
+curl -fsSL <span class="se">\</span>
+    https://raw.githubusercontent.com/benjcunningham/dotfiles/master/install.sh <span class="se">\</span>
+    -o dotfiles.sh <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> bash dotfiles.sh
 </pre></div>
 </div>
 <div class="admonition warning">
