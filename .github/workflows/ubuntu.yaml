@@ -44,5 +44,7 @@ jobs:
     - name: Install from remote
       run: |
         echo "Installing from branch ${{ env.GITHUB_HEAD_REF }}"
+        sudo apt-get update
+        sudo apt-get install curl
         curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ env.GITHUB_HEAD_REF }}/install.sh
         bash install.sh -m
