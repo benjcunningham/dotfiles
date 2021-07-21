@@ -14,6 +14,9 @@ jobs:
       shell: bash
       run: |
         echo "GITHUB_HEAD_REF=${GITHUB_HEAD_REF:-master}" >> $GITHUB_ENV
+    - name: Clean GitHub Actions environment
+      run: |
+        brew uninstall mongodb-community
     - name: Install from remote
       run: |
         echo "Installing from branch ${{ env.GITHUB_HEAD_REF }}"
