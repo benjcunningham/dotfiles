@@ -22,7 +22,6 @@ brew "kompose"
 brew "kubernetes-cli"
 brew "lazydocker"
 brew "make"
-brew "mas"
 brew "ncdu"
 brew "node"
 brew "pandoc"
@@ -44,5 +43,3 @@ cask "mactex"
 cask "spotify"
 cask "vlc"
 cask "zoom"
-
-mas "Magnet", id: 441258766
