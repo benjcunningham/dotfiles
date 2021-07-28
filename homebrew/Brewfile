@@ -1,4 +1,5 @@
 tap "benjcunningham/tap"
+tap "zmwangx/npm-noob"
 
 brew "asciinema"
 brew "bat"
