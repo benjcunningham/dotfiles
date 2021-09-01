@@ -1,4 +1,4 @@
-name: minimal
+name: macos
 on:
   push:
     branches:
@@ -7,20 +7,15 @@ on:
     branches:
     - master
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os:
-          - ubuntu-latest
+  install-full:
+    runs-on: macos-latest
     steps:
     - name: Set branch ref
       shell: bash
       run: |
         echo "GITHUB_HEAD_REF=${GITHUB_HEAD_REF:-master}" >> $GITHUB_ENV
-    - name: Installation
-      shell: bash
+    - name: Install from remote
       run: |
         echo "Installing from branch ${{ env.GITHUB_HEAD_REF }}"
         curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ env.GITHUB_HEAD_REF }}/install.sh
-        bash install.sh -m
+        bash install.sh -pw

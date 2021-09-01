@@ -10,8 +10,6 @@ Targets:
 
   dotfiles  Run full installation, including linking dotfiles.
   help      Show this help prompt.
-  quality   Check code quality.
-  style     Automatically apply code formatters.
 
 Notes:
 

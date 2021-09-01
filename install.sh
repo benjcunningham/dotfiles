@@ -92,7 +92,6 @@ clone_dotfiles() {
                 .editorconfig \
                 .gitconfig \
                 .gitignore \
-                .git-templates \
                 .tmux.conf \
                 .vimrc \
                 scripts/dotfiles.sh \
@@ -218,7 +217,8 @@ do_install() {
             sudo apt-get install -y \
                 python \
                 tmux \
-                vim
+                vim \
+                zsh
 
             scripts/dotfiles.sh
             scripts/tpm.sh
