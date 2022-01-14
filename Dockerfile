@@ -1,8 +1,11 @@
-FROM ubuntu:latest
-RUN DEBIAN_FRONTEND=noninteractive \
-    apt-get update && \
-    apt-get -y install sudo tzdata
-WORKDIR /root/dotfiles
-ENV DOTFILES_LOCAL=1
-COPY . .
-RUN ./install.sh
+FROM ubuntu:20.04
+
+ENV HOME /root
+WORKDIR $HOME
+
+RUN apt-get update \
+        && apt-get install sudo
+
+ENV CI true
+COPY . ./dotfiles
+RUN dotfiles/install/ubuntu-20.04/minimal.sh
