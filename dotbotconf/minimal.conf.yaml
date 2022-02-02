@@ -20,7 +20,7 @@
     quiet: true
   - description: "git config --file ~/.gitconfig.local user.name <input>"
     command: "
-      if [ \"${CI}\" != \"true\" ]; then
+      if [[ $- == *i* ]]; then
         echo -n 'user.name: '
           && read user_name
           && git config --file ~/.gitconfig.local user.name \"${user_name}\";
@@ -31,7 +31,7 @@
     quiet: true
   - description: "git config --file ~/.gitconfig.local user.email <input>"
     command: "
-      if [ \"${CI}\" != \"true\" ]; then
+      if [[ $- == *i* ]]; then
         echo -n 'user.email: '
           && read user_email
           && git config --file ~/.gitconfig.local user.email \"${user_email}\";
