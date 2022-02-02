@@ -54,13 +54,13 @@ echo "Adding to Zsh"
 ZSH_THEMES="${HOME}/.oh-my-zsh/themes"
 mkdir -p "${ZSH_THEMES}"
 
-DRACULA_THEME="${HOME}/.oh-my-zsh/custom/themes/dracula"
+DRACULA_THEME="${HOME}/.oh-my-zsh/custom/themes/dracula/zsh"
 
 if [ ! -d "${DRACULA_THEME}" ]; then
     git clone https://github.com/dracula/zsh.git "${DRACULA_THEME}"
 fi
 
-cd "${DRACULA_THEME}/zsh"
+cd "${DRACULA_THEME}"
 git pull
 
 ln -fs "${DRACULA_THEME}/dracula.zsh-theme" "${ZSH_THEMES}/dracula.zsh-theme"
