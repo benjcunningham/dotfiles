@@ -11,17 +11,17 @@ CONDA_PATH="${HOME}/miniconda"
 
 case "${DOTFILES_TARGET}" in
 
-    macos/full)
-        CONDA_INSTALLER="Miniconda3-latest-MacOSX-x86_64.sh"
-        ;;
+macos/full)
+    CONDA_INSTALLER="Miniconda3-latest-MacOSX-x86_64.sh"
+    ;;
 
-    ubuntu-18.04/full | ubuntu-18.04/minimal | ubuntu-20.04/full | ubuntu-20.04/minimal)
-        CONDA_INSTALLER="Miniconda3-latest-Linux-x86_64.sh"
-        ;;
+ubuntu-18.04/full | ubuntu-18.04/minimal | ubuntu-20.04/full | ubuntu-20.04/minimal)
+    CONDA_INSTALLER="Miniconda3-latest-Linux-x86_64.sh"
+    ;;
 
-    *)
-        warn "Dotfiles target does not match an option"
-        ;;
+*)
+    warn "Dotfiles target does not match an option"
+    ;;
 
 esac
 

@@ -18,9 +18,9 @@ set -eo pipefail
 
 # String formatting
 if [[ -t 1 ]]; then
-  tty_escape() { printf "\033[%sm" "$1"; }
+    tty_escape() { printf "\033[%sm" "$1"; }
 else
-  tty_escape() { :; }
+    tty_escape() { :; }
 fi
 
 tty_mkbold() { tty_escape "1;$1"; }
@@ -31,38 +31,38 @@ tty_bold="$(tty_mkbold 39)"
 tty_reset="$(tty_escape 0)"
 
 shell_join() {
-  local arg
-  printf "%s" "$1"
-  shift
-  for arg in "$@"; do
-    printf " "
-    printf "%s" "${arg// /\ }"
-  done
+    local arg
+    printf "%s" "$1"
+    shift
+    for arg in "$@"; do
+        printf " "
+        printf "%s" "${arg// /\ }"
+    done
 }
 
 chomp() {
-  printf "%s" "${1/"$'\n'"/}"
+    printf "%s" "${1/"$'\n'"/}"
 }
 
 note() {
-  printf "${tty_green}==>${tty_bold} %s${tty_reset}\n" "$(shell_join "$@")"
+    printf "${tty_green}==>${tty_bold} %s${tty_reset}\n" "$(shell_join "$@")"
 }
 
 warn() {
-  printf "${tty_red}Warning${tty_reset}: %s\n" "$(chomp "$1")"
+    printf "${tty_red}Warning${tty_reset}: %s\n" "$(chomp "$1")"
 }
 
 execute() {
-  if ! "$@"; then
-    abort "$(printf "Failed during: %s" "$(shell_join "$@")")"
-  fi
+    if ! "$@"; then
+        abort "$(printf "Failed during: %s" "$(shell_join "$@")")"
+    fi
 }
 
 is_darwin() {
     case "$(uname -s)" in
-        *darwin*) true;;
-        *Darwin**) true;;
-        *) false;;
+    *darwin*) true ;;
+    *Darwin**) true ;;
+    *) false ;;
     esac
 }
 
@@ -163,7 +163,7 @@ do_install() {
 
         note "Running Linux installation."
 
-        if ! type "add-apt-repository" > /dev/null; then
+        if ! type "add-apt-repository" >/dev/null; then
             sudo apt-get update
             sudo apt-get install -y software-properties-common
         fi
@@ -256,7 +256,7 @@ do_install() {
     fi
 
     end_time=$(date +%s)
-    script_time=$((end_time-start_time))
+    script_time=$((end_time - start_time))
 
     note "Installation successful! (${script_time}s)"
     note "Next steps:"
@@ -268,19 +268,31 @@ do_install() {
 
 while getopts ":hlmpw" flag; do
     case "${flag}" in
-        h ) usage
-            exit 1 ;;
-        l ) export DOTFILES_LOCAL=1
-            echo "\$DOTFILES_LOCAL set." ;;
-        m ) export DOTFILES_MINIMAL=1
-            DOTBOT_CONFIG=dotbotconf/minimal.conf.yaml
-            echo "\$DOTFILES_MINIMAL set." ;;
-        p ) export DOTFILES_PERSONAL=1
-            echo "\$DOTFILES_PERSONAL set." ;;
-        w ) export DOTFILES_WORK=1
-            echo "\$DOTFILES_WORK set." ;;
-        * ) usage
-            exit 1 ;;
+    h)
+        usage
+        exit 1
+        ;;
+    l)
+        export DOTFILES_LOCAL=1
+        echo '$DOTFILES_LOCAL set.'
+        ;;
+    m)
+        export DOTFILES_MINIMAL=1
+        DOTBOT_CONFIG=dotbotconf/minimal.conf.yaml
+        echo '$DOTFILES_MINIMAL set.'
+        ;;
+    p)
+        export DOTFILES_PERSONAL=1
+        echo '$DOTFILES_PERSONAL set.'
+        ;;
+    w)
+        export DOTFILES_WORK=1
+        echo '$DOTFILES_WORK set.'
+        ;;
+    *)
+        usage
+        exit 1
+        ;;
     esac
 done
 

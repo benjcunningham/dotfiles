@@ -35,17 +35,17 @@ ubuntu_install() {
 
 case "${DOTFILES_TARGET}" in
 
-    macos/full)
-        macos_install
-        ;;
+macos/full)
+    macos_install
+    ;;
 
-    ubuntu-18.04/full | ubuntu-18.04/minimal | ubuntu-20.04/full | ubuntu-20.04/minimal)
-        ubuntu_install
-        ;;
+ubuntu-18.04/full | ubuntu-18.04/minimal | ubuntu-20.04/full | ubuntu-20.04/minimal)
+    ubuntu_install
+    ;;
 
-    *)
-        warn "Dotfiles target does not match an option"
-        ;;
+*)
+    warn "Dotfiles target does not match an option"
+    ;;
 
 esac
 
