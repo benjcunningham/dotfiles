@@ -1,6 +1,0 @@
-xkb_symbols "default" {
-  key <I166> { [ Prior ] };
-  key <I167> { [ Next  ] };
-  key <CAPS> { [ Escape ] };
-};
-
