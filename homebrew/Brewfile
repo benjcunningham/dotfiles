@@ -30,6 +30,7 @@ brew "pandoc"
 brew "python", link: true
 brew "r"
 brew "ranger"
+brew "ripgrep"
 brew "ruby", link: true
 brew "shellcheck"
 brew "tmux"
