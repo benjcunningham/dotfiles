@@ -35,9 +35,6 @@
     ~/.redshift:
       if: "[ `uname` = Linux ]"
       path: .redshift
-    ~/.rofi:
-      if: "[ `uname` = Linux ]"
-      path: .rofi
     ~/.tmux.conf: .tmux.conf
     ~/.vimrc: .vimrc
     ~/.xbindkeysrc:

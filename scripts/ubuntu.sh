@@ -45,7 +45,6 @@ sudo apt-get install -y \
     pulsemixer \
     python \
     redshift \
-    rofi \
     ruby \
     ruby-dev \
     software-properties-common \

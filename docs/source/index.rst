@@ -32,7 +32,6 @@ Ubuntu
 ~~~~~~
 
 - `i3 <https://i3wm.org/>`_
-- `Rofi <https://github.com/davatorium/rofi>`_
 
 Next Steps
 ----------
