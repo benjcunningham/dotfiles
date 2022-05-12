@@ -18,7 +18,6 @@ Cross-Platform
 - `Docker <https://www.docker.com/>`_
 - `EditorConfig <https://editorconfig.org/>`_
 - `Git <https://git-scm.com/>`_
-- `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_
 - `Tmux <https://github.com/tmux/tmux>`_
 - `Vim <https://www.vim.org/>`_
 - `Zsh <https://www.zsh.org/>`_

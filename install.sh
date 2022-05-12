@@ -245,7 +245,6 @@ do_install() {
         fi
 
         scripts/docker.sh
-        scripts/miniconda.sh
         scripts/ohmyzsh.sh
         scripts/ruby.sh
         scripts/dotfiles.sh
