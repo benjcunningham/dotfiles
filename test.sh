@@ -8,7 +8,6 @@ ERRORS=()
 FILE_LIST=$(find . -type f \
     -not -iwholename "*.git*" \
     -not -iwholename "./dotbot/*" \
-    -not -iwholename "*.xinitrc*" \
     | sort -u)
 
 note "Checking the following files with Shellcheck:"

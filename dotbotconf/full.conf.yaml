@@ -37,15 +37,6 @@
       path: .redshift
     ~/.tmux.conf: .tmux.conf
     ~/.vimrc: .vimrc
-    ~/.xbindkeysrc:
-      if: "[ `uname` = Linux ]"
-      path: .xbindkeysrc
-    ~/.xinitrc:
-      if: "[ `uname` = Linux ]"
-      path: .xinitrc
-    ~/.xkb:
-      if: "[ `uname` = Linux ]"
-      path: .xkb
     ~/.zshrc:
       force: true
       path: .zshrc
