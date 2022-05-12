@@ -41,7 +41,6 @@ sudo apt-get install -y \
     pulseaudio-module-bluetooth \
     pulsemixer \
     python \
-    redshift \
     ruby \
     ruby-dev \
     software-properties-common \
