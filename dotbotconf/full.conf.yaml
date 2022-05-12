@@ -8,10 +8,6 @@
     - "~/.config"
 
 - link:
-    ~/.config/gtk-3.0:
-      glob: true
-      if: "[ `uname` = Linux ]"
-      path: .config/gtk-3.0/*
     ~/.bash_aliases: .bash_aliases
     ~/.bashrc:
       force: true
