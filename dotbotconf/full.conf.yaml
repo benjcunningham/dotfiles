@@ -17,7 +17,6 @@
       force: true
       path: .gitconfig
     ~/.gitignore: .gitignore
-    ~/.jupyter: .jupyter
     ~/.local/share/applications/mimeapps.list:
       if: "[ `uname` = Linux ]"
       path: .local/share/applications/mimeapps.list
