@@ -60,3 +60,6 @@ rec() {
 }
 
 
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
