@@ -7,7 +7,6 @@ TERM=xterm-256color
 
 skip_global_compinit=1
 
-source "${HOME}/.bash_aliases"
 source "${ZSH}/oh-my-zsh.sh"
 
 # Search history with up / down keys
