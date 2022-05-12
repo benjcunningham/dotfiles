@@ -13,8 +13,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
-Plugin 'tmux-plugins/vim-tmux-focus-events'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'vim-airline/vim-airline'
 
 call vundle#end()
@@ -25,11 +25,15 @@ let g:dracula_italic = 0
 let g:dracula_colorterm = 0
 colorscheme dracula
 
-" Instant Markdown
-let g:instant_markdown_autostart = 0
-let g:instant_markdown_mathjax = 1
-let g:instant_markdown_port = 8090
-let g:instant_markdown_slow = 1
+" FZF
+set rtp+=/usr/local/opt/fzf
+
+let $FZF_DEFAULT_COMMAND = 'fd --type f'
+
+command! -bang -nargs=? -complete=dir Files call fzf#vim#files(
+    \ <q-args>,
+    \ fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}),
+    \ <bang>0)
 
 " EditorConfig
 let g:EditorConfig_max_line_indicator = "none"
@@ -118,4 +122,6 @@ map <C-Right> <Esc>:bnext<CR>
 
 " Move between splits
 map <C-h> <C-W>h
+map <C-j> <C-W>j
+map <C-k> <C-W>k
 map <C-l> <C-W>l
