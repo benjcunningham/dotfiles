@@ -28,8 +28,6 @@ sudo apt-get install -y \
     git \
     gnome-terminal \
     gnupg-agent \
-    i3 \
-    i3status \
     irssi \
     libcurl4-gnutls-dev \
     libpng-dev \

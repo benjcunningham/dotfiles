@@ -27,11 +27,6 @@ macOS
 
 - `Homebrew <https://brew.sh/>`_
 
-Ubuntu
-~~~~~~
-
-- `i3 <https://i3wm.org/>`_
-
 Next Steps
 ----------
 
