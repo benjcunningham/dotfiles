@@ -239,7 +239,6 @@ do_install() {
 
             scripts/ubuntu.sh
             scripts/fonts.sh
-            scripts/dconf.sh
             scripts/power-manager.sh
 
         fi

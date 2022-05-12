@@ -22,7 +22,6 @@ sudo apt-get install -y \
     arandr \
     ca-certificates \
     curl \
-    dconf-cli \
     feh \
     g++ \
     gcc \
