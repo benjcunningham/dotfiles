@@ -238,7 +238,6 @@ do_install() {
         else
 
             scripts/ubuntu.sh
-            scripts/power-manager.sh
 
         fi
 

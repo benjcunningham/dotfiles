@@ -52,7 +52,6 @@ sudo apt-get install -y \
     vim \
     vlc \
     xclip \
-    xfce4-power-manager \
     zsh
 
 sudo apt-get upgrade -y
