@@ -241,7 +241,6 @@ do_install() {
 
         fi
 
-        scripts/docker.sh
         scripts/ohmyzsh.sh
         scripts/dotfiles.sh
         scripts/tpm.sh
