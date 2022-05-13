@@ -19,36 +19,17 @@ sudo apt-get install -y \
     sudo \
     apt-transport-https \
     build-essential \
-    arandr \
     ca-certificates \
     curl \
-    feh \
     g++ \
     gcc \
     git \
-    gnome-terminal \
     gnupg-agent \
-    irssi \
-    libcurl4-gnutls-dev \
-    libpng-dev \
-    libssl-dev \
-    libxml2-dev \
     make \
-    network-manager-openvpn \
-    openvpn \
-    pavucontrol \
-    pulseaudio \
-    pulseaudio-module-bluetooth \
-    pulsemixer \
-    python \
-    ruby \
-    ruby-dev \
     software-properties-common \
     shellcheck \
     tmux \
     vim \
-    vlc \
-    xclip \
     zsh
 
 sudo apt-get upgrade -y
