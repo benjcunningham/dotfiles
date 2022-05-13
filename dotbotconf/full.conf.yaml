@@ -8,21 +8,11 @@
     - "~/.config"
 
 - link:
-    ~/.bash_aliases: .bash_aliases
-    ~/.bashrc:
-      force: true
-      path: .bashrc
     ~/.editorconfig: .editorconfig
     ~/.gitconfig:
       force: true
       path: .gitconfig
     ~/.gitignore: .gitignore
-    ~/.local/share/applications/mimeapps.list:
-      if: "[ `uname` = Linux ]"
-      path: .local/share/applications/mimeapps.list
-    ~/.redshift:
-      if: "[ `uname` = Linux ]"
-      path: .redshift
     ~/.tmux.conf: .tmux.conf
     ~/.vimrc: .vimrc
     ~/.zshrc:
