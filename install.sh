@@ -168,7 +168,7 @@ do_install() {
             sudo apt-get install -y software-properties-common
         fi
 
-        sudo add-apt-repository ppa:git-core/ppa
+        sudo add-apt-repository -y ppa:git-core/ppa
         sudo apt-get update
         sudo apt-get install -y \
             curl \
