@@ -243,7 +243,6 @@ do_install() {
 
         scripts/docker.sh
         scripts/ohmyzsh.sh
-        scripts/ruby.sh
         scripts/dotfiles.sh
         scripts/tpm.sh
         scripts/vundle.sh
