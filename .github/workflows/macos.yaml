@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: Setup CI environment
       run: |
-        brew unlink git
+        brew unlink git@2.35.1
     - name: Set branch ref
       shell: bash
       run: |
