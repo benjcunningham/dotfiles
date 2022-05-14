@@ -22,9 +22,9 @@ brew "vim", link: true
 brew "watch"
 brew "zsh", link: true
 
-cask "docker"
-cask "iterm2"
-cask "mactex"
-cask "spotify"
-cask "vlc"
-cask "zoom"
+cask "docker" unless "[[ -f ${HOME}/.github-ci ]]"
+cask "iterm2" unless "[[ -f .${HOME}/github-ci ]]"
+cask "mactex" unless "[[ -f .${HOME}/github-ci ]]"
+cask "spotify" unless "[[ -f .${HOME}/github-ci ]]"
+cask "vlc" unless "[[ -f .${HOME}/github-ci ]]"
+cask "zoom" unless "[[ -f .${HOME}/github-ci ]]"

@@ -13,6 +13,7 @@ jobs:
     - name: Setup CI environment
       run: |
         brew unlink git@2.35.1
+        touch ${HOME}/.github-ci
     - name: Set branch ref
       shell: bash
       run: |
