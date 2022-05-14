@@ -14,7 +14,7 @@ docker/build:
 .PHONY: test/ci/lint
 test/ci/lint:
 	$(MAKE) docker/build DOCKER_TARGET=test
-	docker run
+	docker run \
 		-t \
 		--rm \
 		${DOCKER_IMAGE}:${DOCKER_TAG} \
