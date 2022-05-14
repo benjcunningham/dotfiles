@@ -1,9 +1,11 @@
-SYSTEM_TARGET := ubuntu-20.04
+SYSTEM_TARGET =
 
 DOCKER_TARGET = install
 DOCKER_IMAGE = benjcunningham/dotfiles/$(SYSTEM_TARGET)
 DOCKER_TAG = latest
 DOCKERFILE_PATH = docker/$(SYSTEM_TARGET)/Dockerfile
+
+INSTALL_OPTS =
 
 .PHONY: build
 build:
@@ -31,4 +33,4 @@ test/install: build
 		-e DOTFILES_LOCAL=1 \
 		-e DEBIAN_FRONTEND=noninteractive \
 		${DOCKER_IMAGE}:${DOCKER_TAG} \
-		bash ./install.sh
+		bash ./install.sh $(INSTALL_OPTS)
