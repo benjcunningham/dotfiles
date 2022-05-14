@@ -2,7 +2,7 @@
 
 FROM ubuntu:20.04 AS preinstall
 
-ENV DEBIAN_FRONTEND=noninteractive
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
     && apt-get -y install sudo tzdata
