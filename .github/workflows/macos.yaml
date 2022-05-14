@@ -10,6 +10,9 @@ jobs:
   install-full:
     runs-on: macos-latest
     steps:
+    - name: Setup CI environment
+      run: |
+        brew unlink git
     - name: Set branch ref
       shell: bash
       run: |
