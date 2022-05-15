@@ -4,30 +4,29 @@ set -eo pipefail
 
 source "scripts/util.sh"
 
-ERRORS=()
-FILE_LIST=$(find . -type f \
-    -not -iwholename "*.git*" \
-    -not -iwholename "./dotbot/*" \
-    | sort -u)
+paths=($(find "scripts" -name "*.sh"))
+issues=0
 
 note "Checking the following files with Shellcheck:"
 
-for f in ${FILE_LIST}; do
+for i in "${!paths[@]}"; do
 
-	if file "${f}" | grep --quiet shell; then
-		{
-			shellcheck -x "${f}" && echo "${f}"
-		} || {
-			ERRORS+=("${f}")
-		}
-	fi
+    iter="$((i + 1))/${#paths[@]}"
+    path="${paths[$i]}"
+
+    error=$(shellcheck -x "${path}" || true)
+
+    if [ -z "${error}" ]; then
+        printf "${path} ${tty_green}OK${tty_reset}\n"
+    else
+        printf "${path} ${tty_red}FAIL${tty_reset}\n"
+        printf "${error}\n"
+    fi
 
 done
 
-if [ ${#ERRORS[@]} -eq 0 ]; then
-    note "Shellcheck finished successfully"
-else
-    warn "These files failed Shellcheck:"
-    echo "${ERRORS[*]}"
-	exit 1
+echo "shellcheck: Checked ${#paths[@]}, Issues: ${issues}"
+
+if [ "$issues" -gt "0" ]; then
+    exit 1
 fi
