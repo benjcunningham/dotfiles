@@ -27,6 +27,5 @@ jobs:
         path: branch
     - uses: ./branch/.github/actions/environment
     - uses: ./branch/.github/actions/install
-    - run: |
-        pwd
-        ls -la
+      with:
+        install-args: -pw
