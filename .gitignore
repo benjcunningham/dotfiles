@@ -45,6 +45,7 @@
 .tox/
 .venv
 /site
+Brewfile*.lock.json
 ENV/
 Icon
 MANIFEST
