@@ -22,7 +22,7 @@ jobs:
     - quality
     runs-on: ubuntu-20.04
     steps:
-    - uses: .github/actions/environment
-    - uses: .github/actions/install
+    - uses: ./.github/actions/environment
+    - uses: ./.github/actions/install
       with:
         install-args: -pw
