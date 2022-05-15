@@ -7,20 +7,18 @@ on:
     branches:
     - master
 jobs:
-  install-full:
-    runs-on: macos-latest
+  install:
+    runs-on: macos-12
     steps:
+    - name: Unlink GitHub virtual environment Git
+      run: brew unlink git@2.35.1
+    - name: Checkout repository (for actions only)
+      uses: actions/checkout@v3
+      with:
+        path: branch
     - name: Setup CI environment
-      run: |
-        brew unlink git@2.35.1
-        touch ${HOME}/.github-ci
-    - name: Set branch ref
-      shell: bash
-      run: |
-        echo "DEBIAN_FRONTEND=noninteractive" >> $GITHUB_ENV
-        echo "GITHUB_HEAD_REF=${GITHUB_HEAD_REF:-master}" >> $GITHUB_ENV
-    - name: Install from remote
-      run: |
-        echo "Installing from branch ${{ env.GITHUB_HEAD_REF }}"
-        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ env.GITHUB_HEAD_REF }}/install.sh
-        bash install.sh -pw
+      uses: ./branch/.github/actions/environment
+    - name: Download and run remote install script
+      uses: ./branch/.github/actions/install
+      with:
+        install-args: -pw

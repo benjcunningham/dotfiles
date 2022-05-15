@@ -7,26 +7,29 @@ on:
     branches:
     - master
 jobs:
-  quality:
-    runs-on: ubuntu-latest
+  lint:
+    runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
-    - name: Install dependencies
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Install linter dependencies
       run: |
         sudo apt-get update
         sudo apt-get install -y shellcheck
-    - name: Verify code quality
+    - name: Run linters
       run: ./test.sh
-  install-full:
-    runs-on: ubuntu-latest
+  install:
+    needs:
+    - lint
+    runs-on: ubuntu-20.04
     steps:
-    - name: Set branch ref
-      shell: bash
-      run: |
-        echo "DEBIAN_FRONTEND=noninteractive" >> $GITHUB_ENV
-        echo "GITHUB_HEAD_REF=${GITHUB_HEAD_REF:-master}" >> $GITHUB_ENV
-    - name: Install from remote
-      run: |
-        echo "Installing from branch ${{ env.GITHUB_HEAD_REF }}"
-        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ env.GITHUB_HEAD_REF }}/install.sh
-        bash install.sh -pw
+    - name: Checkout repository (for actions only)
+      uses: actions/checkout@v3
+      with:
+        path: branch
+    - name: Setup CI environment
+      uses: ./branch/.github/actions/environment
+    - name: Download and run remote install script
+      uses: ./branch/.github/actions/install
+      with:
+        install-args: -pw
