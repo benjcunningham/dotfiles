@@ -14,11 +14,13 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import datetime
+
 
 # -- Project information -----------------------------------------------------
 
 project = 'dotfiles'
-copyright = '2020, Ben Cunningham'
+copyright = "{}, {}.".format(datetime.datetime.now().year, "Ben Cunningham")
 author = 'Ben Cunningham'
 master_doc = 'index'
 
