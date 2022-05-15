@@ -56,22 +56,6 @@ I track the usual suspects at:
 
     My ``.gitconfig`` only lists personal profile details, so has to be manually edited on my work machine. `Git's conditional includes <https://git-scm.com/docs/git-config#_conditional_includes>`_ don't seem like the right answer for me currently, but might just be the best alternative.
 
-Jupyter
--------
-
-I absolutely hate notebooks, but I do track a Jupyter config with some minimal customizations at:
-
-.. code-block:: bash
-
-    $HOME/
-        .jupyter/
-            jupyter_notebook_config.py
-
-Miniconda
----------
-
-Miniconda is a minimal installer for Conda, and since I don't want any bloat, I use it instead of Anaconda. This project installs Miniconda, and the Conda path gets added to ``.bashrc`` and ``.zshrc``, but I don't track any dotfiles for it.
-
 Tmux
 ----
 
