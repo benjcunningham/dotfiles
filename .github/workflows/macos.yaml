@@ -17,6 +17,7 @@ jobs:
     - name: Set branch ref
       shell: bash
       run: |
+        echo "DEBIAN_FRONTEND=noninteractive" >> $GITHUB_ENV
         echo "GITHUB_HEAD_REF=${GITHUB_HEAD_REF:-master}" >> $GITHUB_ENV
     - name: Install from remote
       run: |
