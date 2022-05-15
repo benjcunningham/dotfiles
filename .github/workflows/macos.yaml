@@ -12,10 +12,13 @@ jobs:
     steps:
     - name: Unlink GitHub virtual environment Git
       run: brew unlink git@2.35.1
-    - uses: actions/checkout@v3
+    - name: Checkout repository (for actions only)
+      uses: actions/checkout@v3
       with:
         path: branch
-    - uses: ./branch/.github/actions/environment
-    - uses: ./branch/.github/actions/install
+    - name: Setup CI environment
+      uses: ./branch/.github/actions/environment
+    - name: Download and run remote install script
+      uses: ./branch/.github/actions/install
       with:
         install-args: -pw
