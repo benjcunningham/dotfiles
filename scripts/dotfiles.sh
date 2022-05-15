@@ -6,7 +6,7 @@ source "scripts/util.sh"
 
 note "Linking dotfiles with Dotbot..."
 
-DOTBOT_CONFIG="${DOTBOT_CONFIG:-dotbot.conf.yaml}"
+DOTBOT_CONFIG="dotbot.conf.yaml"
 DOTBOT_DIR="dotbot"
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
