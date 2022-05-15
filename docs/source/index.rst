@@ -18,7 +18,6 @@ Cross-Platform
 - `Docker <https://www.docker.com/>`_
 - `EditorConfig <https://editorconfig.org/>`_
 - `Git <https://git-scm.com/>`_
-- `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_
 - `Tmux <https://github.com/tmux/tmux>`_
 - `Vim <https://www.vim.org/>`_
 - `Zsh <https://www.zsh.org/>`_
@@ -27,12 +26,6 @@ macOS
 ~~~~~
 
 - `Homebrew <https://brew.sh/>`_
-
-Ubuntu
-~~~~~~
-
-- `i3 <https://i3wm.org/>`_
-- `Rofi <https://github.com/davatorium/rofi>`_
 
 Next Steps
 ----------

@@ -8,76 +8,20 @@
     - "~/.config"
 
 - link:
-    ~/.config/gtk-3.0:
-      glob: true
-      if: "[ `uname` = Linux ]"
-      path: .config/gtk-3.0/*
-    ~/.config/i3:
-      if: "[ `uname` = Linux ]"
-      path: .config/i3
-    ~/.bash_aliases: .bash_aliases
-    ~/.bashrc:
-      force: true
-      path: .bashrc
-    ~/.condarc: .condarc
     ~/.editorconfig: .editorconfig
     ~/.gitconfig:
       force: true
       path: .gitconfig
     ~/.gitignore: .gitignore
-    ~/.i3:
-      if: "[ `uname` = Linux ]"
-      path: .i3
-    ~/.jupyter: .jupyter
-    ~/.local/share/applications/mimeapps.list:
-      if: "[ `uname` = Linux ]"
-      path: .local/share/applications/mimeapps.list
-    ~/.redshift:
-      if: "[ `uname` = Linux ]"
-      path: .redshift
-    ~/.rofi:
-      if: "[ `uname` = Linux ]"
-      path: .rofi
     ~/.tmux.conf: .tmux.conf
     ~/.vimrc: .vimrc
-    ~/.xbindkeysrc:
-      if: "[ `uname` = Linux ]"
-      path: .xbindkeysrc
-    ~/.xinitrc:
-      if: "[ `uname` = Linux ]"
-      path: .xinitrc
-    ~/.xkb:
-      if: "[ `uname` = Linux ]"
-      path: .xkb
     ~/.zshrc:
       force: true
       path: .zshrc
 
 - shell:
   - description: "Setting ~/.gitconfig.local"
-    command: ":"
-    stdin: true
-    stdout: true
-    quiet: true
-  - description: "git config --file ~/.gitconfig.local user.name <input>"
-    command: "
-      if [ \"${CI}\" != \"true\" ]; then
-        echo -n 'user.name: '
-          && read user_name
-          && git config --file ~/.gitconfig.local user.name \"${user_name}\";
-      fi
-      "
-    stdin: true
-    stdout: true
-    quiet: true
-  - description: "git config --file ~/.gitconfig.local user.email <input>"
-    command: "
-      if [ \"${CI}\" != \"true\" ]; then
-        echo -n 'user.email: '
-          && read user_email
-          && git config --file ~/.gitconfig.local user.email \"${user_email}\";
-      fi
-      "
+    command: scripts/git-config.sh
     stdin: true
     stdout: true
     quiet: true

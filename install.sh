@@ -168,7 +168,7 @@ do_install() {
             sudo apt-get install -y software-properties-common
         fi
 
-        sudo add-apt-repository ppa:git-core/ppa
+        sudo add-apt-repository -y ppa:git-core/ppa
         sudo apt-get update
         sudo apt-get install -y \
             curl \
@@ -238,16 +238,10 @@ do_install() {
         else
 
             scripts/ubuntu.sh
-            scripts/fonts.sh
-            scripts/dconf.sh
-            scripts/power-manager.sh
 
         fi
 
-        scripts/docker.sh
-        scripts/miniconda.sh
         scripts/ohmyzsh.sh
-        scripts/ruby.sh
         scripts/dotfiles.sh
         scripts/tpm.sh
         scripts/vundle.sh

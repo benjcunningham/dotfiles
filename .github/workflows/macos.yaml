@@ -10,9 +10,14 @@ jobs:
   install-full:
     runs-on: macos-latest
     steps:
+    - name: Setup CI environment
+      run: |
+        brew unlink git@2.35.1
+        touch ${HOME}/.github-ci
     - name: Set branch ref
       shell: bash
       run: |
+        echo "DEBIAN_FRONTEND=noninteractive" >> $GITHUB_ENV
         echo "GITHUB_HEAD_REF=${GITHUB_HEAD_REF:-master}" >> $GITHUB_ENV
     - name: Install from remote
       run: |
