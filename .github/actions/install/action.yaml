@@ -10,5 +10,7 @@ runs:
       run: |
         echo "Installing from branch ${{ env.GITHUB_HEAD_REF }}"
       curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ env.GITHUB_HEAD_REF }}/install.sh
+      shell: bash
     - name: Run installer
       run: ./install.sh ${{ inputs.install-args }}
+      shell: bash
