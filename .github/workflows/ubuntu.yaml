@@ -10,7 +10,7 @@ jobs:
   quality:
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Install dependencies
       run: |
         sudo apt-get update
@@ -22,8 +22,10 @@ jobs:
     - quality
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/environment
-    - uses: ./.github/actions/install
+    - uses: actions/checkout@v3
+        with:
+          path: branch
+    - uses: ./branch/.github/actions/environment
+    - uses: ./branch/.github/actions/install
       with:
         install-args: -pw
