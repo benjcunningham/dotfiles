@@ -10,6 +10,7 @@ jobs:
   install:
     runs-on: macos-12
     steps:
+    - uses: actions/checkout@v2
     - uses: ./.github/actions/environment
     - name: Unlink GitHub virtual environment Git
       run: brew unlink git@2.35.1
