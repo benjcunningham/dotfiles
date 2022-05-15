@@ -8,7 +8,7 @@ on:
     - master
 jobs:
   quality:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies
@@ -17,16 +17,12 @@ jobs:
         sudo apt-get install -y shellcheck
     - name: Verify code quality
       run: ./test.sh
-  install-full:
-    runs-on: ubuntu-latest
+  install:
+    needs:
+    - quality
+    runs-on: ubuntu-20.04
     steps:
-    - name: Set branch ref
-      shell: bash
-      run: |
-        echo "DEBIAN_FRONTEND=noninteractive" >> $GITHUB_ENV
-        echo "GITHUB_HEAD_REF=${GITHUB_HEAD_REF:-master}" >> $GITHUB_ENV
-    - name: Install from remote
-      run: |
-        echo "Installing from branch ${{ env.GITHUB_HEAD_REF }}"
-        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ env.GITHUB_HEAD_REF }}/install.sh
-        bash install.sh -pw
+    - uses: .github/actions/environment
+    - uses: .github/actions/install
+      with:
+        install-args: -pw
