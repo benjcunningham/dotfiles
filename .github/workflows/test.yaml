@@ -27,5 +27,6 @@ jobs:
   docker-ubuntu:
     needs: [ubuntu]
     uses: ./.github/workflows/docker.yaml
+    secrets: inherit
     with:
       system-target: ubuntu-20.04

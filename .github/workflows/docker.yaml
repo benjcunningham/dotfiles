@@ -6,6 +6,11 @@ on:
       system-target:
         required: true
         type: string
+    secrets:
+      DOCKERHUB_USERNAME:
+        required: true
+      DOCKERHUB_TOKEN:
+        required: true
 
 jobs:
   build-and-push:
@@ -18,7 +23,7 @@ jobs:
       uses: docker/metadata-action@v4
       with:
         images: |
-          benjcunningham/dotfiles/${{ inputs.system-target }}
+          benjcunningham/${{ inputs.system-target }}
         tags: |
           type=ref,event=branch
           type=ref,event=pr
