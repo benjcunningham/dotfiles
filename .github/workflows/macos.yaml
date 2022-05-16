@@ -1,16 +1,20 @@
 name: macos
+
 on:
-  push:
-    branches:
-    - master
-  pull_request:
-    branches:
-    - master
+  workflow_call:
+    inputs:
+      runs-on:
+        required: true
+        type: string
+      install-args:
+        required: true
+        type: string
+
 jobs:
   install:
-    runs-on: macos-12
+    runs-on: ${{ inputs.runs-on }}
     steps:
-    - name: Unlink GitHub virtual environment Git
+    - name: Unlink Git in virtual environment
       run: brew unlink git@2.35.1
     - name: Checkout repository (for actions only)
       uses: actions/checkout@v3
@@ -21,4 +25,4 @@ jobs:
     - name: Download and run remote install script
       uses: ./branch/.github/actions/install
       with:
-        install-args: -pw
+        install-args: ${{ inputs.install-args }}

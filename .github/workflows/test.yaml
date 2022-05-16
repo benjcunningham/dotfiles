@@ -1,0 +1,23 @@
+name: test
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  lint:
+    uses: ./.github/workflows/lint.yaml
+  ubuntu:
+    needs: [lint]
+    uses: ./.github/workflows/ubuntu.yaml
+    with:
+      runs-on: ubuntu-20.04
+      install-args: -pw
+  macos:
+    needs: [lint]
+    uses: ./.github/workflows/macos.yaml
+    with:
+      runs-on: macos-12
+      install-args: -pw
