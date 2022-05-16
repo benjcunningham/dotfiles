@@ -26,6 +26,6 @@ jobs:
       install-args: -pw
   docker-ubuntu:
     needs: [ubuntu]
-    uses: ./.github/workflows/docker-ubuntu.yaml
+    uses: ./.github/workflows/docker.yaml
     with:
       system-target: ubuntu-20.04
