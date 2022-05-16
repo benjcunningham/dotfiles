@@ -1,17 +1,17 @@
 name: lint
 
 on:
-  workflow_call: {}
+  workflow_call:
+    inputs:
+      runs-on:
+        required: true
+        type: string
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.runs-on }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y shellcheck
-    - name: ShellCheck
-      run: bash ./test.sh
+    - name: Build and test image
+      run: make test/lint SYSTEM_TARGET=${{ inputs.runs-on }}

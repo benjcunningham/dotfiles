@@ -9,6 +9,8 @@ on:
 jobs:
   lint:
     uses: ./.github/workflows/lint.yaml
+    with:
+      runs-on: ubuntu-20.04
   ubuntu:
     needs: [lint]
     uses: ./.github/workflows/ubuntu.yaml
