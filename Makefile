@@ -23,7 +23,7 @@ test/lint: build
 		-t \
 		--rm \
 		${DOCKER_IMAGE}:${DOCKER_TAG} \
-		bash ./test.sh
+		bash scripts/test.sh
 
 .PHONY: test/install
 test/install: build
