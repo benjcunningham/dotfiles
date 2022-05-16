@@ -1,27 +1,18 @@
 name: ubuntu
+
 on:
-  push:
-    branches:
-    - master
-  pull_request:
-    branches:
-    - master
+  workflow_call:
+    inputs:
+      runs-on:
+        required: true
+        type: string
+      install-args:
+        required: true
+        type: string
+
 jobs:
-  lint:
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-    - name: Install linter dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y shellcheck
-    - name: Run linters
-      run: ./test.sh
   install:
-    needs:
-    - lint
-    runs-on: ubuntu-20.04
+    runs-on: ${{ inputs.runs-on }}
     steps:
     - name: Checkout repository (for actions only)
       uses: actions/checkout@v3
@@ -32,4 +23,4 @@ jobs:
     - name: Download and run remote install script
       uses: ./branch/.github/actions/install
       with:
-        install-args: -pw
+        install-args: ${{ inputs.install-args }}
