@@ -1,7 +1,7 @@
 SYSTEM_TARGET =
 
 DOCKER_TARGET = install
-DOCKER_IMAGE = benjcunningham/dotfiles/$(SYSTEM_TARGET)
+DOCKER_IMAGE = benjcunningham/$(SYSTEM_TARGET)
 DOCKER_TAG = latest
 DOCKERFILE_PATH = docker/$(SYSTEM_TARGET)/Dockerfile
 

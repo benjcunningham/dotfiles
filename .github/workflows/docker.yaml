@@ -23,7 +23,7 @@ jobs:
       uses: docker/metadata-action@v4
       with:
         images: |
-          benjcunningham/dotfiles/${{ inputs.system-target }}
+          benjcunningham/${{ inputs.system-target }}
         tags: |
           type=ref,event=branch
           type=ref,event=pr
