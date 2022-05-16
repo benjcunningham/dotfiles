@@ -3,6 +3,7 @@ name: test
 on:
   push:
     branches: [master]
+    tags: [v*]
   pull_request:
     branches: [master]
 
@@ -23,3 +24,8 @@ jobs:
     with:
       runs-on: macos-12
       install-args: -pw
+  docker-ubuntu:
+    needs: [ubuntu]
+    uses: ./.github/workflows/docker.yaml
+    with:
+      system-target: ubuntu-20.04
