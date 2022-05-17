@@ -4,23 +4,21 @@ set -eo pipefail
 
 source "scripts/util.sh"
 
-paths=($(find "scripts" -name "*.sh"))
+mapfile -t paths < <(find "scripts" -name "*.sh")
 issues=0
 
 note "Checking the following files with Shellcheck:"
 
-for i in "${!paths[@]}"; do
-
-    iter="$((i + 1))/${#paths[@]}"
-    path="${paths[$i]}"
+for path in "${paths[@]}"; do
 
     error=$(shellcheck -x "${path}" || true)
 
     if [ -z "${error}" ]; then
-        printf "${path} ${tty_green}OK${tty_reset}\n"
+        echo "${path} ${tty_green}OK${tty_reset}"
     else
-        printf "${path} ${tty_red}FAIL${tty_reset}\n"
-        printf "${error}\n"
+        echo "${path} ${tty_red}FAIL${tty_reset}"
+        echo "${error}"
+        issues=$((issues + 1))
     fi
 
 done
