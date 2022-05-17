@@ -21,3 +21,10 @@ RUN apt-get install -y \
 # Install
 
 FROM preinstall AS install
+
+ARG DEBIAN_FRONTEND=noninteractive
+ARG DOTFILES_LOCAL=1
+
+RUN touch ~/.github-ci \
+    && bash install.sh -pw \
+    && rm ~/.github-ci
