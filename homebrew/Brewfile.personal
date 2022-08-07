@@ -1,5 +1,6 @@
+cask "android-file-transfer"
 cask "balenaetcher"
-cask "brave-browser"
 cask "lulu"
+cask "mactex"
 cask "private-internet-access"
 cask "transmission"

@@ -1,20 +1,28 @@
+brew "argo"
+brew "bash", link: true
 brew "bat"
 brew "colordiff"
 brew "cookiecutter"
 brew "croc"
 brew "curl"
+brew "fd"
+brew "ffmpeg"
 brew "fx"
 brew "fzf"
 brew "gh"
 brew "git", link: true
 brew "git-lfs"
+brew "helm"
 brew "htop"
 brew "jq"
 brew "make"
 brew "ncdu"
-brew "node"
 brew "pandoc"
+brew "pyenv"
+brew "pyenv-virtualenv"
 brew "python", link: true
+brew "r"
+brew "ripgrep"
 brew "ruby", link: true
 brew "shellcheck"
 brew "tmux"
@@ -22,9 +30,10 @@ brew "vim", link: true
 brew "watch"
 brew "zsh", link: true
 
+cask "audacity" unless "[[ -f ${HOME}/.github-ci ]]"
+cask "brave-browser" unless "[[ -f ${HOME}/.github-ci ]]"
 cask "docker" unless "[[ -f ${HOME}/.github-ci ]]"
 cask "iterm2" unless "[[ -f .${HOME}/github-ci ]]"
-cask "mactex" unless "[[ -f .${HOME}/github-ci ]]"
 cask "spotify" unless "[[ -f .${HOME}/github-ci ]]"
 cask "vlc" unless "[[ -f .${HOME}/github-ci ]]"
 cask "zoom" unless "[[ -f .${HOME}/github-ci ]]"
