@@ -1,0 +1,27 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean:
+    - "~"
+    - "~/.config"
+
+- link:
+    ~/.editorconfig: .editorconfig
+    ~/.gitconfig:
+      force: true
+      path: .gitconfig
+    ~/.gitignore: .gitignore
+    ~/.tmux.conf: .tmux.conf
+    ~/.vimrc: .vimrc
+    ~/.zshrc:
+      force: true
+      path: .zshrc
+
+- shell:
+  - description: "Setting ~/.gitconfig.local"
+    command: scripts/git-config.sh
+    stdin: true
+    stdout: true
+    quiet: true

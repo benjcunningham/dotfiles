@@ -1,3 +1,0 @@
-.bashrc filter=condaInit
-.gitconfig filter=gitEmail
-.zshrc filter=condaInit

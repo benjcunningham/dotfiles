@@ -1,50 +1,26 @@
 name: ubuntu
+
 on:
-  push:
-    branches:
-    - master
-  pull_request:
-    branches:
-    - master
+  workflow_call:
+    inputs:
+      runs-on:
+        required: true
+        type: string
+      install-args:
+        required: true
+        type: string
+
 jobs:
-  quality:
-    runs-on: ubuntu-latest
+  install:
+    runs-on: ${{ inputs.runs-on }}
     steps:
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y shellcheck
-    - name: Verify code quality
-      run: ./test.sh
-  install-full:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Set branch ref
-      shell: bash
-      run: |
-        echo "GITHUB_HEAD_REF=${GITHUB_HEAD_REF:-master}" >> $GITHUB_ENV
-    - name: Install from remote
-      run: |
-        echo "Installing from branch ${{ env.GITHUB_HEAD_REF }}"
-        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ env.GITHUB_HEAD_REF }}/install.sh
-        bash install.sh -pw
-  install-minimal:
-    strategy:
-      matrix:
-        os:
-        - ubuntu-18.04
-        - ubuntu-20.04
-    runs-on: ${{ matrix.os }}
-    steps:
-    - name: Set branch ref
-      shell: bash
-      run: |
-        echo "GITHUB_HEAD_REF=${GITHUB_HEAD_REF:-master}" >> $GITHUB_ENV
-    - name: Install from remote
-      run: |
-        echo "Installing from branch ${{ env.GITHUB_HEAD_REF }}"
-        sudo apt-get update
-        sudo apt-get install curl
-        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ env.GITHUB_HEAD_REF }}/install.sh
-        bash install.sh -m
+    - name: Checkout repository (for actions only)
+      uses: actions/checkout@v3
+      with:
+        path: branch
+    - name: Setup CI environment
+      uses: ./branch/.github/actions/environment
+    - name: Download and run remote install script
+      uses: ./branch/.github/actions/install
+      with:
+        install-args: ${{ inputs.install-args }}
