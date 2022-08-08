@@ -13,6 +13,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'towolf/vim-helm'
 Plugin 'vim-airline/vim-airline'
 
 call vundle#end()
@@ -25,6 +28,14 @@ colorscheme dracula
 
 " EditorConfig
 let g:EditorConfig_max_line_indicator = "none"
+
+" FZF
+set rtp+=/usr/local/opt/fzf
+
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+
+let $FZF_DEFAULT_COMMAND='fd --type f'
 
 " Space and display tabs
 set expandtab
@@ -110,4 +121,6 @@ map <C-Right> <Esc>:bnext<CR>
 
 " Move between splits
 map <C-h> <C-W>h
+map <C-j> <C-W>j
+map <C-k> <C-W>k
 map <C-l> <C-W>l
