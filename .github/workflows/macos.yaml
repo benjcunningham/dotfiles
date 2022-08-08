@@ -14,8 +14,6 @@ jobs:
   install:
     runs-on: ${{ inputs.runs-on }}
     steps:
-    - name: Unlink Git in virtual environment
-      run: brew unlink git@2.35.1
     - name: Checkout repository (for actions only)
       uses: actions/checkout@v3
       with:
