@@ -1,4 +1,3 @@
 cask "google-chrome"
-cask "keycastr"
 cask "microsoft-teams"
-cask "muzzle"
+cask "slack"
