@@ -348,7 +348,7 @@ dotbot_install() {
     #
     # GLOBALS
     #
-    #   DOTBOT_FRONTEND     Frontend being used for running this dotfiles
+    #   DOTFILES_FRONTEND   Frontend being used for running this dotfiles
     #                       script. This roughly corresponds to the same
     #                       concept as DEBIAN_FRONTEND, but is more generalized
     #                       to the operating systems supported by this script.
@@ -359,6 +359,8 @@ dotbot_install() {
 
     local dotfiles_dir
 
+    dotfiles_dir="${1}"
+
     note "Linking dotfiles with Dotbot..."
 
     cd "${dotfiles_dir}"
@@ -367,7 +369,7 @@ dotbot_install() {
 
     "${dotfiles_dir}/dotbot/bin/dotbot" -d "${dotfiles_dir}" -c dotbot.conf.yaml
 
-    if [ "${DOTBOT_FRONTEND}" != "noninteractive" ]; then
+    if [ "${DOTFILES_FRONTEND}" != "noninteractive" ]; then
         git_config
     fi
 

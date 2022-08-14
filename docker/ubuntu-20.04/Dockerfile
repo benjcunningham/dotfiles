@@ -26,6 +26,4 @@ ARG DEBIAN_FRONTEND=noninteractive
 ARG DOTFILES_FRONTEND=noninteractive
 ARG DOTFILES_LOCAL=1
 
-RUN touch ~/.github-ci \
-    && bash install.sh -pw \
-    && rm ~/.github-ci
+RUN bash install.sh -pw

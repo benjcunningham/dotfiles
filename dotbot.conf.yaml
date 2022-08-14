@@ -18,10 +18,3 @@
     ~/.zshrc:
       force: true
       path: .zshrc
-
-- shell:
-  - description: "Setting ~/.gitconfig.local"
-    command: scripts/git-config.sh
-    stdin: true
-    stdout: true
-    quiet: true
