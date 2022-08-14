@@ -665,7 +665,7 @@ main() {
     fi
 
     ohmyzsh_install
-    dotfiles_install
+    dotbot_install "${dotfiles_dir}"
     tpm_install
     vundle_install
     dracula_install "${dotfiles_dir}"

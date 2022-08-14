@@ -23,6 +23,7 @@ RUN apt-get install -y \
 FROM preinstall AS install
 
 ARG DEBIAN_FRONTEND=noninteractive
+ARG DOTFILES_FRONTEND=noninteractive
 ARG DOTFILES_LOCAL=1
 
 RUN touch ~/.github-ci \
