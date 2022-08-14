@@ -567,7 +567,7 @@ set_globals() {
     #
     # USAGE
     #
-    #   set_args [OPTIONS]
+    #   set_globals [OPTIONS]
     #
     # GLOBALS
     #
@@ -637,7 +637,7 @@ main() {
     local start_time
     local dotfiles_dir
 
-    set_args "$@"
+    set_globals "$@"
 
     note "Installing benjcunningham/dotfiles..."
     start_time=$(date +%s)
