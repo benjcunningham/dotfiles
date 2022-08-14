@@ -36,26 +36,26 @@ usage() {
     #   a new machine.
 
     cat <<-EOF
-    NAME
+	NAME
 
-      benjcunningham/dotfiles -- Ben Cunningham's Dotfiles
+	  benjcunningham/dotfiles -- Ben Cunningham's Dotfiles
 
-    USAGE
+	USAGE
 
-      bash install.sh [OPTIONS]
+	  bash install.sh [OPTIONS]
 
-    OPTIONS
+	OPTIONS
 
-      -h  Display this help message
-      -l  Source local version of dotfiles repository
-      -m  Minimal installation
-      -p  Install software for personal use
-      -w  Install software for work use
+	  -h  Display this help message
+	  -l  Source local version of dotfiles repository
+	  -m  Minimal installation
+	  -p  Install software for personal use
+	  -w  Install software for work use
 
-    NOTES
+	NOTES
 
-      See https://github.com/benjcunningham/dotfiles to learn more about
-      this script and the software and dotfiles it installs.
+	  See https://github.com/benjcunningham/dotfiles to learn more about
+	  this script and the software and dotfiles it installs.
 	EOF
 
     exit 1
@@ -90,7 +90,7 @@ note() {
     #
     #   <text>  Text to print.
 
-    printf "${tty_green}==>${tty_bold} ${1}${tty_reset}\n"
+    printf "${tty_green}==>${tty_bold} %s${tty_reset}\n" "${1}"
 
 }
 
@@ -285,14 +285,14 @@ macos_install() {
     note "Installing shared Brewfile"
     brew bundle --file homebrew/Brewfile
 
-    if [ -n "${dotfiles_personal}" ]; then
+    if [ -n "${brewfile_personal}" ]; then
         note "Installing personal Brewfile"
         brew bundle --file homebrew/Brewfile.personal
     else
         warn "Skipping install of personal Brewfile"
     fi
 
-    if [ -n "${dotfiles_work}" ]; then
+    if [ -n "${brewfile_work}" ]; then
         note "Installing work Brewfile"
         brew bundle --file homebrew/Brewfile.work
     else
@@ -358,7 +358,6 @@ dotbot_install() {
     #   <dotfiles_dir>  Dotfiles repository directory.
 
     local dotfiles_dir
-    local dotbot_basedir
 
     note "Linking dotfiles with Dotbot..."
 
@@ -466,11 +465,11 @@ ohmyzsh_install() {
 
         warn "Directory ${ZSH} already exists."
         cat <<-EOF
-        Oh My Zsh installer would have exited with an error. If you really need to
-        reinstall you can:
-        - Unset the ZSH variable.
-        - Move or delete the directory.
-        EOF
+		Oh My Zsh installer would have exited with an error. If you really need to
+		reinstall you can:
+		- Unset the ZSH variable.
+		- Move or delete the directory.
+		EOF
 
     fi
 
@@ -660,7 +659,7 @@ main() {
     cd "${dotfiles_dir}"
 
     if is_darwin; then
-        macos_install
+        macos_install "${dotfiles_dir}" "${brewfile_personal}" "${brewfile_work}"
     else
         ubuntu_install
     fi
@@ -669,11 +668,11 @@ main() {
     dotfiles_install
     tpm_install
     vundle_install
-    dracula_install
+    dracula_install "${dotfiles_dir}"
 
     note "Installation successful! ($(($(date +%s)-start_time))s)"
-    echo "Next steps:"
     cat <<-EOF
+	Next steps:
 	Find more documentation here: ${tty_underline}https://benjcunningham.org/dotfiles${tty_reset}.
 	EOF
 
