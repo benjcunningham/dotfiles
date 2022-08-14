@@ -105,7 +105,7 @@ warn() {
     #
     #   Prints the text argument preceeded by a red "Warning:".
     #
-    # ARGS:
+    # ARGS
     #
     #   <text>  Text to print.
 
@@ -147,7 +147,7 @@ clone_dotfiles() {
     #   "local", the repository is assumed to already exist at the location and
     #   will not be cloned.
     #
-    # ARGS:
+    # ARGS
     #
     #   <dotfiles_dir>        Dotfiles repository directory.
     #   <dotfiles_branch>     Git revision of repository to use.
@@ -304,7 +304,7 @@ macos_install() {
 ubuntu_install() {
     # Install Ubuntu software.
     #
-    # USAGE:
+    # USAGE
     #
     #   ubuntu_install
     #
