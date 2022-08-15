@@ -9,6 +9,9 @@ skip_global_compinit=1
 
 source "${ZSH}/oh-my-zsh.sh"
 
+# Set pager
+export PAGER=less
+
 # Search history with up / down keys
 bindkey "^[[A" up-line-or-search
 bindkey "^[[B" down-line-or-search

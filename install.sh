@@ -323,6 +323,7 @@ ubuntu_install() {
         g++ \
         gcc \
         gnupg-agent \
+        less \
         software-properties-common \
         shellcheck \
         tmux \
