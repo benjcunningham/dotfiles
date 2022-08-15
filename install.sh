@@ -320,10 +320,17 @@ ubuntu_install() {
         apt-transport-https \
         build-essential \
         ca-certificates \
+        curl \
+        fd-find \
+        fzf \
         g++ \
         gcc \
+        gnupg \
         gnupg-agent \
+        jq \
         less \
+        make \
+        ripgrep \
         software-properties-common \
         shellcheck \
         tmux \
