@@ -2,28 +2,28 @@
 
 set -eo pipefail
 
-source "scripts/util.sh"
+echo "==> Checking the following files with ShellCheck:"
 
 mapfile -t paths < <(find "scripts" -name "*.sh")
-issues=0
+paths+=("install.sh")
 
-note "Checking the following files with Shellcheck:"
+issues=0
 
 for path in "${paths[@]}"; do
 
     error=$(shellcheck -x "${path}" || true)
 
     if [ -z "${error}" ]; then
-        echo "${path} ${tty_green}OK${tty_reset}"
+        echo "OK   ${path}"
     else
-        echo "${path} ${tty_red}FAIL${tty_reset}"
+        echo "FAIL ${path}"
         echo "${error}"
         issues=$((issues + 1))
     fi
 
 done
 
-echo "shellcheck: Checked ${#paths[@]}, Issues: ${issues}"
+echo "ShellCheck: Checked ${#paths[@]}, Issues: ${issues}"
 
 if [ "$issues" -gt "0" ]; then
     exit 1

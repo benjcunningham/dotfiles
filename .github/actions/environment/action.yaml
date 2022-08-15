@@ -7,5 +7,5 @@ runs:
       run: |
         echo "GITHUB_HEAD_REF=${GITHUB_HEAD_REF:-master}" >> $GITHUB_ENV
         echo "DEBIAN_FRONTEND=noninteractive" >> $GITHUB_ENV
-        touch ~/.github-ci
+        echo "DOTFILES_FRONTEND=noninteractive" >> $GITHUB_ENV
       shell: bash
