@@ -1,5 +1,5 @@
 <h1 align="center">
-    🌱 dotfiles
+  🌱 dotfiles
 </h1>
 
 <p align="center">
@@ -41,53 +41,53 @@ https://github.com/benjcunningham/dotfiles/install.sh before executing it.
 
 | Tool | macOS | Ubuntu |
 |:---|:---|:---|
-| argo | ✅ | |
-| bash | ✅ | ✅ |
-| bat | ✅ | |
-| colordiff | ✅ | |
-| cookiecutter | ✅ | |
-| croc | ✅ | |
-| curl | ✅ | ✅ |
-| fd | ✅ | ✅ |
-| ffmpeg | ✅ | |
-| fx | ✅ | |
-| fzf | ✅ | ✅ |
-| g++ | ✅ | ✅ |
-| gcc | ✅ | ✅ |
-| gh | ✅ | |
-| git | ✅ | ✅ |
-| git-lfs | ✅ | |
-| gnupg | | ✅ |
-| helm | ✅ | |
-| htop | ✅ | |
-| jq | ✅ | ✅ |
-| less | ✅ | ✅ |
-| make | ✅ | ✅ |
-| ncdu | ✅ | |
-| pandoc | ✅ | |
-| pyenv | ✅ | |
-| pyenv-virtualenv | ✅ | |
-| python | ✅ | |
-| r | ✅ | |
-| ripgrep | ✅ | ✅ |
-| ruby | ✅ | |
-| shellcheck | ✅ | ✅ |
-| tmux | ✅ | ✅ |
-| vim | ✅ | ✅ |
-| zsh | ✅ | ✅ |
-| android-file-trasfer | ✅ | |
-| audacity | ✅ | |
-| balenaetcher | ✅ | |
-| brave-browser | ✅ | |
-| docker | ✅ | |
-| google-chrome | ✅ | |
-| iterm2 | ✅ | |
-| lulu | ✅ | |
-| mactex | ✅ | |
-| microsoft-teams | ✅ | |
-| private-internet-access | ✅ | |
-| slack | ✅ | |
-| spotify | ✅ | |
-| transmission | ✅ | |
-| vlc | ✅ | |
-| zoom | ✅ | |
+| argo | wp | |
+| bash | wp | p |
+| bat | wp | |
+| colordiff | wp | |
+| cookiecutter | wp | |
+| croc | wp | |
+| curl | wp | p |
+| fd | wp | p |
+| ffmpeg | wp | |
+| fx | wp | |
+| fzf | wp | p |
+| g++ | wp | p |
+| gcc | wp | p |
+| gh | wp | |
+| git | wp | p |
+| git-lfs | wp | |
+| gnupg | | p |
+| helm | wp | |
+| htop | wp | |
+| jq | wp | p |
+| less | wp | p |
+| make | wp | p |
+| ncdu | wp | |
+| pandoc | wp | |
+| pyenv | wp | |
+| pyenv-virtualenv | wp | |
+| python | wp | |
+| r | wp | |
+| ripgrep | wp | p |
+| ruby | wp | |
+| shellcheck | wp | p |
+| tmux | wp | p |
+| vim | wp | p |
+| zsh | wp | p |
+| android-file-trasfer | p | |
+| audacity | wp | |
+| balenaetcher | p | |
+| brave-browser | wp | |
+| docker | wp | |
+| google-chrome | w | |
+| iterm2 | wp | |
+| lulu | p | |
+| mactex | p | |
+| microsoft-teams | w | |
+| private-internet-access | p | |
+| slack | w | |
+| spotify | wp | |
+| transmission | p | |
+| vlc | wp | |
+| zoom | wp | |
