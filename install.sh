@@ -48,7 +48,6 @@ usage() {
 
 	  -h  Display this help message
 	  -l  Source local version of dotfiles repository
-	  -m  Minimal installation
 	  -p  Install software for personal use
 	  -w  Install software for work use
 
