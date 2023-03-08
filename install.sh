@@ -345,6 +345,8 @@ ubuntu_install() {
     sudo apt-get upgrade -y
     sudo apt-get autoremove -y
 
+    curl https://pyenv.run | bash
+
 }
 
 dotbot_install() {
