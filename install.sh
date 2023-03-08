@@ -329,12 +329,17 @@ ubuntu_install() {
         gnupg-agent \
         jq \
         less \
+        libffi-dev \
+        libssl-dev \
+        libssl1.1 \
         make \
         ripgrep \
-        software-properties-common \
         shellcheck \
+        software-properties-common \
         tmux \
         vim \
+        zlib1g-dev \
+        zlibc \
         zsh
 
     sudo apt-get upgrade -y
