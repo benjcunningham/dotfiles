@@ -48,7 +48,6 @@ usage() {
 
 	  -h  Display this help message
 	  -l  Source local version of dotfiles repository
-	  -m  Minimal installation
 	  -p  Install software for personal use
 	  -w  Install software for work use
 
@@ -329,16 +328,23 @@ ubuntu_install() {
         gnupg-agent \
         jq \
         less \
+        libffi-dev \
+        libssl-dev \
+        libssl1.1 \
         make \
         ripgrep \
-        software-properties-common \
         shellcheck \
+        software-properties-common \
         tmux \
         vim \
+        zlib1g-dev \
+        zlibc \
         zsh
 
     sudo apt-get upgrade -y
     sudo apt-get autoremove -y
+
+    curl https://pyenv.run | bash
 
 }
 

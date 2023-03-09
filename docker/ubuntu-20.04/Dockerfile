@@ -27,3 +27,5 @@ ARG DOTFILES_FRONTEND=noninteractive
 ARG DOTFILES_LOCAL=1
 
 RUN bash install.sh -pw
+
+ENTRYPOINT ["/bin/zsh"]
