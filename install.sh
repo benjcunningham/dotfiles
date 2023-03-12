@@ -181,6 +181,22 @@ clone_dotfiles() {
 
 }
 
+conda_preinstall() {
+    # Install minimal required Conda software.
+    #
+    # USAGE
+    #
+    #   conda_preinstall
+    #
+    # DESCRIPTION
+    #
+    #   Installs the minimal software to continue with the Conda installation
+    #   of this script. Assumes that conda is available in a base environment.
+
+    note "Running Conda pre-installation."
+
+}
+
 macos_preinstall() {
     # Install minimal required macOS software.
     #
@@ -238,6 +254,26 @@ ubuntu_preinstall() {
         git \
         gnupg \
         make
+
+}
+
+conda_install() {
+    # Install Conda software.
+    #
+    # USAGE
+    #
+    #   conda_install
+    #
+    # DESCRIPTION
+    #
+    #   Installs software with Conda, suitable for a JupyterLab environment.
+
+    note "Installing Conda stuff..."
+
+    conda install -c conda-forge \
+        ripgrep \
+        tmux \
+        vim
 
 }
 
@@ -588,19 +624,24 @@ set_globals() {
     # GLOBALS
     #
     #   DOTFILES_LOCAL      Set to "1" if the -l flag is provided.
+    #   DOTFILES_CONDA      Set to "`" if the -c flag is provided.
     #   DOTFILES_PERSONAL   Set to "1" if the -p flag is provided.
     #   DOTFILES_WORK       Set to "1" if the -w flag is provided.
     #
     # OPTIONS
     #
+    #   -c  Specify that only Jupyter software, via Conda, should be installed
     #   -h  Show usage and help for program.
     #   -l  Specify that the dotfiles repository is already available on the
     #       local host.
     #   -p  Specify that Brewfile.personal should be installed.
     #   -w  Specify that Brewfile.work should be installed.
 
-    while getopts ":hlpw" flag; do
+    while getopts ":chlpw" flag; do
         case "${flag}" in
+            c )
+                export DOTFILES_CONDA=1
+                ;;
             h )
                 usage
                 ;;
@@ -637,6 +678,7 @@ main() {
     # GLOBALS
     #
     #   DOTFILES_BRANCH
+    #   DOTFILES_CONDA      Set to "1" if the -c flag is provided.
     #   DOTFILES_LOCAL      Set to "1" if the -l flag is provided.
     #   DOTFILES_PERSONAL   Set to "1" if the -p flag is provided.
     #   DOTFILES_WORK       Set to "1" if the -w flag is provided.
@@ -644,6 +686,7 @@ main() {
     #
     # OPTIONS
     #
+    #   -c  Specify that only Jupyter software, via Conda, should be installed
     #   -h  Show usage and help for program.
     #   -l  Specify that the dotfiles repository is already available on the
     #       local host.
@@ -658,7 +701,9 @@ main() {
     note "Installing benjcunningham/dotfiles..."
     start_time=$(date +%s)
 
-    if is_darwin; then
+    if [ -n "${DOTFILES_CONDA}" ]; then
+        conda_preinstall
+    elif is_darwin; then
         macos_preinstall
     else
         ubuntu_preinstall
@@ -674,14 +719,22 @@ main() {
     clone_dotfiles "${dotfiles_dir}" "${dotfiles_branch}"
     cd "${dotfiles_dir}"
 
-    if is_darwin; then
-        macos_install "${dotfiles_dir}" "${brewfile_personal}" "${brewfile_work}"
+    if [ -n "${DOTFILES_CONDA}" ]; then
+        conda_install
+    elif is_darwin; then
+        macos_install "${dotfiles_dir}" "${DOTFILES_PERSONAL}" "${DOTFILES_WORK}"
     else
         ubuntu_install
     fi
 
-    ohmyzsh_install
     dotbot_install "${dotfiles_dir}"
+
+    if [ -n "${DOTFILES_CONDA}" ]; then
+        conda_install
+    else
+        ohmyzsh_install
+    fi
+
     tpm_install
     vundle_install
     dracula_install "${dotfiles_dir}"
