@@ -12,7 +12,7 @@ all: lint
 	$(MAKE) docker/build SYSTEM_TARGET=ubuntu-20.04
 
 .PHONY: lint
-lint: SYSTEM_TARGET = ubuntu-20.04
+lint: SYSTEM_TARGET = ubuntu-22.04
 lint: DOCKER_TARGET = test
 lint: DOCKER_TAG = test
 lint: docker/build
