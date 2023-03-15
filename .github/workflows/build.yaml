@@ -31,7 +31,6 @@ jobs:
     env:
       DEBIAN_FRONTEND: noninteractive
       DOTFILES_FRONTEND: noninteractive
-      GITHUB_HEAD_REF: ${{ GITHUB_HEAD_REF || "master" }}
     steps:
     - name: Download installer
       run: |
