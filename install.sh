@@ -347,7 +347,11 @@ ubuntu_install() {
     #
     #   Uses a hardcoded list of Ubuntu software to install via APT.
 
-    note "Installing Ubuntu (APT) software."
+    local ubuntu_version
+
+    ubuntu_version=$(. /etc/os-release; echo "${VERSION_ID}")
+
+    note "Installing Ubuntu ${ubuntu_version} (APT) software."
 
     sudo apt-get update
     sudo apt-get install -y \
@@ -366,7 +370,6 @@ ubuntu_install() {
         less \
         libffi-dev \
         libssl-dev \
-        libssl1.1 \
         make \
         ripgrep \
         shellcheck \
@@ -374,8 +377,20 @@ ubuntu_install() {
         tmux \
         vim \
         zlib1g-dev \
-        zlibc \
         zsh
+
+    if [ "${ubuntu_version}" == "20.04" ]; then
+
+        sudo apt-get install -y \
+            libssl1.1 \
+            zlibc
+
+    elif [ "${ubuntu_version}" == "22.04" ]; then
+
+        sudo apt-get install -y \
+            libssl3
+
+    fi
 
     sudo apt-get upgrade -y
     sudo apt-get autoremove -y
