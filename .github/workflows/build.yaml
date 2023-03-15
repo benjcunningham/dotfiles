@@ -47,11 +47,7 @@ jobs:
         - ubuntu-20.04
         - ubuntu-22.04
     runs-on: ubuntu-latest
-    secrets:
-      DOCKERHUB_TOKEN:
-        required: true
-      DOCKERHUB_USERNAME:
-        required: true
+    secrets: inherit
     steps:
     - name: Checkout repository
       uses: action/checkout@v3
