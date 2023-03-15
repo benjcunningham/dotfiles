@@ -35,8 +35,8 @@ jobs:
     steps:
     - name: Download installer
       run: |
-        echo "Installing from branch ${{ env.GITHUB_HEAD_REF }}"
-        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ env.GITHUB_HEAD_REF }}/install.sh
+        echo "Installing from ref ${{ github.ref }}"
+        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ github.ref }}/install.sh
     - name: Run installer
       run: ./install.sh ${{ inputs.install-args }}
 
