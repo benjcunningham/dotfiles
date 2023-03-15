@@ -61,7 +61,7 @@ jobs:
     - name: Build and push to Docker Hub
       uses: docker/build-push-action@v4
       with:
-        file: docker/${{ inputs.system-target }}/Dockerfile
+        file: docker/${{ inputs.image }}/Dockerfile
         target: install
         context: .
         push: ${{ github.event_name != 'pull_request' }}
