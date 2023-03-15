@@ -25,8 +25,6 @@ jobs:
         - macos-12
         - ubuntu-20.04
         - ubuntu-22.04
-        install-args:
-        - -pw
     runs-on: ${{ matrix.runs-on }}
     env:
       DEBIAN_FRONTEND: noninteractive
@@ -37,7 +35,7 @@ jobs:
         echo "Installing from SHA ${{ github.sha }}"
         curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ github.sha }}/install.sh
     - name: Run installer
-      run: bash install.sh ${{ inputs.install-args }}
+      run: bash install.sh -pw
 
   docker:
     strategy:
