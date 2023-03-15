@@ -2,29 +2,81 @@ name: test
 
 on:
   push:
-    branches: [master]
-    tags: [v*]
+    branches:
+    - master
   pull_request:
-    branches: [master]
+    branches:
+    - master
 
 jobs:
+
   lint:
-    uses: ./.github/workflows/lint.yaml
-  ubuntu:
-    needs: [lint]
-    uses: ./.github/workflows/ubuntu.yaml
-    with:
-      runs-on: ubuntu-20.04
-      install-args: -pw
-  macos:
-    needs: [lint]
-    uses: ./.github/workflows/macos.yaml
-    with:
-      runs-on: macos-12
-      install-args: -pw
-  docker-ubuntu:
-    needs: [ubuntu]
-    uses: ./.github/workflows/docker.yaml
-    secrets: inherit
-    with:
-      system-target: ubuntu-20.04
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Lint
+      run: ./scripts/test.sh
+
+  install:
+    strategy:
+      matrix:
+        runs-on:
+        - macos-12
+        - ubuntu-20.04
+        - ubuntu-22.04
+        install-args:
+        - -pw
+    runs-on: ${{ matrix.runs-on }}
+    env:
+      DEBIAN_FRONTEND: noninteractive
+      DOTFILES_FRONTEND: noninteractive
+      GITHUB_HEAD_REF: ${{ env.GITHUB_HEAD_REF || "master" }}
+    steps:
+    - name: Download installer
+      run: |
+        echo "Installing from branch ${{ env.GITHUB_HEAD_REF }}"
+        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ env.GITHUB_HEAD_REF }}/install.sh
+    - name: Run installer
+      run: ./install.sh ${{ inputs.install-args }}
+
+  docker:
+    strategy:
+      matrix:
+        image:
+        - ubuntu-20.04
+        - ubuntu-22.04
+    runs-on: ubuntu-latest
+    secrets:
+      DOCKERHUB_TOKEN:
+        required: true
+      DOCKERHUB_USERNAME:
+        required: true
+    steps:
+    - name: Checkout repository
+      uses: action/checkout@v3
+    - name: Fetch Docker metadata
+      id: meta
+      uses: docker/metadata-action@v4
+      with:
+        images: benjcunningham/${{ inputs.image }}
+        tags: |
+          type=ref,event=branch
+          type=ref,event=pr
+          type=semver,pattern={{version}}
+          type=semver,pattern={{major}}.{{minor}}
+    - name: Login to Docker Hub
+      if: github.event_name != 'pull_request'
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push to Docker Hub
+      uses: docker/build-push-action@v3
+      with:
+        file: docker/${{ inputs.system-target }}/Dockerfile
+        target: install
+        context: .
+        push: ${{ github.event_name != 'pull_request' }}
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
