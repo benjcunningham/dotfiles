@@ -16,7 +16,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
     - name: Lint
-      run: ./scripts/test.sh
+      run: bash scripts/test.sh
 
   install:
     strategy:
@@ -37,7 +37,7 @@ jobs:
         echo "Installing from SHA ${{ github.sha }}"
         curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ github.sha }}/install.sh
     - name: Run installer
-      run: ./install.sh ${{ inputs.install-args }}
+      run: bash install.sh ${{ inputs.install-args }}
 
   docker:
     strategy:
