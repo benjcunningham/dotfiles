@@ -1,0 +1,64 @@
+name: build
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Lint
+      run: bash scripts/test.sh
+
+  install:
+    strategy:
+      matrix:
+        runs-on:
+        - macos-12
+        - ubuntu-20.04
+        - ubuntu-22.04
+    runs-on: ${{ matrix.runs-on }}
+    env:
+      DEBIAN_FRONTEND: noninteractive
+      DOTFILES_FRONTEND: noninteractive
+    steps:
+    - name: Download installer
+      run: |
+        echo "Installing from SHA ${{ github.sha }}"
+        curl -fsSLO https://raw.githubusercontent.com/benjcunningham/dotfiles/${{ github.sha }}/install.sh
+    - name: Run installer
+      run: bash install.sh -pw
+
+  docker:
+    strategy:
+      matrix:
+        image:
+        - ubuntu-20.04
+        - ubuntu-22.04
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Login to Docker Hub
+      if: github.event_name != 'pull_request'
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push to Docker Hub
+      uses: docker/build-push-action@v4
+      with:
+        file: docker/${{ matrix.image }}/Dockerfile
+        target: install
+        context: .
+        push: ${{ github.event_name != 'pull_request' }}
+        tags: benjcunningham/${{ matrix.image }}:latest
+        labels: ${{ steps.meta.outputs.labels }}
