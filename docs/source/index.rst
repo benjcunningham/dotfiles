@@ -25,252 +25,252 @@ standardization. Here are the highlights:
      - Ubuntu
      - Description
    * - android-file-transfer
-     - personal
+     - ✔ :superscript:`P`
      -
      -
    * - apt-transport-https
      -
-     - yes
+     - ✔
      -
    * - argo
-     - yes
+     - ✔
      -
      -
    * - audacity
-     - yes
+     - ✔
      -
      -
    * - balenaetcher
-     - personal
+     - ✔ :superscript:`P`
      -
      -
    * - bash
-     - yes
+     - ✔
      -
      -
    * - bat
-     - yes
+     - ✔
      -
      -
    * - brave-browser
-     - yes
+     - ✔
      -
      -
    * - brew
-     - yes
+     - ✔
      -
      -
    * - build-essential
      -
-     - yes
+     - ✔
      -
    * - ca-certificates
      -
-     - yes
+     - ✔
      -
    * - colordiff
-     - yes
+     - ✔
      -
      -
    * - cookiecutter
-     - yes
+     - ✔
      -
      -
    * - croc
-     - yes
+     - ✔
      -
      -
    * - curl
-     - yes
-     - yes
+     - ✔
+     - ✔
      -
    * - docker
-     - yes
+     - ✔
      -
      -
    * - fd
-     - yes
-     - yes
+     - ✔
+     - ✔
      -
    * - ffmpeg
-     - yes
+     - ✔
      -
      -
    * - fx
-     - yes
+     - ✔
      -
      -
    * - fzf
-     - yes
-     - yes
+     - ✔
+     - ✔
      -
    * - g++
      -
-     - yes
+     - ✔
      -
    * - gcc
      -
-     - yes
+     - ✔
      -
    * - gh
-     - yes
+     - ✔
      -
      -
    * - git
-     - yes
-     - yes
+     - ✔
+     - ✔
      -
    * - git-lfs
-     - yes
+     - ✔
      -
      -
    * - gnupg
      -
-     - yes
+     - ✔
      -
    * - gnupg-agent
      -
-     - yes
+     - ✔
      -
    * - google-chrome
-     - work
+     - ✔ :superscript:`W`
      -
      -
    * - helm
-     - yes
+     - ✔
      -
      -
    * - htop
-     - yes
+     - ✔
      -
      -
    * - iterm2
-     - yes
+     - ✔
      -
      -
    * - jq
-     - yes
-     - yes
+     - ✔
+     - ✔
      -
    * - less
      -
-     - yes
+     - ✔
      -
    * - libffi-dev
      -
-     - yes
+     - ✔
      -
    * - libssl-dev
      -
-     - yes
+     - ✔
      -
    * - libssl1.1
      -
-     - yes
+     - ✔
      -
    * - lulu
-     - personal
+     - ✔ :superscript:`P`
      -
      -
    * - mactex
-     - personal
+     - ✔ :superscript:`P`
      -
      -
    * - make
-     - yes
-     - yes
+     - ✔
+     - ✔
      -
    * - microsoft-teams
-     - work
+     - ✔ :superscript:`W`
      -
      -
    * - ncdu
-     - yes
+     - ✔
      -
      -
    * - pandoc
-     - yes
+     - ✔
      -
      -
    * - private-internet-access
-     - personal
+     - ✔ :superscript:`P`
      -
      -
    * - pyenv
-     - yes
-     - yes
+     - ✔
+     - ✔
      -
    * - pyenv-virtualenv
-     - yes
+     - ✔
      -
      -
    * - python
-     - yes
+     - ✔
      -
      -
    * - r
-     - yes
+     - ✔
      -
      -
    * - ripgrep
-     - yes
-     - yes
+     - ✔
+     - ✔
      -
    * - ruby
-     - yes
+     - ✔
      -
      -
    * - shellcheck
-     - yes
-     - yes
+     - ✔
+     - ✔
      -
    * - slack
-     - work
+     - ✔ :superscript:`W`
      -
      -
    * - software-properties-common
      -
-     - yes
+     - ✔
      -
    * - spotify
-     - yes
+     - ✔
      -
      -
    * - sudo
      -
-     - yes
+     - ✔
      -
    * - tmux
-     - yes
-     - yes
+     - ✔
+     - ✔
      -
    * - transmission
-     - personal
+     - ✔ :superscript:`P`
      -
      -
    * - vim
-     - yes
-     - yes
+     - ✔
+     - ✔
      -
    * - vlc
-     - yes
+     - ✔
      -
      -
    * - zlib1g-dev
      -
-     - yes
+     - ✔
      -
    * - zlibc
      -
-     - yes
+     - ✔
      -
    * - zoom
-     - yes
+     - ✔
      -
      -
    * - zsh
-     - yes
-     - yes
+     - ✔
+     - ✔
      -
 
 Next Steps
