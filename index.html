@@ -55,10 +55,6 @@
 <li class="toctree-l1"><a class="reference external" href="https://github.com/benjcunningham/dotfiles">GitHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dev/contributing.html">Contributing</a></li>
 </ul>
-<p class="caption"><span class="caption-text">💮</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://benjcunningham.org">benjcunningham.org</a></li>
-</ul>
 
         </div>
       </div>
@@ -86,36 +82,350 @@
              
   <div class="section" id="dotfiles">
 <h1>dotfiles<a class="headerlink" href="#dotfiles" title="Permalink to this headline"></a></h1>
-<p>Hey, these are my dotfiles. You probably shouldn’t use them, but you’re very welcome to try. Just be careful, since they might not do what you expect. And this website? It’s documentation for those dotfiles, and more generally how I setup my machines. It’s all a bit excessive, but maybe you’ll find it as useful as I do.</p>
+<p>Hey, these are my dotfiles. You probably shouldn’t use them, but you’re very
+welcome to try. Just be careful, since they might not do what you expect. And
+this website? It’s documentation for those dotfiles, and more generally how
+I setup my machines. It’s all a bit excessive, but maybe you’ll find it as
+useful as I do.</p>
 <p>By the way, the source of this project is on <a class="reference external" href="https://github.com/benjcunningham/dotfiles">GitHub</a>.</p>
 <div class="section" id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline"></a></h2>
-<p>I use these dotfiles on multiple machines, work and personal. Some things aren’t exactly the same across different systems, but there is a lot of standardization. Here are the highlights:</p>
-<div class="section" id="cross-platform">
-<h3>Cross-Platform<a class="headerlink" href="#cross-platform" title="Permalink to this headline"></a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.gnu.org/software/bash/">Bash</a></p></li>
-<li><p><a class="reference external" href="https://draculatheme.com/">Dracula</a></p></li>
-<li><p><a class="reference external" href="https://www.docker.com/">Docker</a></p></li>
-<li><p><a class="reference external" href="https://editorconfig.org/">EditorConfig</a></p></li>
-<li><p><a class="reference external" href="https://git-scm.com/">Git</a></p></li>
-<li><p><a class="reference external" href="https://github.com/tmux/tmux">Tmux</a></p></li>
-<li><p><a class="reference external" href="https://www.vim.org/">Vim</a></p></li>
-<li><p><a class="reference external" href="https://www.zsh.org/">Zsh</a></p></li>
-</ul>
-</div>
-<div class="section" id="macos">
-<h3>macOS<a class="headerlink" href="#macos" title="Permalink to this headline"></a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://brew.sh/">Homebrew</a></p></li>
-</ul>
-</div>
+<p>I use these dotfiles on multiple machines, work and personal. Some things
+aren’t exactly the same across different systems, but there is a lot of
+standardization. Here are the highlights:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>macOS 12</p></th>
+<th class="head"><p>Ubuntu</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>android-file-transfer</p></td>
+<td><p>✔ <sup>P</sup></p></td>
+<td></td>
+<td><p>Transfer files to and from Android devices.</p></td>
+</tr>
+<tr class="row-odd"><td><p>apt-transport-https</p></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>argo</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>audacity</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Record audio.</p></td>
+</tr>
+<tr class="row-even"><td><p>balenaetcher</p></td>
+<td><p>✔ <sup>P</sup></p></td>
+<td></td>
+<td><p>Flash SD cards and USB drives.</p></td>
+</tr>
+<tr class="row-odd"><td><p>bash</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>bat</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>View files with syntax highlighting (alternative to <code class="docutils literal notranslate"><span class="pre">cat</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p>brave-browser</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Web browser.</p></td>
+</tr>
+<tr class="row-even"><td><p>brew</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Package manager.</p></td>
+</tr>
+<tr class="row-odd"><td><p>build-essential</p></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ca-certificates</p></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>colordiff</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Diff files with syntax highlighting (alternative to <code class="docutils literal notranslate"><span class="pre">diff</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p>cookiecutter</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Create Python projects from templates.</p></td>
+</tr>
+<tr class="row-odd"><td><p>croc</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Securely transfer files between computers.</p></td>
+</tr>
+<tr class="row-even"><td><p>curl</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>docker</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Container engine (installed as Docker Desktop on macOS).</p></td>
+</tr>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>Find files (alternative to <code class="docutils literal notranslate"><span class="pre">find</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p>ffmpeg</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Convert audio and video.</p></td>
+</tr>
+<tr class="row-even"><td><p>fx</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>View JSON.</p></td>
+</tr>
+<tr class="row-odd"><td><p>fzf</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>Fuzzy find files (required for <code class="docutils literal notranslate"><span class="pre">fzf.vim</span></code> plugin).</p></td>
+</tr>
+<tr class="row-even"><td><p>g++</p></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>gcc</p></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>gh</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Work with GitHub from command line.</p></td>
+</tr>
+<tr class="row-odd"><td><p>git</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>Version projects.</p></td>
+</tr>
+<tr class="row-even"><td><p>git-lfs</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Version large files.</p></td>
+</tr>
+<tr class="row-odd"><td><p>gnupg</p></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>gnupg-agent</p></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>google-chrome</p></td>
+<td><p>✔ <sup>W</sup></p></td>
+<td></td>
+<td><p>Web browser.</p></td>
+</tr>
+<tr class="row-even"><td><p>helm</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Kubernetes package manager.</p></td>
+</tr>
+<tr class="row-odd"><td><p>htop</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Interactive process viewer (alternative to <code class="docutils literal notranslate"><span class="pre">top</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p>iterm2</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Terminal emulator (alternative to Terminal).</p></td>
+</tr>
+<tr class="row-odd"><td><p>jq</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>JSON processor.</p></td>
+</tr>
+<tr class="row-even"><td><p>less</p></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>libffi-dev</p></td>
+<td></td>
+<td><p>✔</p></td>
+<td><p>Pager.</p></td>
+</tr>
+<tr class="row-even"><td><p>libssl-dev</p></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>libssl1.1</p></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>lulu</p></td>
+<td><p>✔ <sup>P</sup></p></td>
+<td></td>
+<td><p>Firewall unknown outgoing connections.</p></td>
+</tr>
+<tr class="row-odd"><td><p>mactex</p></td>
+<td><p>✔ <sup>P</sup></p></td>
+<td></td>
+<td><p>TeX distribution for processing LaTeX.</p></td>
+</tr>
+<tr class="row-even"><td><p>make</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>Automate builds.</p></td>
+</tr>
+<tr class="row-odd"><td><p>microsoft-teams</p></td>
+<td><p>✔ <sup>W</sup></p></td>
+<td></td>
+<td><p>Chat and video call.</p></td>
+</tr>
+<tr class="row-even"><td><p>ncdu</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Perform disk utilities (alternative to <code class="docutils literal notranslate"><span class="pre">du</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p>pandoc</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Convert between markup formats.</p></td>
+</tr>
+<tr class="row-even"><td><p>private-internet-access</p></td>
+<td><p>✔ <sup>P</sup></p></td>
+<td></td>
+<td><p>VPN client.</p></td>
+</tr>
+<tr class="row-odd"><td><p>pyenv</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>Manage multiple Python versions.</p></td>
+</tr>
+<tr class="row-even"><td><p>pyenv-virtualenv</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Virtual environment plugin for <code class="docutils literal notranslate"><span class="pre">pyenv</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>python</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>r</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ripgrep</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>Search tool (alternative to <code class="docutils literal notranslate"><span class="pre">grep</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p>ruby</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>shellcheck</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>Static analysis of shell scripts.</p></td>
+</tr>
+<tr class="row-even"><td><p>slack</p></td>
+<td><p>✔ <sup>W</sup></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>software-properties-common</p></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>spotify</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Music streaming.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sudo</p></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>tmux</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>Terminal multiplexing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>transmission</p></td>
+<td><p>✔ <sup>P</sup></p></td>
+<td></td>
+<td><p>BitTorrent client.</p></td>
+</tr>
+<tr class="row-even"><td><p>vim</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>Text editor.</p></td>
+</tr>
+<tr class="row-odd"><td><p>vlc</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Multimedia player.</p></td>
+</tr>
+<tr class="row-even"><td><p>zlib1g-dev</p></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>zlibc</p></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>zoom</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p>Video call.</p></td>
+</tr>
+<tr class="row-odd"><td><p>zsh</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>Shell.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="next-steps">
 <h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this headline"></a></h2>
-<p>Want to go deeper? Check out the sidenav for loads of extra information on how to install software, link dotfiles, or even setup a new machine from scratch. ✌️</p>
-<div class="toctree-wrapper compound">
-</div>
+<p>Want to go deeper? Check out the sidenav for loads of extra information on how
+to install software, link dotfiles, or even setup a new machine from scratch.
+✌️</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
