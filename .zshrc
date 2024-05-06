@@ -25,3 +25,18 @@ eval "$(pyenv virtualenv-init -)"
 if [ $(uname -s) = "Darwin" ] && is-at-least 12.5 $(sw_vers -productVersion); then
     ln -sf /usr/local/bin/python3 /usr/local/bin/python
 fi
+
+# Aliases
+
+alias rgf="rg --files | rg"
+
+function rgr {
+    rg "${1}" --files-with-matches -0 | xargs -0 sed -i '' "s/${1}/${2}/g"
+}
+
+function rgfr {
+    find . | rg "${1}" -0 | while read SRC_FILE; do
+        DEST_FILE=$(echo $SRC_FILE | sed "s/${1}/${2}/g")
+        mv $SRC_FILE $DEST_FILE
+    done
+}
