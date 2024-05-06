@@ -15,6 +15,7 @@ Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'towolf/vim-helm'
 Plugin 'vim-airline/vim-airline'
 
@@ -124,3 +125,6 @@ map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-W>l
+
+" Render Markdown preview
+nnoremap <C-m> :MarkdownPreview<CR>
