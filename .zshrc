@@ -1,4 +1,5 @@
 export EDITOR="vim"
+export PAGER="less"
 export PATH="${HOME}/bin:/usr/local/bin:/usr/local/sbin:${PATH}"
 export ZSH="${HOME}/.oh-my-zsh"
 
