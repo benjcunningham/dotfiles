@@ -29,10 +29,6 @@ ln -sf /usr/local/bin/python3 /usr/local/bin/python
 
 alias rgf="rg --files | rg"
 
-function drm {
-    docker rm $(docker ps -aq)
-}
-
 function rgr {
     rg "${1}" --files-with-matches -0 | xargs -0 sed -i '' "s/${1}/${2}/g"
 }
