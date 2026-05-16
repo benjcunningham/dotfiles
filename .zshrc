@@ -6,6 +6,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 DISABLE_AUTO_UPDATE=true
 TERM="xterm-256color"
 ZSH_THEME="dracula"
+
 skip_global_compinit=1
 
 source "${ZSH}/oh-my-zsh.sh"
@@ -25,9 +26,7 @@ if command -v pyenv >/dev/null; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
-if [ $(uname -s) = "Darwin" ] && is-at-least 12.5 $(sw_vers -productVersion); then
-    ln -sf /usr/local/bin/python3 /usr/local/bin/python
-fi
+ln -sf /usr/local/bin/python3 /usr/local/bin/python
 
 # Aliases
 
@@ -45,6 +44,7 @@ function rgfr {
 }
 
 autoload -U +X bashcompinit && bashcompinit
+
 if command -v rbenv >/dev/null; then
     eval "$(rbenv init - zsh)"
 fi
