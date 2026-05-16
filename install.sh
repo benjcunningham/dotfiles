@@ -226,7 +226,6 @@ macos_preinstall() {
         warn "Homebrew installation already found."
     fi
 
-    brew upgrade
     brew install curl git make
 
 }
@@ -309,7 +308,7 @@ macos_install() {
     cd "${dotfiles_dir}"
 
     brew update
-    brew upgrade
+    brew upgrade || true
 
     note "Installing shared Brewfile"
     brew bundle --file homebrew/Brewfile
@@ -385,7 +384,7 @@ ubuntu_install() {
             libssl1.1 \
             zlibc
 
-    elif [ "${ubuntu_version}" == "22.04" ]; then
+    elif [ "${ubuntu_version}" == "22.04" ] || [ "${ubuntu_version}" == "24.04" ]; then
 
         sudo apt-get install -y \
             libssl3
