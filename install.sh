@@ -524,18 +524,17 @@ ohmyzsh_install() {
 
     note "Installing Oh My Zsh..."
 
-    if [ -z "${ZSH}" ]; then
+    if [ ! -d "${HOME}/.oh-my-zsh" ]; then
 
         install_url="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
         sh -c "$(curl -fsSL ${install_url})" "" --unattended
 
     else
 
-        warn "Directory ${ZSH} already exists."
+        warn "Directory ${HOME}/.oh-my-zsh already exists."
         cat <<-EOF
 		Oh My Zsh installer would have exited with an error. If you really need to
 		reinstall you can:
-		- Unset the ZSH variable.
 		- Move or delete the directory.
 		EOF
 

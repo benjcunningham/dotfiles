@@ -16,6 +16,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'iamcco/markdown-preview.nvim'
+Plugin 'ojroques/vim-oscyank'
 Plugin 'towolf/vim-helm'
 Plugin 'vim-airline/vim-airline'
 
@@ -100,13 +101,10 @@ if has("unix")
     vnoremap p "*p
     vnoremap P "*P
 
-  " Linux
+  " Linux — use OSC 52 to reach the local terminal clipboard over SSH/tmux
   elseif s:uname == "Linux"
 
-    vnoremap y "+y
-    vnoremap Y "+Y
-    vnoremap p "+p
-    vnoremap P "+P
+    autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
 
   endif
 
