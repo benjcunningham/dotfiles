@@ -17,6 +17,12 @@ I use these dotfiles on multiple machines, work and personal. Some things
 aren't exactly the same across different systems, but there is a lot of
 standardization. Here are the highlights:
 
+.. note::
+
+   Superscripts indicate packages that are only installed under a specific
+   flag: :superscript:`P` = personal (``-p``), :superscript:`W` = work
+   (``-w``), :superscript:`F` = full desktop Linux install (``-f``).
+
 .. list-table::
    :header-rows: 1
 
@@ -230,7 +236,7 @@ standardization. Here are the highlights:
      -
    * - software-properties-common
      -
-     - ✔
+     - ✔ :superscript:`F`
      -
    * - spotify
      - ✔
@@ -293,6 +299,7 @@ to install software, link dotfiles, or even setup a new machine from scratch.
    systems/cross-platform
    systems/macos
    systems/ubuntu
+   systems/raspberry-pi
 
 .. toctree::
    :caption: Dev Resources
