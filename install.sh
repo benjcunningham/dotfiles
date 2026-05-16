@@ -394,7 +394,9 @@ ubuntu_install() {
     sudo apt-get upgrade -y
     sudo apt-get autoremove -y
 
-    curl https://pyenv.run | bash
+    if [[ ! -d "${HOME}/.pyenv" ]]; then
+        curl https://pyenv.run | bash
+    fi
 
 }
 
