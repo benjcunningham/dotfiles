@@ -11,6 +11,7 @@ INSTALL_OPTS =
 all: lint
 	$(MAKE) docker/build SYSTEM_TARGET=ubuntu-22.04
 	$(MAKE) docker/build SYSTEM_TARGET=ubuntu-24.04
+	$(MAKE) docker/build SYSTEM_TARGET=debian-bookworm
 
 .PHONY: lint
 lint: SYSTEM_TARGET = ubuntu-22.04
