@@ -47,6 +47,7 @@ usage() {
 	OPTIONS
 
 	  -h  Display this help message
+	  -f  Full desktop install (default on macOS; opt-in on Linux)
 	  -l  Source local version of dotfiles repository
 	  -p  Install software for personal use
 	  -w  Install software for work use
@@ -131,6 +132,25 @@ is_darwin() {
 
 }
 
+is_ubuntu() {
+    # Determine if the host is Ubuntu (not just Debian-like).
+    #
+    # USAGE
+    #
+    #   is_ubuntu
+    #
+    # DESCRIPTION
+    #
+    #   Checks /etc/os-release for ID=ubuntu. Returns false on Debian,
+    #   Raspberry Pi OS, and other non-Ubuntu distributions.
+
+    [ -f /etc/os-release ] || return 1
+    # shellcheck source=/dev/null
+    . /etc/os-release
+    [ "${ID}" = "ubuntu" ]
+
+}
+
 clone_dotfiles() {
     # Clone dotfiles repository from GitHub.
     #
@@ -206,7 +226,6 @@ macos_preinstall() {
         warn "Homebrew installation already found."
     fi
 
-    brew upgrade
     brew install curl git make
 
 }
@@ -223,15 +242,25 @@ ubuntu_preinstall() {
     #   Installs the minimal software to continue with the Ubuntu installation
     #   of this script. All preinstalls generally require a package manager,
     #   Curl, Git, and Make.
+    #
+    #   When DOTFILES_SERVER is set (the default on Linux unless -f is passed),
+    #   or when running on a non-Ubuntu Debian derivative (e.g. Raspberry Pi OS),
+    #   the git-core PPA is skipped because Launchpad PPAs are Ubuntu-specific
+    #   and unavailable on ARM/Debian hosts.
 
     note "Running Ubuntu pre-installation."
 
-    if ! type "add-apt-repository" > /dev/null; then
-        sudo apt-get update
-        sudo apt-get install -y software-properties-common
+    if [ -z "${DOTFILES_SERVER}" ] && is_ubuntu; then
+
+        if ! type "add-apt-repository" > /dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y software-properties-common
+        fi
+
+        sudo add-apt-repository -y ppa:git-core/ppa
+
     fi
 
-    sudo add-apt-repository -y ppa:git-core/ppa
     sudo apt-get update
     sudo apt-get install -y \
         curl \
@@ -279,7 +308,7 @@ macos_install() {
     cd "${dotfiles_dir}"
 
     brew update
-    brew upgrade
+    brew upgrade || true
 
     note "Installing shared Brewfile"
     brew bundle --file homebrew/Brewfile
@@ -310,6 +339,8 @@ ubuntu_install() {
     # DESCRIPTION
     #
     #   Uses a hardcoded list of Ubuntu software to install via APT.
+    #   When DOTFILES_SERVER is set, software-properties-common is omitted
+    #   since it is only needed for PPA management.
 
     local ubuntu_version
 
@@ -335,13 +366,17 @@ ubuntu_install() {
         libffi-dev \
         libssl-dev \
         make \
+        python3 \
         ripgrep \
         shellcheck \
-        software-properties-common \
         tmux \
         vim \
         zlib1g-dev \
         zsh
+
+    if [ -z "${DOTFILES_SERVER}" ]; then
+        sudo apt-get install -y software-properties-common
+    fi
 
     if [ "${ubuntu_version}" == "20.04" ]; then
 
@@ -349,7 +384,7 @@ ubuntu_install() {
             libssl1.1 \
             zlibc
 
-    elif [ "${ubuntu_version}" == "22.04" ]; then
+    elif [ "${ubuntu_version}" == "22.04" ] || [ "${ubuntu_version}" == "24.04" ]; then
 
         sudo apt-get install -y \
             libssl3
@@ -602,22 +637,28 @@ set_globals() {
     #
     # GLOBALS
     #
+    #   DOTFILES_FULL       Set to "1" if the -f flag is provided.
     #   DOTFILES_LOCAL      Set to "1" if the -l flag is provided.
     #   DOTFILES_PERSONAL   Set to "1" if the -p flag is provided.
+    #   DOTFILES_SERVER     Set to "1" on Linux unless -f is provided.
     #   DOTFILES_WORK       Set to "1" if the -w flag is provided.
     #
     # OPTIONS
     #
     #   -h  Show usage and help for program.
+    #   -f  Full desktop install (default on macOS; opt-in on Linux).
     #   -l  Specify that the dotfiles repository is already available on the
     #       local host.
     #   -p  Specify that Brewfile.personal should be installed.
     #   -w  Specify that Brewfile.work should be installed.
 
-    while getopts ":hlpw" flag; do
+    while getopts ":hflpw" flag; do
         case "${flag}" in
             h )
                 usage
+                ;;
+            f )
+                export DOTFILES_FULL=1
                 ;;
             l )
                 export DOTFILES_LOCAL=1
@@ -633,6 +674,10 @@ set_globals() {
                 ;;
         esac
     done
+
+    if ! is_darwin && [ -z "${DOTFILES_FULL}" ]; then
+        export DOTFILES_SERVER=1
+    fi
 
 }
 
@@ -652,14 +697,17 @@ main() {
     # GLOBALS
     #
     #   DOTFILES_BRANCH
+    #   DOTFILES_FULL       Set to "1" if the -f flag is provided.
     #   DOTFILES_LOCAL      Set to "1" if the -l flag is provided.
     #   DOTFILES_PERSONAL   Set to "1" if the -p flag is provided.
+    #   DOTFILES_SERVER     Set to "1" on Linux unless -f is provided.
     #   DOTFILES_WORK       Set to "1" if the -w flag is provided.
     #   HOME                Home directory.
     #
     # OPTIONS
     #
     #   -h  Show usage and help for program.
+    #   -f  Full desktop install (default on macOS; opt-in on Linux).
     #   -l  Specify that the dotfiles repository is already available on the
     #       local host.
     #   -p  Specify that Brewfile.personal should be installed.

@@ -1,6 +1,6 @@
 # Preinstall
 
-FROM ubuntu:20.04 AS preinstall
+FROM ubuntu:24.04 AS preinstall
 
 ARG DEBIAN_FRONTEND=noninteractive
 

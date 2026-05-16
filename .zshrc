@@ -20,8 +20,11 @@ bindkey "^[[B" down-line-or-search
 
 export PYENV_ROOT="${HOME}/.pyenv"
 command -v pyenv >/dev/null || export PATH="${PYENV_ROOT}/bin:${PATH}"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+
+if command -v pyenv >/dev/null; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 ln -sf /usr/local/bin/python3 /usr/local/bin/python
 
@@ -41,3 +44,7 @@ function rgfr {
 }
 
 autoload -U +X bashcompinit && bashcompinit
+
+if command -v rbenv >/dev/null; then
+    eval "$(rbenv init - zsh)"
+fi
