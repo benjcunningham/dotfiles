@@ -38,7 +38,24 @@ jobs:
     - name: Run installer
       run: bash install.sh -pw
 
+  release:
+    if: github.event_name == 'push'
+    needs: [lint, install]
+    runs-on: ubuntu-latest
+    outputs:
+      new_tag: ${{ steps.tag.outputs.new_tag }}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Bump version and push tag
+      id: tag
+      uses: mathieudutour/github-tag-action@v6.2
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
   docker:
+    needs: [release]
+    if: always() && !cancelled() && (needs.release.result == 'success' || needs.release.result == 'skipped')
     strategy:
       matrix:
         include:
@@ -49,6 +66,14 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+    - name: Extract metadata
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: benjcunningham/${{ matrix.image }}
+        tags: |
+          type=raw,value=latest,enable=${{ github.event_name != 'pull_request' }}
+          type=raw,value=${{ needs.release.outputs.new_tag }},enable=${{ github.event_name != 'pull_request' && needs.release.outputs.new_tag != '' }}
     - name: Login to Docker Hub
       if: github.event_name != 'pull_request'
       uses: docker/login-action@v3
@@ -62,5 +87,5 @@ jobs:
         target: install
         context: .
         push: ${{ github.event_name != 'pull_request' }}
-        tags: benjcunningham/${{ matrix.image }}:latest
+        tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
