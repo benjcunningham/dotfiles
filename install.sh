@@ -367,6 +367,7 @@ ubuntu_install() {
         libffi-dev \
         libssl-dev \
         make \
+        python3 \
         ripgrep \
         shellcheck \
         tmux \

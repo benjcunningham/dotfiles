@@ -214,6 +214,10 @@ standardization. Here are the highlights:
      - ✔
      -
      -
+   * - python3
+     -
+     - ✔
+     - Required by dotbot and pyenv.
    * - r
      - ✔
      -
