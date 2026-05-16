@@ -49,6 +49,7 @@ usage() {
 	  -h  Display this help message
 	  -l  Source local version of dotfiles repository
 	  -p  Install software for personal use
+	  -s  Server / headless install (skips PPAs and desktop tooling)
 	  -w  Install software for work use
 
 	NOTES
@@ -128,6 +129,25 @@ is_darwin() {
         *Darwin**) true;;
         *) false;;
     esac
+
+}
+
+is_ubuntu() {
+    # Determine if the host is Ubuntu (not just Debian-like).
+    #
+    # USAGE
+    #
+    #   is_ubuntu
+    #
+    # DESCRIPTION
+    #
+    #   Checks /etc/os-release for ID=ubuntu. Returns false on Debian,
+    #   Raspberry Pi OS, and other non-Ubuntu distributions.
+
+    [ -f /etc/os-release ] || return 1
+    # shellcheck source=/dev/null
+    . /etc/os-release
+    [ "${ID}" = "ubuntu" ]
 
 }
 
@@ -223,15 +243,24 @@ ubuntu_preinstall() {
     #   Installs the minimal software to continue with the Ubuntu installation
     #   of this script. All preinstalls generally require a package manager,
     #   Curl, Git, and Make.
+    #
+    #   When DOTFILES_SERVER is set, or when running on a non-Ubuntu Debian
+    #   derivative (e.g. Raspberry Pi OS), the git-core PPA is skipped because
+    #   Launchpad PPAs are Ubuntu-specific and unavailable on ARM/Debian hosts.
 
     note "Running Ubuntu pre-installation."
 
-    if ! type "add-apt-repository" > /dev/null; then
-        sudo apt-get update
-        sudo apt-get install -y software-properties-common
+    if [ -z "${DOTFILES_SERVER}" ] && is_ubuntu; then
+
+        if ! type "add-apt-repository" > /dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y software-properties-common
+        fi
+
+        sudo add-apt-repository -y ppa:git-core/ppa
+
     fi
 
-    sudo add-apt-repository -y ppa:git-core/ppa
     sudo apt-get update
     sudo apt-get install -y \
         curl \
@@ -310,6 +339,8 @@ ubuntu_install() {
     # DESCRIPTION
     #
     #   Uses a hardcoded list of Ubuntu software to install via APT.
+    #   When DOTFILES_SERVER is set, software-properties-common is omitted
+    #   since it is only needed for PPA management.
 
     local ubuntu_version
 
@@ -337,11 +368,14 @@ ubuntu_install() {
         make \
         ripgrep \
         shellcheck \
-        software-properties-common \
         tmux \
         vim \
         zlib1g-dev \
         zsh
+
+    if [ -z "${DOTFILES_SERVER}" ]; then
+        sudo apt-get install -y software-properties-common
+    fi
 
     if [ "${ubuntu_version}" == "20.04" ]; then
 
@@ -604,6 +638,7 @@ set_globals() {
     #
     #   DOTFILES_LOCAL      Set to "1" if the -l flag is provided.
     #   DOTFILES_PERSONAL   Set to "1" if the -p flag is provided.
+    #   DOTFILES_SERVER     Set to "1" if the -s flag is provided.
     #   DOTFILES_WORK       Set to "1" if the -w flag is provided.
     #
     # OPTIONS
@@ -612,9 +647,10 @@ set_globals() {
     #   -l  Specify that the dotfiles repository is already available on the
     #       local host.
     #   -p  Specify that Brewfile.personal should be installed.
+    #   -s  Server / headless install (skips PPAs and desktop tooling).
     #   -w  Specify that Brewfile.work should be installed.
 
-    while getopts ":hlpw" flag; do
+    while getopts ":hlpsw" flag; do
         case "${flag}" in
             h )
                 usage
@@ -624,6 +660,9 @@ set_globals() {
                 ;;
             p )
                 export DOTFILES_PERSONAL=1
+                ;;
+            s )
+                export DOTFILES_SERVER=1
                 ;;
             w )
                 export DOTFILES_WORK=1
@@ -654,6 +693,7 @@ main() {
     #   DOTFILES_BRANCH
     #   DOTFILES_LOCAL      Set to "1" if the -l flag is provided.
     #   DOTFILES_PERSONAL   Set to "1" if the -p flag is provided.
+    #   DOTFILES_SERVER     Set to "1" if the -s flag is provided.
     #   DOTFILES_WORK       Set to "1" if the -w flag is provided.
     #   HOME                Home directory.
     #
@@ -663,6 +703,7 @@ main() {
     #   -l  Specify that the dotfiles repository is already available on the
     #       local host.
     #   -p  Specify that Brewfile.personal should be installed.
+    #   -s  Server / headless install (skips PPAs and desktop tooling).
     #   -w  Specify that Brewfile.work should be installed.
 
     local start_time
