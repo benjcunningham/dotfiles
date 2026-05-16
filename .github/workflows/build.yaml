@@ -38,7 +38,48 @@ jobs:
     - name: Run installer
       run: bash install.sh -pw
 
+  version:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Check VERSION was bumped
+      run: |
+        if ! git diff origin/${{ github.base_ref }}...HEAD -- VERSION | grep -q '^+[0-9]'; then
+          echo "::error::VERSION file must be updated in every PR"
+          exit 1
+        fi
+
+  release:
+    if: github.event_name == 'push'
+    needs: [lint, install]
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Read version
+      id: version
+      run: echo "version=v$(cat VERSION)" >> "$GITHUB_OUTPUT"
+    - name: Create and push git tag
+      run: |
+        version="v$(cat VERSION)"
+        git config user.email "action@github.com"
+        git config user.name "GitHub Actions"
+        if git rev-parse "$version" >/dev/null 2>&1; then
+          echo "Tag $version already exists, skipping"
+        else
+          git tag "$version"
+          git push origin "$version"
+        fi
+
   docker:
+    needs: [release]
+    if: always() && !cancelled() && (needs.release.result == 'success' || needs.release.result == 'skipped')
     strategy:
       matrix:
         include:
@@ -49,6 +90,14 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+    - name: Extract metadata
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: benjcunningham/${{ matrix.image }}
+        tags: |
+          type=raw,value=latest,enable=${{ github.event_name != 'pull_request' }}
+          type=raw,value=${{ needs.release.outputs.version }},enable=${{ github.event_name != 'pull_request' && needs.release.outputs.version != '' }}
     - name: Login to Docker Hub
       if: github.event_name != 'pull_request'
       uses: docker/login-action@v3
@@ -62,5 +111,5 @@ jobs:
         target: install
         context: .
         push: ${{ github.event_name != 'pull_request' }}
-        tags: benjcunningham/${{ matrix.image }}:latest
+        tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
