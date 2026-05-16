@@ -43,3 +43,8 @@ function rgfr {
         mv $SRC_FILE $DEST_FILE
     done
 }
+
+autoload -U +X bashcompinit && bashcompinit
+if command -v rbenv >/dev/null; then
+    eval "$(rbenv init - zsh)"
+fi
