@@ -65,16 +65,15 @@ jobs:
     - name: Read version
       id: version
       run: echo "version=v$(cat VERSION)" >> "$GITHUB_OUTPUT"
-    - name: Create and push git tag
+    - name: Create release
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         version="v$(cat VERSION)"
-        git config user.email "action@github.com"
-        git config user.name "GitHub Actions"
-        if git rev-parse "$version" >/dev/null 2>&1; then
-          echo "Tag $version already exists, skipping"
+        if gh release view "$version" >/dev/null 2>&1; then
+          echo "Release $version already exists, skipping"
         else
-          git tag "$version"
-          git push origin "$version"
+          gh release create "$version" --title "$version" --generate-notes
         fi
 
   docker:
