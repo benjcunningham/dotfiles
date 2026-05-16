@@ -47,9 +47,9 @@ usage() {
 	OPTIONS
 
 	  -h  Display this help message
+	  -f  Full desktop install (default on macOS; opt-in on Linux)
 	  -l  Source local version of dotfiles repository
 	  -p  Install software for personal use
-	  -s  Server / headless install (skips PPAs and desktop tooling)
 	  -w  Install software for work use
 
 	NOTES
@@ -244,9 +244,10 @@ ubuntu_preinstall() {
     #   of this script. All preinstalls generally require a package manager,
     #   Curl, Git, and Make.
     #
-    #   When DOTFILES_SERVER is set, or when running on a non-Ubuntu Debian
-    #   derivative (e.g. Raspberry Pi OS), the git-core PPA is skipped because
-    #   Launchpad PPAs are Ubuntu-specific and unavailable on ARM/Debian hosts.
+    #   When DOTFILES_SERVER is set (the default on Linux unless -f is passed),
+    #   or when running on a non-Ubuntu Debian derivative (e.g. Raspberry Pi OS),
+    #   the git-core PPA is skipped because Launchpad PPAs are Ubuntu-specific
+    #   and unavailable on ARM/Debian hosts.
 
     note "Running Ubuntu pre-installation."
 
@@ -636,33 +637,34 @@ set_globals() {
     #
     # GLOBALS
     #
+    #   DOTFILES_FULL       Set to "1" if the -f flag is provided.
     #   DOTFILES_LOCAL      Set to "1" if the -l flag is provided.
     #   DOTFILES_PERSONAL   Set to "1" if the -p flag is provided.
-    #   DOTFILES_SERVER     Set to "1" if the -s flag is provided.
+    #   DOTFILES_SERVER     Set to "1" on Linux unless -f is provided.
     #   DOTFILES_WORK       Set to "1" if the -w flag is provided.
     #
     # OPTIONS
     #
     #   -h  Show usage and help for program.
+    #   -f  Full desktop install (default on macOS; opt-in on Linux).
     #   -l  Specify that the dotfiles repository is already available on the
     #       local host.
     #   -p  Specify that Brewfile.personal should be installed.
-    #   -s  Server / headless install (skips PPAs and desktop tooling).
     #   -w  Specify that Brewfile.work should be installed.
 
-    while getopts ":hlpsw" flag; do
+    while getopts ":hflpw" flag; do
         case "${flag}" in
             h )
                 usage
+                ;;
+            f )
+                export DOTFILES_FULL=1
                 ;;
             l )
                 export DOTFILES_LOCAL=1
                 ;;
             p )
                 export DOTFILES_PERSONAL=1
-                ;;
-            s )
-                export DOTFILES_SERVER=1
                 ;;
             w )
                 export DOTFILES_WORK=1
@@ -672,6 +674,10 @@ set_globals() {
                 ;;
         esac
     done
+
+    if ! is_darwin && [ -z "${DOTFILES_FULL}" ]; then
+        export DOTFILES_SERVER=1
+    fi
 
 }
 
@@ -691,19 +697,20 @@ main() {
     # GLOBALS
     #
     #   DOTFILES_BRANCH
+    #   DOTFILES_FULL       Set to "1" if the -f flag is provided.
     #   DOTFILES_LOCAL      Set to "1" if the -l flag is provided.
     #   DOTFILES_PERSONAL   Set to "1" if the -p flag is provided.
-    #   DOTFILES_SERVER     Set to "1" if the -s flag is provided.
+    #   DOTFILES_SERVER     Set to "1" on Linux unless -f is provided.
     #   DOTFILES_WORK       Set to "1" if the -w flag is provided.
     #   HOME                Home directory.
     #
     # OPTIONS
     #
     #   -h  Show usage and help for program.
+    #   -f  Full desktop install (default on macOS; opt-in on Linux).
     #   -l  Specify that the dotfiles repository is already available on the
     #       local host.
     #   -p  Specify that Brewfile.personal should be installed.
-    #   -s  Server / headless install (skips PPAs and desktop tooling).
     #   -w  Specify that Brewfile.work should be installed.
 
     local start_time
