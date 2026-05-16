@@ -1,0 +1,182 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raspberry Pi &mdash; dotfiles  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dotfiles.css?v=5362ba6e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../_static/js/dotfiles.js?v=bb4d8668"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing" href="../dev/contributing.html" />
+    <link rel="prev" title="Ubuntu" href="ubuntu.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            dotfiles
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Systems</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cross-platform.html">Cross-Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macos.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ubuntu.html">Ubuntu</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Raspberry Pi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#packages">Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyenv">Pyenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dotfiles">Dotfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clipboard">Clipboard</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Dev Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/benjcunningham/dotfiles">GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/contributing.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dotfiles</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Raspberry Pi</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/systems/raspberry-pi.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="raspberry-pi">
+<h1>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Permalink to this heading"></a></h1>
+<p>What comes with the Raspberry Pi (headless/server) installer?</p>
+<p>The server install is the default on any Linux host. It uses only standard APT
+packages — no Launchpad PPAs or Ubuntu-specific tooling — so it works on
+Raspberry Pi OS, Debian, and Ubuntu Server without modification.</p>
+<section id="packages">
+<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this heading"></a></h2>
+<p>The following packages are installed via APT:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">build-essential</span></code>, <code class="docutils literal notranslate"><span class="pre">g++</span></code>, <code class="docutils literal notranslate"><span class="pre">gcc</span></code> — C/C++ build tools</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ca-certificates</span></code>, <code class="docutils literal notranslate"><span class="pre">curl</span></code>, <code class="docutils literal notranslate"><span class="pre">gnupg</span></code>, <code class="docutils literal notranslate"><span class="pre">gnupg-agent</span></code> — networking and cryptography essentials</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fd-find</span></code>, <code class="docutils literal notranslate"><span class="pre">fzf</span></code>, <code class="docutils literal notranslate"><span class="pre">ripgrep</span></code> — modern file and search tools</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jq</span></code> — JSON processor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">less</span></code> — pager</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">libffi-dev</span></code>, <code class="docutils literal notranslate"><span class="pre">libssl-dev</span></code>, <code class="docutils literal notranslate"><span class="pre">zlib1g-dev</span></code> — common build dependencies (e.g., for compiling Python via pyenv)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span></code> — build automation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shellcheck</span></code> — shell script linter</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tmux</span></code> — terminal multiplexer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vim</span></code> — text editor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zsh</span></code> — shell</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">software-properties-common</span></code> is <strong>not</strong> installed in server mode because
+it is only needed for managing PPAs, which are Ubuntu-specific and
+unsupported on Raspberry Pi OS / Debian.</p>
+</div>
+</section>
+<section id="pyenv">
+<h2>Pyenv<a class="headerlink" href="#pyenv" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a> is installed via the official
+installer script so that multiple Python versions can be managed without
+affecting the system Python.</p>
+</section>
+<section id="dotfiles">
+<h2>Dotfiles<a class="headerlink" href="#dotfiles" title="Permalink to this heading"></a></h2>
+<p>The same dotfiles are linked on all platforms via dotbot:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$HOME</span>/
+<span class="w">    </span>.editorconfig
+<span class="w">    </span>.gitconfig
+<span class="w">    </span>.gitignore
+<span class="w">    </span>.tmux.conf
+<span class="w">    </span>.vimrc
+<span class="w">    </span>.zshrc
+</pre></div>
+</div>
+</section>
+<section id="clipboard">
+<h2>Clipboard<a class="headerlink" href="#clipboard" title="Permalink to this heading"></a></h2>
+<p>On a headless Linux system (no <code class="docutils literal notranslate"><span class="pre">$DISPLAY</span></code>), the tmux <code class="docutils literal notranslate"><span class="pre">y</span></code> copy binding
+stores selections in the tmux buffer rather than piping to <code class="docutils literal notranslate"><span class="pre">xclip</span></code>, which
+requires an X11 display. When a display is available, <code class="docutils literal notranslate"><span class="pre">xclip</span></code> is used as
+normal.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ubuntu.html" class="btn btn-neutral float-left" title="Ubuntu" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../dev/contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Ben Cunningham..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

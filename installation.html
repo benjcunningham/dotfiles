@@ -1,20 +1,23 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; dotfiles  documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/dotfiles.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script src="_static/js/dotfiles.js"></script>
+  <title>Installation &mdash; dotfiles  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/dotfiles.css?v=5362ba6e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="_static/js/dotfiles.js?v=bb4d8668"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -41,20 +44,24 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#dotfiles">Dotfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#macos">macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ubuntu-desktop">Ubuntu (desktop)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#raspberry-pi-server-headless">Raspberry Pi / Server (headless)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dotfiles-only">Dotfiles Only</a></li>
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Systems</span></p>
+<p class="caption" role="heading"><span class="caption-text">Systems</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="systems/cross-platform.html">Cross-Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="systems/macos.html">macOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="systems/ubuntu.html">Ubuntu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systems/raspberry-pi.html">Raspberry Pi</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Dev Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Dev Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/benjcunningham/dotfiles">GitHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dev/contributing.html">Contributing</a></li>
@@ -84,37 +91,78 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
-<p>The most convenient way to install everything on a new machine is with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ubuntu prerequesite</span>
-<span class="c1">#</span>
-<span class="c1"># Note: Some machines require installing sudo first</span>
-<span class="c1">#       (i.e., apt-get update &amp;&amp; apt-get install sudo)</span>
-
-sudo apt-get update <span class="se">\</span>
-    <span class="o">&amp;&amp;</span> sudo apt-get install curl
-
-<span class="c1"># Both Ubuntu and macOS</span>
-
-curl -fsSL <span class="se">\</span>
-    https://raw.githubusercontent.com/benjcunningham/dotfiles/master/install.sh <span class="se">\</span>
-    -o dotfiles.sh <span class="se">\</span>
-    <span class="o">&amp;&amp;</span> bash dotfiles.sh
-</pre></div>
-</div>
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Make sure to verify the contents of the script you downloaded matches the contents of <code class="docutils literal notranslate"><span class="pre">install.sh</span></code> located at <a class="reference external" href="https://github.com/benjcunningham/dotfiles">https://github.com/benjcunningham/dotfiles</a> before executing. These are my personal install scripts and dotfiles, and therefore they likely are not appropriate to add to your machine until you understand what they do.</p>
+<p>Make sure to verify the contents of the script you download matches the
+contents of <code class="docutils literal notranslate"><span class="pre">install.sh</span></code> at <a class="reference external" href="https://github.com/benjcunningham/dotfiles">https://github.com/benjcunningham/dotfiles</a>
+before executing. These are personal install scripts and dotfiles; they
+likely are not appropriate for your machine until you understand what they
+do.</p>
 </div>
-<div class="section" id="dotfiles">
-<h2>Dotfiles<a class="headerlink" href="#dotfiles" title="Permalink to this headline"></a></h2>
-<p>If you want to install only the dotfiles:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make dotfiles
+<p>The installer behaves differently depending on the platform and flags you
+pass:</p>
+<ul class="simple">
+<li><p><strong>macOS</strong> — full desktop install by default (Homebrew, GUI apps, themes, etc.)</p></li>
+<li><p><strong>Linux (Ubuntu desktop)</strong> — headless/server by default; pass <code class="docutils literal notranslate"><span class="pre">-f</span></code> to get the full desktop install</p></li>
+<li><p><strong>Linux (Raspberry Pi / server)</strong> — headless/server by default; no PPAs or Ubuntu-specific tooling</p></li>
+</ul>
+<section id="macos">
+<h2>macOS<a class="headerlink" href="#macos" title="Permalink to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-fsSL<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>https://raw.githubusercontent.com/benjcunningham/dotfiles/master/install.sh<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-o<span class="w"> </span>dotfiles.sh<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>bash<span class="w"> </span>dotfiles.sh
 </pre></div>
 </div>
+<p>To also install personal or work software bundles:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>dotfiles.sh<span class="w"> </span>-p<span class="w">   </span><span class="c1"># personal</span>
+bash<span class="w"> </span>dotfiles.sh<span class="w"> </span>-w<span class="w">   </span><span class="c1"># work</span>
+bash<span class="w"> </span>dotfiles.sh<span class="w"> </span>-pw<span class="w">  </span><span class="c1"># both</span>
+</pre></div>
 </div>
+</section>
+<section id="ubuntu-desktop">
+<h2>Ubuntu (desktop)<a class="headerlink" href="#ubuntu-desktop" title="Permalink to this heading"></a></h2>
+<p>First, ensure <code class="docutils literal notranslate"><span class="pre">curl</span></code> and <code class="docutils literal notranslate"><span class="pre">sudo</span></code> are available:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>curl<span class="w"> </span>sudo
+</pre></div>
 </div>
+<p>Then run the installer with <code class="docutils literal notranslate"><span class="pre">-f</span></code> to opt into the full desktop install (PPAs,
+<code class="docutils literal notranslate"><span class="pre">software-properties-common</span></code>, etc.):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-fsSL<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>https://raw.githubusercontent.com/benjcunningham/dotfiles/master/install.sh<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-o<span class="w"> </span>dotfiles.sh<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>bash<span class="w"> </span>dotfiles.sh<span class="w"> </span>-f
+</pre></div>
+</div>
+</section>
+<section id="raspberry-pi-server-headless">
+<h2>Raspberry Pi / Server (headless)<a class="headerlink" href="#raspberry-pi-server-headless" title="Permalink to this heading"></a></h2>
+<p>Server mode is the default on any Linux host. No PPAs or Ubuntu-specific
+tooling are used, so this works on Raspberry Pi OS, Debian, and Ubuntu Server
+alike.</p>
+<p>First, ensure <code class="docutils literal notranslate"><span class="pre">curl</span></code> and <code class="docutils literal notranslate"><span class="pre">sudo</span></code> are available:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>curl<span class="w"> </span>sudo
+</pre></div>
+</div>
+<p>Then run the installer — no extra flags needed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-fsSL<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>https://raw.githubusercontent.com/benjcunningham/dotfiles/master/install.sh<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-o<span class="w"> </span>dotfiles.sh<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>bash<span class="w"> </span>dotfiles.sh
+</pre></div>
+</div>
+</section>
+<section id="dotfiles-only">
+<h2>Dotfiles Only<a class="headerlink" href="#dotfiles-only" title="Permalink to this heading"></a></h2>
+<p>To link dotfiles without installing any software:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>dotfiles
+</pre></div>
+</div>
+</section>
+</section>
 
 
            </div>
@@ -127,7 +175,7 @@ curl -fsSL <span class="se">\</span>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Ben Cunningham..</p>
+    <p>&#169; Copyright 2026, Ben Cunningham..</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
