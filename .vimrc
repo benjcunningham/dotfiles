@@ -17,6 +17,7 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'ojroques/vim-oscyank'
+Plugin 'towolf/vim-helm'
 Plugin 'vim-airline/vim-airline'
 
 call vundle#end()
