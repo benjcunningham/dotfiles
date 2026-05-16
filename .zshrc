@@ -19,8 +19,11 @@ bindkey "^[[B" down-line-or-search
 
 export PYENV_ROOT="${HOME}/.pyenv"
 command -v pyenv >/dev/null || export PATH="${PYENV_ROOT}/bin:${PATH}"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+
+if command -v pyenv >/dev/null; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 if [ $(uname -s) = "Darwin" ] && is-at-least 12.5 $(sw_vers -productVersion); then
     ln -sf /usr/local/bin/python3 /usr/local/bin/python
