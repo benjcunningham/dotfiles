@@ -24,6 +24,10 @@ lint: docker/build
 		${DOCKER_IMAGE}:${DOCKER_TAG} \
 		bash scripts/test.sh
 
+.PHONY: dotfiles
+dotfiles:
+	./dotbot/bin/dotbot -d . -c dotbot.conf.yaml
+
 .PHONY: docker/build
 docker/build:
 	docker build \
