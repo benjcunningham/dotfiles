@@ -435,7 +435,7 @@ dotbot_install() {
 
     "${dotfiles_dir}/dotbot/bin/dotbot" -d "${dotfiles_dir}" -c dotbot.conf.yaml
 
-    if [ "${DOTFILES_FRONTEND}" != "noninteractive" ]; then
+    if [ "${DOTFILES_FRONTEND}" != "noninteractive" ] && [ ! -f "${HOME}/.gitconfig.local" ]; then
         git_config
     fi
 
