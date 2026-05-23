@@ -603,6 +603,41 @@ vundle_install() {
 
 }
 
+set_default_shell() {
+    # Set zsh as the default login shell.
+    #
+    # USAGE
+    #
+    #   set_default_shell
+    #
+    # DESCRIPTION
+    #
+    #   Ensures zsh is listed in /etc/shells and sets it as the default login
+    #   shell for the current user if it isn't already.
+
+    local zsh_path
+
+    zsh_path="$(which zsh)"
+
+    if [ -z "${zsh_path}" ]; then
+        warn "zsh not found, skipping default shell change"
+        return
+    fi
+
+    if ! grep -qF "${zsh_path}" /etc/shells; then
+        note "Adding ${zsh_path} to /etc/shells..."
+        echo "${zsh_path}" | sudo tee -a /etc/shells > /dev/null
+    fi
+
+    if [ "$(getent passwd "${USER}" | cut -d: -f7)" != "${zsh_path}" ]; then
+        note "Setting default shell to ${zsh_path}..."
+        chsh -s "${zsh_path}"
+    else
+        note "Default shell is already ${zsh_path}"
+    fi
+
+}
+
 git_config() {
     # Interactively populate ~/.gitconfig.local
     #
@@ -745,6 +780,7 @@ main() {
     fi
 
     ohmyzsh_install
+    set_default_shell
     dotbot_install "${dotfiles_dir}"
     tpm_install
     vundle_install
