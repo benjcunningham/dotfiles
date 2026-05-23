@@ -26,7 +26,6 @@ if command -v pyenv >/dev/null; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
-ln -sf /usr/local/bin/python3 /usr/local/bin/python
 
 # Aliases
 

@@ -603,6 +603,54 @@ vundle_install() {
 
 }
 
+set_default_shell() {
+    # Set zsh as the default login shell.
+    #
+    # USAGE
+    #
+    #   set_default_shell
+    #
+    # DESCRIPTION
+    #
+    #   On Linux, ensures zsh is listed in /etc/shells and sets it as the
+    #   default login shell for the current user if it isn't already. Skipped
+    #   in noninteractive mode (e.g. CI, Docker) where $USER may be empty.
+    #   No-op on macOS where zsh is already the system default.
+
+    local zsh_path
+    local current_user
+
+    if is_darwin; then
+        return
+    fi
+
+    if [ "${DOTFILES_FRONTEND}" = "noninteractive" ]; then
+        note "Skipping default shell change in noninteractive mode"
+        return
+    fi
+
+    zsh_path="$(which zsh)"
+    current_user="$(whoami)"
+
+    if [ -z "${zsh_path}" ]; then
+        warn "zsh not found, skipping default shell change"
+        return
+    fi
+
+    if ! grep -qF "${zsh_path}" /etc/shells; then
+        note "Adding ${zsh_path} to /etc/shells..."
+        echo "${zsh_path}" | sudo tee -a /etc/shells > /dev/null
+    fi
+
+    if [ "$(getent passwd "${current_user}" | cut -d: -f7)" != "${zsh_path}" ]; then
+        note "Setting default shell to ${zsh_path}..."
+        sudo usermod -s "${zsh_path}" "${current_user}"
+    else
+        note "Default shell is already ${zsh_path}"
+    fi
+
+}
+
 git_config() {
     # Interactively populate ~/.gitconfig.local
     #
@@ -745,6 +793,7 @@ main() {
     fi
 
     ohmyzsh_install
+    set_default_shell
     dotbot_install "${dotfiles_dir}"
     tpm_install
     vundle_install
