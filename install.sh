@@ -629,11 +629,20 @@ set_default_shell() {
         echo "${zsh_path}" | sudo tee -a /etc/shells > /dev/null
     fi
 
-    if [ "$(getent passwd "${USER}" | cut -d: -f7)" != "${zsh_path}" ]; then
-        note "Setting default shell to ${zsh_path}..."
-        chsh -s "${zsh_path}"
+    if is_darwin; then
+        if [ "$(dscl . -read "/Users/${USER}" UserShell | awk '{print $2}')" != "${zsh_path}" ]; then
+            note "Setting default shell to ${zsh_path}..."
+            chsh -s "${zsh_path}"
+        else
+            note "Default shell is already ${zsh_path}"
+        fi
     else
-        note "Default shell is already ${zsh_path}"
+        if [ "$(getent passwd "${USER}" | cut -d: -f7)" != "${zsh_path}" ]; then
+            note "Setting default shell to ${zsh_path}..."
+            sudo usermod -s "${zsh_path}" "${USER}"
+        else
+            note "Default shell is already ${zsh_path}"
+        fi
     fi
 
 }
