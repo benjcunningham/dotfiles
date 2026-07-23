@@ -29,10 +29,10 @@ brew "tmux"
 brew "vim", link: true
 brew "zsh", link: true
 
-cask "audacity" unless "[[ -n ${DOTFILES_FRONTEND} ]]"
-cask "brave-browser" unless "[[ -n ${DOTFILES_FRONTEND} ]]"
-cask "docker" unless "[[ -n ${DOTFILES_FRONTEND} ]]"
-cask "iterm2" unless "[[ -n ${DOTFILES_FRONTEND} ]]"
-cask "spotify" unless "[[ -n ${DOTFILES_FRONTEND} ]]"
-cask "vlc" unless "[[ -n ${DOTFILES_FRONTEND} ]]"
-cask "zoom" unless "[[ -n ${DOTFILES_FRONTEND} ]]"
+cask "audacity" unless ENV["DOTFILES_FRONTEND"]
+cask "brave-browser" unless ENV["DOTFILES_FRONTEND"]
+cask "docker" unless ENV["DOTFILES_FRONTEND"]
+cask "iterm2" unless ENV["DOTFILES_FRONTEND"]
+cask "spotify" unless ENV["DOTFILES_FRONTEND"]
+cask "vlc" unless ENV["DOTFILES_FRONTEND"]
+cask "zoom" unless ENV["DOTFILES_FRONTEND"]
