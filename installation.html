@@ -51,6 +51,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ubuntu-desktop">Ubuntu (desktop)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#raspberry-pi-server-headless">Raspberry Pi / Server (headless)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dotfiles-only">Dotfiles Only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manual-steps">Manual Steps</a></li>
 </ul>
 </li>
 </ul>
@@ -159,6 +160,37 @@ alike.</p>
 <h2>Dotfiles Only<a class="headerlink" href="#dotfiles-only" title="Permalink to this heading"></a></h2>
 <p>To link dotfiles without installing any software:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>dotfiles
+</pre></div>
+</div>
+</section>
+<section id="manual-steps">
+<h2>Manual Steps<a class="headerlink" href="#manual-steps" title="Permalink to this heading"></a></h2>
+<p>A couple of things aren’t automated by the installer and need to be done by
+hand.</p>
+<p><strong>Tmux plugins.</strong> The installer clones TPM and sources <code class="docutils literal notranslate"><span class="pre">.tmux.conf</span></code>, but it
+doesn’t fetch and install the plugins themselves. Start Tmux, then press the
+prefix key followed by <code class="docutils literal notranslate"><span class="pre">I</span></code> (capital i) — by default that’s <code class="docutils literal notranslate"><span class="pre">Ctrl+b</span></code> then
+<code class="docutils literal notranslate"><span class="pre">Shift+I</span></code> — to install them.</p>
+<p><strong>Shell history.</strong> <code class="docutils literal notranslate"><span class="pre">.zsh_history</span></code> and <code class="docutils literal notranslate"><span class="pre">.bash_history</span></code> aren’t tracked by
+these dotfiles. If you want to carry history over to a new machine, copy the
+files directly — <a class="reference external" href="https://github.com/schollz/croc">croc</a> or a similar
+peer-to-peer transfer tool works well.</p>
+<p><strong>Brave profile.</strong> Brave’s <code class="docutils literal notranslate"><span class="pre">Default</span></code> profile (bookmarks, extensions,
+saved passwords, etc.) also isn’t tracked by these dotfiles. To carry it
+over to a new machine (macOS paths shown below), quit Brave, tar up the
+profile on the old machine, and send it with <code class="docutils literal notranslate"><span class="pre">croc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Old machine</span>
+<span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/Library/Application Support/BraveSoftware/Brave-Browser&quot;</span>
+tar<span class="w"> </span>-czf<span class="w"> </span>brave-default.tar.gz<span class="w"> </span>Default
+croc<span class="w"> </span>send<span class="w"> </span>brave-default.tar.gz
+</pre></div>
+</div>
+<p>On the new machine, install Brave and quit it first, then receive and
+unpack the archive into place:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># New machine</span>
+croc<span class="w"> </span>&lt;code-phrase-from-sender&gt;
+tar<span class="w"> </span>-xzf<span class="w"> </span>brave-default.tar.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-C<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/Library/Application Support/BraveSoftware/Brave-Browser&quot;</span>
 </pre></div>
 </div>
 </section>
