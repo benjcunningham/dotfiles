@@ -1,4 +1,5 @@
 brew "argo"
+brew "awscli"
 brew "bash", link: true
 brew "bat"
 brew "colordiff"
@@ -21,7 +22,6 @@ brew "pandoc"
 brew "pyenv"
 brew "pyenv-virtualenv"
 brew "python", link: true
-brew "r"
 brew "ripgrep"
 brew "ruby", link: true
 brew "shellcheck"

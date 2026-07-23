@@ -83,3 +83,41 @@ To link dotfiles without installing any software:
 .. code-block:: bash
 
     make dotfiles
+
+Manual Steps
+------------
+
+A couple of things aren't automated by the installer and need to be done by
+hand.
+
+**Tmux plugins.** The installer clones TPM and sources ``.tmux.conf``, but it
+doesn't fetch and install the plugins themselves. Start Tmux, then press the
+prefix key followed by ``I`` (capital i) — by default that's ``Ctrl+b`` then
+``Shift+I`` — to install them.
+
+**Shell history.** ``.zsh_history`` and ``.bash_history`` aren't tracked by
+these dotfiles. If you want to carry history over to a new machine, copy the
+files directly — `croc <https://github.com/schollz/croc>`_ or a similar
+peer-to-peer transfer tool works well.
+
+**Brave profile.** Brave's ``Default`` profile (bookmarks, extensions,
+saved passwords, etc.) also isn't tracked by these dotfiles. To carry it
+over to a new machine (macOS paths shown below), quit Brave, tar up the
+profile on the old machine, and send it with ``croc``:
+
+.. code-block:: bash
+
+    # Old machine
+    cd "$HOME/Library/Application Support/BraveSoftware/Brave-Browser"
+    tar -czf brave-default.tar.gz Default
+    croc send brave-default.tar.gz
+
+On the new machine, install Brave and quit it first, then receive and
+unpack the archive into place:
+
+.. code-block:: bash
+
+    # New machine
+    croc <code-phrase-from-sender>
+    tar -xzf brave-default.tar.gz \
+        -C "$HOME/Library/Application Support/BraveSoftware/Brave-Browser"
